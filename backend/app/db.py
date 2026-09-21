@@ -80,9 +80,18 @@ _engine = None
 _Session = None
 
 
+def normalise_url(url: str) -> str:
+    """Accept the plain links hosting providers give (postgres://…, postgresql://…)
+    and point SQLAlchemy at the psycopg 3 driver."""
+    for prefix in ("postgres://", "postgresql://"):
+        if url.startswith(prefix):
+            return "postgresql+psycopg://" + url[len(prefix):]
+    return url
+
+
 def init_engine(url: str | None = None):
     global _engine, _Session
-    url = url or get_settings().database_url
+    url = normalise_url(url or get_settings().database_url)
     kwargs = {"connect_args": {"check_same_thread": False}} if url.startswith("sqlite") else {"pool_pre_ping": True}
     _engine = create_engine(url, **kwargs)
     if url.startswith("sqlite"):

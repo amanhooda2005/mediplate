@@ -116,5 +116,9 @@ used. Check your institution's licensing guidance before publishing.
 * M2 uses glycemic load until each patient logs their own readings (or CGMacros is added).
 * Not included, as agreed in the blueprint: food prices, doctor/dietitian portal (U2),
   food photo recognition (M4), live glucose-sensor sync.
-* Docker and PostgreSQL configurations are provided but were not run on the build
-  machine; the SQLite path is the one covered by the tests.
+* PostgreSQL is tested (`MEDIPLATE_TEST_DATABASE_URL=postgresql://… pytest`); the
+  Docker image itself was not built on the build machine.
+
+## Deploy free (Render + Neon)
+
+See the deployment steps in `docs/DEPLOY.md`.

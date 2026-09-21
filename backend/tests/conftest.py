@@ -9,7 +9,8 @@ BACKEND = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BACKEND))
 
 _tmp = tempfile.mkdtemp(prefix="mediplate-test-")
-os.environ["MEDIPLATE_DATABASE_URL"] = f"sqlite:///{_tmp}/test.db"
+# set MEDIPLATE_TEST_DATABASE_URL to run the tests against PostgreSQL
+os.environ["MEDIPLATE_DATABASE_URL"] = os.environ.get("MEDIPLATE_TEST_DATABASE_URL", f"sqlite:///{_tmp}/test.db")
 os.environ["MEDIPLATE_SECRET_KEY"] = "test-secret-key-that-is-long-enough-for-hs256"
 os.environ["MEDIPLATE_FRONTEND_DIST"] = f"{_tmp}/no-dist"
 
