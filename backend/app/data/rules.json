@@ -1,0 +1,2161 @@
+{
+ "version": "1.0",
+ "food_tags": {
+  "allergen_milk": [
+   "L001",
+   "L002",
+   "L003",
+   "L004",
+   "SUP003",
+   "SUP004",
+   "T013"
+  ],
+  "allergen_peanut": [
+   "H012"
+  ],
+  "allergen_treenut": [
+   "H001",
+   "H005",
+   "H017",
+   "H018",
+   "H021"
+  ],
+  "allergen_gluten": [
+   "A004",
+   "A018",
+   "A019",
+   "A020",
+   "A021",
+   "A022",
+   "A023",
+   "A024"
+  ],
+  "allergen_egg": [
+   "M001",
+   "M002",
+   "M003",
+   "M004",
+   "M005",
+   "M006",
+   "M007",
+   "M008",
+   "M009",
+   "M010",
+   "M011",
+   "M012",
+   "M013",
+   "M014",
+   "M015"
+  ],
+  "allergen_fish": [
+   "P001",
+   "P002",
+   "P003",
+   "P004",
+   "P005",
+   "P006",
+   "P007",
+   "P008",
+   "P009",
+   "P010",
+   "P011",
+   "P012",
+   "P013",
+   "P014",
+   "P015",
+   "P016",
+   "P017",
+   "P018",
+   "P019",
+   "P020",
+   "P021",
+   "P022",
+   "P023",
+   "P024",
+   "P025",
+   "P026",
+   "P027",
+   "P028",
+   "P029",
+   "P030",
+   "P031",
+   "P032",
+   "P033",
+   "P034",
+   "P035",
+   "P036",
+   "P037",
+   "P038",
+   "P039",
+   "P040",
+   "P041",
+   "P042",
+   "P043",
+   "P044",
+   "P045",
+   "P046",
+   "P047",
+   "P048",
+   "P049",
+   "P050",
+   "P051",
+   "P052",
+   "P053",
+   "P054",
+   "P055",
+   "P056",
+   "P057",
+   "P058",
+   "P059",
+   "P060",
+   "P061",
+   "P062",
+   "P063",
+   "P064",
+   "P065",
+   "P066",
+   "P067",
+   "P068",
+   "P069",
+   "P070",
+   "P071",
+   "P072",
+   "P073",
+   "P074",
+   "P075",
+   "P076",
+   "P077",
+   "P078",
+   "P079",
+   "P080",
+   "P081",
+   "P082",
+   "P083",
+   "P084",
+   "P085",
+   "P086",
+   "P087",
+   "P088",
+   "P089",
+   "P090",
+   "P091",
+   "P092",
+   "S001",
+   "S002",
+   "S003",
+   "S004",
+   "S005",
+   "S006"
+  ],
+  "allergen_shellfish": [
+   "Q001",
+   "Q002",
+   "Q003",
+   "Q004",
+   "Q005",
+   "Q006",
+   "Q007",
+   "Q008",
+   "R001",
+   "R002",
+   "R003",
+   "R004",
+   "R005",
+   "R006",
+   "R007",
+   "S007",
+   "S008",
+   "S009",
+   "S010"
+  ],
+  "allergen_soy": [
+   "B024",
+   "B025",
+   "SUP010",
+   "SUP012",
+   "T011"
+  ],
+  "allergen_sesame": [
+   "H009",
+   "H010",
+   "H011",
+   "T004"
+  ],
+  "beef": [
+   "O025",
+   "O026",
+   "O027",
+   "O028",
+   "O029",
+   "O030",
+   "O031",
+   "O032",
+   "O033",
+   "O034",
+   "O035",
+   "O036",
+   "O037",
+   "O038",
+   "O039",
+   "O040",
+   "O041",
+   "O042",
+   "O043",
+   "O044",
+   "O045",
+   "O046",
+   "O047"
+  ],
+  "pork": [
+   "O048",
+   "O049",
+   "O050",
+   "O051",
+   "O052",
+   "O053",
+   "O054",
+   "O055",
+   "O056",
+   "O057"
+  ],
+  "red_meat": [
+   "O001",
+   "O002",
+   "O003",
+   "O004",
+   "O005",
+   "O006",
+   "O007",
+   "O008",
+   "O009",
+   "O010",
+   "O011",
+   "O012",
+   "O013",
+   "O014",
+   "O015",
+   "O016",
+   "O017",
+   "O018",
+   "O019",
+   "O020",
+   "O021",
+   "O022",
+   "O023",
+   "O024",
+   "O025",
+   "O026",
+   "O027",
+   "O028",
+   "O029",
+   "O030",
+   "O031",
+   "O032",
+   "O033",
+   "O034",
+   "O035",
+   "O036",
+   "O037",
+   "O038",
+   "O039",
+   "O040",
+   "O041",
+   "O042",
+   "O043",
+   "O044",
+   "O045",
+   "O046",
+   "O047",
+   "O048",
+   "O049",
+   "O050",
+   "O051",
+   "O052",
+   "O053",
+   "O054",
+   "O055",
+   "O056",
+   "O057",
+   "O058",
+   "O059",
+   "O060",
+   "O061",
+   "O062",
+   "O063"
+  ],
+  "poultry": [
+   "N001",
+   "N002",
+   "N003",
+   "N004",
+   "N005",
+   "N006",
+   "N007",
+   "N008",
+   "N009",
+   "N010",
+   "N011",
+   "N012",
+   "N013",
+   "N014",
+   "N015",
+   "N016",
+   "N017",
+   "N018",
+   "N019"
+  ],
+  "purine_high": [
+   "N005",
+   "N006",
+   "O004",
+   "O005",
+   "O006",
+   "O007",
+   "O008",
+   "O009",
+   "O010",
+   "O011",
+   "O012",
+   "O013",
+   "O017",
+   "O018",
+   "O019",
+   "O020",
+   "O021",
+   "O022",
+   "O023",
+   "O024",
+   "O028",
+   "O029",
+   "O030",
+   "O031",
+   "O032",
+   "O033",
+   "O034",
+   "O035",
+   "O039",
+   "O040",
+   "O041",
+   "O042",
+   "O043",
+   "O044",
+   "O051",
+   "O052",
+   "O053",
+   "O054",
+   "O055",
+   "O056",
+   "O057",
+   "P003",
+   "P034",
+   "P071",
+   "Q001",
+   "Q002",
+   "Q003",
+   "Q004",
+   "Q005",
+   "Q006",
+   "Q007",
+   "Q008",
+   "R001",
+   "R002",
+   "R003",
+   "R004",
+   "R005",
+   "R006",
+   "R007",
+   "S007",
+   "S008",
+   "S009",
+   "S010"
+  ],
+  "oily_fish": [
+   "P017",
+   "P034",
+   "P068",
+   "P071",
+   "P084",
+   "P085"
+  ],
+  "fermented_soy": [
+   "SUP012"
+  ],
+  "grapefruit_like": [
+   "E056"
+  ],
+  "star_fruit": [
+   "E062"
+  ],
+  "alcohol": [
+   "K001"
+  ],
+  "leachable": [
+   "C001",
+   "C002",
+   "C003",
+   "C004",
+   "C005",
+   "C006",
+   "C007",
+   "C008",
+   "C009",
+   "C010",
+   "C011",
+   "C012",
+   "C013",
+   "C014",
+   "C015",
+   "C016",
+   "C017",
+   "C018",
+   "C019",
+   "C020",
+   "C021",
+   "C022",
+   "C023",
+   "C024",
+   "C025",
+   "C026",
+   "C027",
+   "C028",
+   "C029",
+   "C030",
+   "C031",
+   "C032",
+   "C033",
+   "C034",
+   "D001",
+   "D002",
+   "D003",
+   "D004",
+   "D005",
+   "D006",
+   "D007",
+   "D008",
+   "D009",
+   "D010",
+   "D011",
+   "D012",
+   "D013",
+   "D014",
+   "D015",
+   "D016",
+   "D017",
+   "D018",
+   "D019",
+   "D020",
+   "D021",
+   "D022",
+   "D023",
+   "D024",
+   "D025",
+   "D026",
+   "D027",
+   "D028",
+   "D029",
+   "D030",
+   "D031",
+   "D032",
+   "D033",
+   "D034",
+   "D035",
+   "D036",
+   "D037",
+   "D038",
+   "D039",
+   "D040",
+   "D041",
+   "D042",
+   "D043",
+   "D044",
+   "D045",
+   "D046",
+   "D047",
+   "D048",
+   "D049",
+   "D050",
+   "D051",
+   "D052",
+   "D053",
+   "D054",
+   "D055",
+   "D056",
+   "D057",
+   "D058",
+   "D059",
+   "D060",
+   "D061",
+   "D062",
+   "D063",
+   "D064",
+   "D065",
+   "D066",
+   "D067",
+   "D068",
+   "D069",
+   "D070",
+   "D071",
+   "D072",
+   "D073",
+   "D074",
+   "D075",
+   "D076",
+   "D077",
+   "D078",
+   "F001",
+   "F002",
+   "F003",
+   "F004",
+   "F005",
+   "F006",
+   "F007",
+   "F008",
+   "F009",
+   "F010",
+   "F011",
+   "F012",
+   "F013",
+   "F014",
+   "F015",
+   "F016",
+   "F017",
+   "F018",
+   "F019"
+  ],
+  "leafy_green": [
+   "C001",
+   "C002",
+   "C003",
+   "C004",
+   "C005",
+   "C006",
+   "C007",
+   "C008",
+   "C009",
+   "C010",
+   "C011",
+   "C012",
+   "C013",
+   "C014",
+   "C015",
+   "C016",
+   "C017",
+   "C018",
+   "C019",
+   "C020",
+   "C021",
+   "C022",
+   "C023",
+   "C024",
+   "C025",
+   "C026",
+   "C027",
+   "C028",
+   "C029",
+   "C030",
+   "C031",
+   "C032",
+   "C033",
+   "C034"
+  ],
+  "whole_grain": [
+   "A001",
+   "A002",
+   "A003",
+   "A004",
+   "A005",
+   "A006",
+   "A009",
+   "A010",
+   "A013",
+   "A016",
+   "A017",
+   "A019",
+   "A020",
+   "A021",
+   "SUP005"
+  ],
+  "legume": [
+   "B001",
+   "B002",
+   "B003",
+   "B004",
+   "B005",
+   "B006",
+   "B007",
+   "B008",
+   "B009",
+   "B010",
+   "B011",
+   "B012",
+   "B013",
+   "B014",
+   "B015",
+   "B016",
+   "B017",
+   "B018",
+   "B019",
+   "B020",
+   "B021",
+   "B022",
+   "B023",
+   "B024",
+   "B025",
+   "SUP010",
+   "SUP012"
+  ]
+ },
+ "diseases": {
+  "diabetes": {
+   "label": "Diabetes",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "carb_g",
+     "bound": "max",
+     "pct_energy": 50,
+     "hard": false,
+     "priority": 3,
+     "reason": "carb_diabetes"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_glucose"
+    },
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 5,
+     "hard": false,
+     "priority": 3,
+     "reason": "sugar_limit"
+    },
+    {
+     "nutrient": "satfat_g",
+     "bound": "max",
+     "pct_energy": 7,
+     "hard": false,
+     "priority": 3,
+     "reason": "satfat_heart"
+    },
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 2300,
+     "hard": true,
+     "priority": 3,
+     "reason": "sodium_general"
+    }
+   ],
+   "meal_carb_share_max": 0.4,
+   "glycemic_focus": true,
+   "penalize": [
+    {
+     "dish_tag": "sweet",
+     "weight": 60,
+     "reason": "sweet_diabetes"
+    },
+    {
+     "dish_tag": "fried",
+     "weight": 20,
+     "reason": "fried_food"
+    }
+   ],
+   "avoid": [
+    {
+     "dish_tag": "sweet",
+     "severity": "limit",
+     "reason": "sweet_diabetes"
+    }
+   ]
+  },
+  "hypertension": {
+   "label": "High blood pressure",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 2000,
+     "hard": true,
+     "priority": 3,
+     "reason": "sodium_bp"
+    },
+    {
+     "nutrient": "potassium_mg",
+     "bound": "min",
+     "value": 3500,
+     "hard": false,
+     "priority": 4,
+     "reason": "potassium_dash"
+    },
+    {
+     "nutrient": "satfat_g",
+     "bound": "max",
+     "pct_energy": 7,
+     "hard": false,
+     "priority": 4,
+     "reason": "satfat_heart"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_general"
+    }
+   ],
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 15,
+     "reason": "fried_food"
+    }
+   ],
+   "avoid": [
+    {
+     "tag": "alcohol",
+     "severity": "limit",
+     "reason": "alcohol_bp"
+    }
+   ]
+  },
+  "cvd": {
+   "label": "Heart disease or stroke",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 2000,
+     "hard": true,
+     "priority": 3,
+     "reason": "sodium_heart"
+    },
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 1800,
+     "hard": true,
+     "priority": 2,
+     "reason": "sodium_heart_failure",
+     "when": [
+      {
+       "field": "cvd_type",
+       "op": "==",
+       "value": "heart_failure"
+      }
+     ]
+    },
+    {
+     "nutrient": "satfat_g",
+     "bound": "max",
+     "pct_energy": 7,
+     "hard": false,
+     "priority": 3,
+     "reason": "satfat_heart"
+    },
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 10,
+     "hard": false,
+     "priority": 4,
+     "reason": "sugar_limit"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_general"
+    }
+   ],
+   "prefer": [
+    {
+     "tag": "oily_fish",
+     "weight": 15,
+     "reason": "omega3_heart"
+    },
+    {
+     "tag": "whole_grain",
+     "weight": 5,
+     "reason": "whole_grain"
+    }
+   ],
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 30,
+     "reason": "fried_food"
+    }
+   ],
+   "avoid": [
+    {
+     "tag": "alcohol",
+     "severity": "limit",
+     "reason": "alcohol_heart"
+    }
+   ]
+  },
+  "obesity": {
+   "label": "Obesity",
+   "weight_loss_bmi": 0,
+   "targets": [
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 5,
+     "hard": false,
+     "priority": 4,
+     "reason": "sugar_limit"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_fullness"
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "min",
+     "per_kg": 1.0,
+     "hard": false,
+     "priority": 4,
+     "reason": "protein_muscle"
+    }
+   ],
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 30,
+     "reason": "fried_food"
+    },
+    {
+     "dish_tag": "sweet",
+     "weight": 40,
+     "reason": "sweet_weight"
+    }
+   ]
+  },
+  "ckd": {
+   "label": "Chronic kidney disease",
+   "weight_loss_bmi": 25,
+   "targets": [
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 2000,
+     "hard": true,
+     "priority": 2,
+     "reason": "sodium_kidney"
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "max",
+     "per_kg": 1.0,
+     "hard": true,
+     "priority": 2,
+     "reason": "protein_ckd_early",
+     "when": [
+      {
+       "field": "ckd_stage",
+       "op": "<=",
+       "value": 2
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": false
+      }
+     ]
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "max",
+     "per_kg": 0.8,
+     "hard": true,
+     "priority": 2,
+     "reason": "protein_ckd",
+     "when": [
+      {
+       "field": "ckd_stage",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": false
+      }
+     ]
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "min",
+     "per_kg": 0.6,
+     "hard": false,
+     "priority": 3,
+     "reason": "protein_ckd_min",
+     "when": [
+      {
+       "field": "ckd_stage",
+       "op": ">=",
+       "value": 3
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": false
+      }
+     ]
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "min",
+     "per_kg": 1.0,
+     "hard": false,
+     "priority": 2,
+     "reason": "protein_dialysis",
+     "when": [
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": true
+      }
+     ]
+    },
+    {
+     "nutrient": "protein_g",
+     "bound": "max",
+     "per_kg": 1.2,
+     "hard": false,
+     "priority": 3,
+     "reason": "protein_dialysis_max",
+     "when": [
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": true
+      }
+     ]
+    },
+    {
+     "nutrient": "potassium_mg",
+     "bound": "max",
+     "value": 2000,
+     "hard": true,
+     "priority": 1,
+     "reason": "potassium_ckd",
+     "when_any": [
+      {
+       "field": "ckd_stage",
+       "op": ">=",
+       "value": 4
+      },
+      {
+       "field": "serum_potassium",
+       "op": ">",
+       "value": 5.0
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": true
+      }
+     ]
+    },
+    {
+     "nutrient": "phosphorus_mg",
+     "bound": "max",
+     "value": 800,
+     "hard": true,
+     "priority": 2,
+     "reason": "phosphorus_ckd",
+     "when_any": [
+      {
+       "field": "ckd_stage",
+       "op": ">=",
+       "value": 4
+      },
+      {
+       "field": "serum_phosphorus",
+       "op": ">",
+       "value": 4.5
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": true
+      }
+     ]
+    },
+    {
+     "nutrient": "phosphorus_mg",
+     "bound": "max",
+     "value": 1000,
+     "hard": false,
+     "priority": 3,
+     "reason": "phosphorus_ckd_early",
+     "when": [
+      {
+       "field": "ckd_stage",
+       "op": "==",
+       "value": 3
+      }
+     ]
+    }
+   ],
+   "leaching_when_potassium_restricted": true,
+   "avoid": [
+    {
+     "tag": "star_fruit",
+     "severity": "avoid",
+     "reason": "star_fruit_ckd"
+    },
+    {
+     "dish": "coconut_water",
+     "severity": "avoid",
+     "reason": "coconut_water_ckd",
+     "when_any": [
+      {
+       "field": "ckd_stage",
+       "op": ">=",
+       "value": 4
+      },
+      {
+       "field": "serum_potassium",
+       "op": ">",
+       "value": 5.0
+      },
+      {
+       "field": "dialysis",
+       "op": "==",
+       "value": true
+      }
+     ]
+    }
+   ],
+   "advice": [
+    "no_salt_substitute"
+   ]
+  },
+  "fatty_liver": {
+   "label": "Fatty liver disease",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 5,
+     "hard": false,
+     "priority": 3,
+     "reason": "sugar_liver"
+    },
+    {
+     "nutrient": "satfat_g",
+     "bound": "max",
+     "pct_energy": 7,
+     "hard": false,
+     "priority": 3,
+     "reason": "satfat_liver"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_general"
+    }
+   ],
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 30,
+     "reason": "fried_food"
+    },
+    {
+     "dish_tag": "sweet",
+     "weight": 40,
+     "reason": "sugar_liver"
+    }
+   ],
+   "prefer": [
+    {
+     "tag": "oily_fish",
+     "weight": 8,
+     "reason": "omega3_liver"
+    }
+   ],
+   "avoid": [
+    {
+     "tag": "alcohol",
+     "severity": "avoid",
+     "reason": "alcohol_liver"
+    }
+   ]
+  },
+  "metabolic_syndrome": {
+   "label": "Metabolic syndrome",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "sodium_mg",
+     "bound": "max",
+     "value": 2000,
+     "hard": true,
+     "priority": 3,
+     "reason": "sodium_bp"
+    },
+    {
+     "nutrient": "satfat_g",
+     "bound": "max",
+     "pct_energy": 7,
+     "hard": false,
+     "priority": 3,
+     "reason": "satfat_heart"
+    },
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 5,
+     "hard": false,
+     "priority": 3,
+     "reason": "sugar_limit"
+    },
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 4,
+     "reason": "fiber_glucose"
+    }
+   ],
+   "glycemic_focus": true,
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 25,
+     "reason": "fried_food"
+    },
+    {
+     "dish_tag": "sweet",
+     "weight": 40,
+     "reason": "sugar_limit"
+    }
+   ]
+  },
+  "arthritis": {
+   "label": "Arthritis",
+   "weight_loss_bmi": 23,
+   "targets": [
+    {
+     "nutrient": "fiber_g",
+     "bound": "min",
+     "per_1000kcal": 14,
+     "hard": false,
+     "priority": 5,
+     "reason": "fiber_inflammation"
+    },
+    {
+     "nutrient": "sugar_g",
+     "bound": "max",
+     "pct_energy": 5,
+     "hard": false,
+     "priority": 3,
+     "reason": "sugar_gout",
+     "when": [
+      {
+       "field": "arthritis_type",
+       "op": "==",
+       "value": "gout"
+      }
+     ]
+    }
+   ],
+   "prefer": [
+    {
+     "tag": "oily_fish",
+     "weight": 12,
+     "reason": "omega3_joints"
+    },
+    {
+     "tag": "whole_grain",
+     "weight": 4,
+     "reason": "whole_grain"
+    }
+   ],
+   "penalize": [
+    {
+     "dish_tag": "fried",
+     "weight": 15,
+     "reason": "fried_food"
+    },
+    {
+     "tag": "red_meat",
+     "weight": 25,
+     "reason": "red_meat_gout",
+     "when": [
+      {
+       "field": "arthritis_type",
+       "op": "==",
+       "value": "gout"
+      }
+     ]
+    }
+   ],
+   "avoid": [
+    {
+     "tag": "purine_high",
+     "severity": "avoid",
+     "reason": "purine_gout",
+     "when": [
+      {
+       "field": "arthritis_type",
+       "op": "==",
+       "value": "gout"
+      }
+     ]
+    },
+    {
+     "tag": "alcohol",
+     "severity": "avoid",
+     "reason": "alcohol_gout",
+     "when": [
+      {
+       "field": "arthritis_type",
+       "op": "==",
+       "value": "gout"
+      }
+     ]
+    }
+   ],
+   "advice": [
+    {
+     "key": "fluids_gout",
+     "when": [
+      {
+       "field": "arthritis_type",
+       "op": "==",
+       "value": "gout"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "drug_classes": {
+  "biguanide": {
+   "label": "Metformin",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "advice": "metformin_meals"
+    },
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "limit",
+     "reason": "alcohol_metformin"
+    }
+   ]
+  },
+  "sulfonylurea": {
+   "label": "Sulfonylurea",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "meal_carb_min": 30,
+     "reason": "hypo_su"
+    },
+    {
+     "advice": "no_skip_meals"
+    },
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_hypo"
+    }
+   ]
+  },
+  "insulin": {
+   "label": "Insulin",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "meal_carb_min": 30,
+     "reason": "hypo_insulin"
+    },
+    {
+     "advice": "no_skip_meals"
+    },
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_hypo"
+    }
+   ]
+  },
+  "dpp4": {
+   "label": "DPP-4 inhibitor",
+   "timing": "any",
+   "effects": []
+  },
+  "sglt2": {
+   "label": "SGLT2 inhibitor",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "nutrient": {
+      "nutrient": "carb_g",
+      "bound": "min",
+      "value": 130,
+      "hard": true,
+      "priority": 1,
+      "reason": "carb_min_sglt2"
+     }
+    },
+    {
+     "advice": "fluids_sglt2"
+    }
+   ]
+  },
+  "glp1": {
+   "label": "GLP-1 medicine",
+   "timing": "any",
+   "effects": [
+    {
+     "advice": "glp1_small_meals"
+    }
+   ]
+  },
+  "tzd": {
+   "label": "Pioglitazone",
+   "timing": "any",
+   "effects": [
+    {
+     "disease_alert": {
+      "condition": "heart_failure",
+      "severity": "high",
+      "reason": "pioglitazone_hf"
+     }
+    }
+   ]
+  },
+  "ccb": {
+   "label": "Calcium channel blocker",
+   "timing": "any",
+   "effects": []
+  },
+  "ccb_cyp3a4": {
+   "label": "Calcium channel blocker (felodipine / nifedipine)",
+   "timing": "any",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "grapefruit_like"
+     },
+     "severity": "avoid",
+     "reason": "grapefruit_ccb"
+    }
+   ]
+  },
+  "arb": {
+   "label": "ARB (sartan)",
+   "timing": "any",
+   "effects": [
+    {
+     "nutrient": {
+      "nutrient": "potassium_mg",
+      "bound": "max",
+      "value": 2000,
+      "hard": true,
+      "priority": 1,
+      "reason": "potassium_raas",
+      "when_any": [
+       {
+        "field": "ckd_stage",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "field": "serum_potassium",
+        "op": ">",
+        "value": 5.0
+       }
+      ]
+     }
+    },
+    {
+     "advice": "no_salt_substitute"
+    }
+   ]
+  },
+  "acei": {
+   "label": "ACE inhibitor (pril)",
+   "timing": "any",
+   "effects": [
+    {
+     "nutrient": {
+      "nutrient": "potassium_mg",
+      "bound": "max",
+      "value": 2000,
+      "hard": true,
+      "priority": 1,
+      "reason": "potassium_raas",
+      "when_any": [
+       {
+        "field": "ckd_stage",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "field": "serum_potassium",
+        "op": ">",
+        "value": 5.0
+       }
+      ]
+     }
+    },
+    {
+     "advice": "no_salt_substitute"
+    }
+   ]
+  },
+  "mra": {
+   "label": "Potassium-sparing diuretic",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "nutrient": {
+      "nutrient": "potassium_mg",
+      "bound": "max",
+      "value": 2500,
+      "hard": true,
+      "priority": 1,
+      "reason": "potassium_mra"
+     }
+    },
+    {
+     "nutrient": {
+      "nutrient": "potassium_mg",
+      "bound": "max",
+      "value": 2000,
+      "hard": true,
+      "priority": 1,
+      "reason": "potassium_mra",
+      "when_any": [
+       {
+        "field": "ckd_stage",
+        "op": ">=",
+        "value": 3
+       },
+       {
+        "field": "serum_potassium",
+        "op": ">",
+        "value": 5.0
+       }
+      ]
+     }
+    },
+    {
+     "advice": "no_salt_substitute"
+    }
+   ]
+  },
+  "beta_blocker": {
+   "label": "Beta blocker",
+   "timing": "any",
+   "effects": []
+  },
+  "thiazide": {
+   "label": "Thiazide diuretic",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "advice": "diuretic_morning"
+    }
+   ]
+  },
+  "loop_diuretic": {
+   "label": "Loop diuretic",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "advice": "diuretic_morning"
+    }
+   ]
+  },
+  "statin_cyp3a4": {
+   "label": "Statin (atorvastatin / simvastatin)",
+   "timing": "bedtime",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "grapefruit_like"
+     },
+     "severity": "avoid",
+     "reason": "grapefruit_statin"
+    }
+   ]
+  },
+  "statin": {
+   "label": "Statin",
+   "timing": "any",
+   "effects": []
+  },
+  "fibrate": {
+   "label": "Fenofibrate",
+   "timing": "with_meals",
+   "effects": []
+  },
+  "vka": {
+   "label": "Warfarin-type blood thinner",
+   "timing": "bedtime",
+   "effects": [
+    {
+     "vitk_band": {
+      "min": 50,
+      "max": 150
+     },
+     "reason": "vitk_consistent"
+    },
+    {
+     "avoid": {
+      "tag": "fermented_soy"
+     },
+     "severity": "avoid",
+     "reason": "natto_warfarin"
+    },
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_warfarin"
+    },
+    {
+     "advice": "warfarin_consistent"
+    }
+   ]
+  },
+  "doac": {
+   "label": "Newer blood thinner",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "advice": "doac_food"
+    }
+   ]
+  },
+  "antiplatelet": {
+   "label": "Aspirin / clopidogrel",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "limit",
+     "reason": "alcohol_bleeding"
+    }
+   ]
+  },
+  "digoxin": {
+   "label": "Digoxin",
+   "timing": "any",
+   "effects": [
+    {
+     "advice": "digoxin_fiber"
+    }
+   ]
+  },
+  "nitrate": {
+   "label": "Nitrate",
+   "timing": "any",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_nitrate"
+    }
+   ]
+  },
+  "thyroid": {
+   "label": "Levothyroxine",
+   "timing": "before_breakfast",
+   "effects": [
+    {
+     "advice": "levothyroxine_empty"
+    }
+   ]
+  },
+  "xanthine_oxidase": {
+   "label": "Allopurinol / febuxostat",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "advice": "fluids_gout"
+    }
+   ]
+  },
+  "colchicine": {
+   "label": "Colchicine",
+   "timing": "any",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "grapefruit_like"
+     },
+     "severity": "avoid",
+     "reason": "grapefruit_colchicine"
+    }
+   ]
+  },
+  "methotrexate": {
+   "label": "Methotrexate",
+   "timing": "any",
+   "effects": [
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_methotrexate"
+    },
+    {
+     "advice": "methotrexate_folate"
+    }
+   ]
+  },
+  "dmard": {
+   "label": "Hydroxychloroquine / sulfasalazine",
+   "timing": "with_meals",
+   "effects": []
+  },
+  "steroid": {
+   "label": "Steroid (prednisolone)",
+   "timing": "with_breakfast",
+   "effects": [
+    {
+     "nutrient": {
+      "nutrient": "sodium_mg",
+      "bound": "max",
+      "value": 2000,
+      "hard": true,
+      "priority": 3,
+      "reason": "sodium_steroid"
+     }
+    },
+    {
+     "nutrient": {
+      "nutrient": "sugar_g",
+      "bound": "max",
+      "pct_energy": 5,
+      "hard": false,
+      "priority": 3,
+      "reason": "sugar_steroid"
+     }
+    },
+    {
+     "advice": "steroid_calcium"
+    }
+   ]
+  },
+  "nsaid": {
+   "label": "Painkiller (NSAID)",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "disease_alert": {
+      "condition": "ckd",
+      "severity": "high",
+      "reason": "nsaid_ckd"
+     }
+    },
+    {
+     "disease_alert": {
+      "condition": "heart_failure",
+      "severity": "high",
+      "reason": "nsaid_hf"
+     }
+    },
+    {
+     "disease_alert": {
+      "condition": "hypertension",
+      "severity": "medium",
+      "reason": "nsaid_bp"
+     }
+    },
+    {
+     "avoid": {
+      "tag": "alcohol"
+     },
+     "severity": "avoid",
+     "reason": "alcohol_nsaid"
+    }
+   ]
+  },
+  "phosphate_binder": {
+   "label": "Phosphate binder",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "advice": "binder_meals"
+    }
+   ]
+  },
+  "sodium_bicarbonate": {
+   "label": "Sodium bicarbonate",
+   "timing": "any",
+   "effects": [
+    {
+     "advice": "bicarbonate_sodium"
+    }
+   ]
+  },
+  "iron": {
+   "label": "Iron tablet",
+   "timing": "before_breakfast",
+   "effects": [
+    {
+     "advice": "iron_tea"
+    }
+   ]
+  },
+  "calcium": {
+   "label": "Calcium tablet",
+   "timing": "with_meals",
+   "effects": [
+    {
+     "advice": "calcium_separate"
+    }
+   ]
+  },
+  "udca": {
+   "label": "Ursodeoxycholic acid",
+   "timing": "with_meals",
+   "effects": []
+  }
+ },
+ "medicines": [
+  {
+   "id": "metformin",
+   "name": "Metformin",
+   "class": "biguanide"
+  },
+  {
+   "id": "glimepiride",
+   "name": "Glimepiride",
+   "class": "sulfonylurea"
+  },
+  {
+   "id": "gliclazide",
+   "name": "Gliclazide",
+   "class": "sulfonylurea"
+  },
+  {
+   "id": "glibenclamide",
+   "name": "Glibenclamide",
+   "class": "sulfonylurea"
+  },
+  {
+   "id": "insulin_basal",
+   "name": "Insulin (long-acting, e.g. glargine)",
+   "class": "insulin"
+  },
+  {
+   "id": "insulin_premix",
+   "name": "Insulin (premixed, e.g. 30/70)",
+   "class": "insulin"
+  },
+  {
+   "id": "insulin_rapid",
+   "name": "Insulin (mealtime, e.g. aspart)",
+   "class": "insulin"
+  },
+  {
+   "id": "sitagliptin",
+   "name": "Sitagliptin",
+   "class": "dpp4"
+  },
+  {
+   "id": "vildagliptin",
+   "name": "Vildagliptin",
+   "class": "dpp4"
+  },
+  {
+   "id": "teneligliptin",
+   "name": "Teneligliptin",
+   "class": "dpp4"
+  },
+  {
+   "id": "empagliflozin",
+   "name": "Empagliflozin",
+   "class": "sglt2"
+  },
+  {
+   "id": "dapagliflozin",
+   "name": "Dapagliflozin",
+   "class": "sglt2"
+  },
+  {
+   "id": "semaglutide",
+   "name": "Semaglutide",
+   "class": "glp1"
+  },
+  {
+   "id": "liraglutide",
+   "name": "Liraglutide",
+   "class": "glp1"
+  },
+  {
+   "id": "pioglitazone",
+   "name": "Pioglitazone",
+   "class": "tzd"
+  },
+  {
+   "id": "amlodipine",
+   "name": "Amlodipine",
+   "class": "ccb"
+  },
+  {
+   "id": "cilnidipine",
+   "name": "Cilnidipine",
+   "class": "ccb"
+  },
+  {
+   "id": "nifedipine",
+   "name": "Nifedipine",
+   "class": "ccb_cyp3a4"
+  },
+  {
+   "id": "felodipine",
+   "name": "Felodipine",
+   "class": "ccb_cyp3a4"
+  },
+  {
+   "id": "telmisartan",
+   "name": "Telmisartan",
+   "class": "arb"
+  },
+  {
+   "id": "losartan",
+   "name": "Losartan",
+   "class": "arb"
+  },
+  {
+   "id": "olmesartan",
+   "name": "Olmesartan",
+   "class": "arb"
+  },
+  {
+   "id": "ramipril",
+   "name": "Ramipril",
+   "class": "acei"
+  },
+  {
+   "id": "enalapril",
+   "name": "Enalapril",
+   "class": "acei"
+  },
+  {
+   "id": "spironolactone",
+   "name": "Spironolactone",
+   "class": "mra"
+  },
+  {
+   "id": "eplerenone",
+   "name": "Eplerenone",
+   "class": "mra"
+  },
+  {
+   "id": "metoprolol",
+   "name": "Metoprolol",
+   "class": "beta_blocker"
+  },
+  {
+   "id": "atenolol",
+   "name": "Atenolol",
+   "class": "beta_blocker"
+  },
+  {
+   "id": "bisoprolol",
+   "name": "Bisoprolol",
+   "class": "beta_blocker"
+  },
+  {
+   "id": "hydrochlorothiazide",
+   "name": "Hydrochlorothiazide",
+   "class": "thiazide"
+  },
+  {
+   "id": "chlorthalidone",
+   "name": "Chlorthalidone",
+   "class": "thiazide"
+  },
+  {
+   "id": "indapamide",
+   "name": "Indapamide",
+   "class": "thiazide"
+  },
+  {
+   "id": "furosemide",
+   "name": "Furosemide",
+   "class": "loop_diuretic"
+  },
+  {
+   "id": "torsemide",
+   "name": "Torsemide",
+   "class": "loop_diuretic"
+  },
+  {
+   "id": "atorvastatin",
+   "name": "Atorvastatin",
+   "class": "statin_cyp3a4"
+  },
+  {
+   "id": "simvastatin",
+   "name": "Simvastatin",
+   "class": "statin_cyp3a4"
+  },
+  {
+   "id": "rosuvastatin",
+   "name": "Rosuvastatin",
+   "class": "statin"
+  },
+  {
+   "id": "fenofibrate",
+   "name": "Fenofibrate",
+   "class": "fibrate"
+  },
+  {
+   "id": "warfarin",
+   "name": "Warfarin",
+   "class": "vka"
+  },
+  {
+   "id": "acenocoumarol",
+   "name": "Acenocoumarol",
+   "class": "vka"
+  },
+  {
+   "id": "apixaban",
+   "name": "Apixaban",
+   "class": "doac"
+  },
+  {
+   "id": "rivaroxaban",
+   "name": "Rivaroxaban",
+   "class": "doac"
+  },
+  {
+   "id": "aspirin",
+   "name": "Aspirin (low dose)",
+   "class": "antiplatelet"
+  },
+  {
+   "id": "clopidogrel",
+   "name": "Clopidogrel",
+   "class": "antiplatelet"
+  },
+  {
+   "id": "digoxin",
+   "name": "Digoxin",
+   "class": "digoxin"
+  },
+  {
+   "id": "isosorbide",
+   "name": "Isosorbide mononitrate",
+   "class": "nitrate"
+  },
+  {
+   "id": "levothyroxine",
+   "name": "Levothyroxine",
+   "class": "thyroid"
+  },
+  {
+   "id": "allopurinol",
+   "name": "Allopurinol",
+   "class": "xanthine_oxidase"
+  },
+  {
+   "id": "febuxostat",
+   "name": "Febuxostat",
+   "class": "xanthine_oxidase"
+  },
+  {
+   "id": "colchicine",
+   "name": "Colchicine",
+   "class": "colchicine"
+  },
+  {
+   "id": "methotrexate",
+   "name": "Methotrexate",
+   "class": "methotrexate"
+  },
+  {
+   "id": "hydroxychloroquine",
+   "name": "Hydroxychloroquine",
+   "class": "dmard"
+  },
+  {
+   "id": "sulfasalazine",
+   "name": "Sulfasalazine",
+   "class": "dmard"
+  },
+  {
+   "id": "prednisolone",
+   "name": "Prednisolone",
+   "class": "steroid"
+  },
+  {
+   "id": "diclofenac",
+   "name": "Diclofenac",
+   "class": "nsaid"
+  },
+  {
+   "id": "aceclofenac",
+   "name": "Aceclofenac",
+   "class": "nsaid"
+  },
+  {
+   "id": "ibuprofen",
+   "name": "Ibuprofen",
+   "class": "nsaid"
+  },
+  {
+   "id": "naproxen",
+   "name": "Naproxen",
+   "class": "nsaid"
+  },
+  {
+   "id": "etoricoxib",
+   "name": "Etoricoxib",
+   "class": "nsaid"
+  },
+  {
+   "id": "sevelamer",
+   "name": "Sevelamer",
+   "class": "phosphate_binder"
+  },
+  {
+   "id": "calcium_acetate",
+   "name": "Calcium acetate",
+   "class": "phosphate_binder"
+  },
+  {
+   "id": "sodium_bicarbonate",
+   "name": "Sodium bicarbonate tablets",
+   "class": "sodium_bicarbonate"
+  },
+  {
+   "id": "ferrous_sulfate",
+   "name": "Iron (ferrous sulfate / fumarate)",
+   "class": "iron"
+  },
+  {
+   "id": "calcium_carbonate",
+   "name": "Calcium carbonate",
+   "class": "calcium"
+  },
+  {
+   "id": "ursodiol",
+   "name": "Ursodeoxycholic acid",
+   "class": "udca"
+  }
+ ],
+ "regions": {
+  "zones": {
+   "north": {
+    "label": "North",
+    "neighbours": [
+     "west",
+     "east"
+    ]
+   },
+   "south": {
+    "label": "South",
+    "neighbours": [
+     "west",
+     "east"
+    ]
+   },
+   "east": {
+    "label": "East",
+    "neighbours": [
+     "northeast",
+     "north"
+    ]
+   },
+   "west": {
+    "label": "West",
+    "neighbours": [
+     "north",
+     "south"
+    ]
+   },
+   "northeast": {
+    "label": "North-East",
+    "neighbours": [
+     "east"
+    ]
+   }
+  },
+  "states": {
+   "Andaman and Nicobar Islands": "east",
+   "Andhra Pradesh": "south",
+   "Arunachal Pradesh": "northeast",
+   "Assam": "northeast",
+   "Bihar": "east",
+   "Chandigarh": "north",
+   "Chhattisgarh": "east",
+   "Dadra and Nagar Haveli and Daman and Diu": "west",
+   "Delhi": "north",
+   "Goa": "west",
+   "Gujarat": "west",
+   "Haryana": "north",
+   "Himachal Pradesh": "north",
+   "Jammu and Kashmir": "north",
+   "Jharkhand": "east",
+   "Karnataka": "south",
+   "Kerala": "south",
+   "Ladakh": "north",
+   "Lakshadweep": "south",
+   "Madhya Pradesh": "north",
+   "Maharashtra": "west",
+   "Manipur": "northeast",
+   "Meghalaya": "northeast",
+   "Mizoram": "northeast",
+   "Nagaland": "northeast",
+   "Odisha": "east",
+   "Puducherry": "south",
+   "Punjab": "north",
+   "Rajasthan": "west",
+   "Sikkim": "northeast",
+   "Tamil Nadu": "south",
+   "Telangana": "south",
+   "Tripura": "northeast",
+   "Uttar Pradesh": "north",
+   "Uttarakhand": "north",
+   "West Bengal": "east"
+  }
+ }
+}

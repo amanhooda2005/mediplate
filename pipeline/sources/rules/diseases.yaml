@@ -1,0 +1,138 @@
+# Disease nutrition rules (knowledge base D3)
+# ---------------------------------------------------------------------------
+# Each target is a DAILY limit.
+#   bound: max | min
+#   value (absolute) | per_kg (g per kg reference body weight) |
+#   pct_energy (% of daily energy) | per_1000kcal
+#   hard: true  -> the planner may never break it
+#   priority: 1 = immediate safety, 2 = organ protection, 3 = disease control,
+#             4 = weight / general, 5 = wellness
+#   when: all listed conditions must hold ({field, op, value}); `any` = at least one
+# Sources: ICMR-NIN Dietary Guidelines for Indians 2024; ADA Standards of Care
+# 2025; KDIGO 2024 CKD guideline and KDOQI 2020 nutrition guideline; AHA/ACC
+# and DASH; EASL-EASD-EASO 2024 MASLD guideline; ACR 2020 gout guideline.
+# STATUS: prototype values. Must be reviewed by a clinician/dietitian.
+# ---------------------------------------------------------------------------
+
+diabetes:
+  label: Diabetes
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: carb_g, bound: max, pct_energy: 50, hard: false, priority: 3, reason: carb_diabetes}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_glucose}
+    - {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 3, reason: sugar_limit}
+    - {nutrient: satfat_g, bound: max, pct_energy: 7, hard: false, priority: 3, reason: satfat_heart}
+    - {nutrient: sodium_mg, bound: max, value: 2300, hard: true, priority: 3, reason: sodium_general}
+  meal_carb_share_max: 0.4
+  glycemic_focus: true
+  penalize:
+    - {dish_tag: sweet, weight: 60, reason: sweet_diabetes}
+    - {dish_tag: fried, weight: 20, reason: fried_food}
+  avoid:
+    - {dish_tag: sweet, severity: limit, reason: sweet_diabetes}
+
+hypertension:
+  label: High blood pressure
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: sodium_mg, bound: max, value: 2000, hard: true, priority: 3, reason: sodium_bp}
+    - {nutrient: potassium_mg, bound: min, value: 3500, hard: false, priority: 4, reason: potassium_dash}
+    - {nutrient: satfat_g, bound: max, pct_energy: 7, hard: false, priority: 4, reason: satfat_heart}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_general}
+  penalize:
+    - {dish_tag: fried, weight: 15, reason: fried_food}
+  avoid:
+    - {tag: alcohol, severity: limit, reason: alcohol_bp}
+
+cvd:
+  label: Heart disease or stroke
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: sodium_mg, bound: max, value: 2000, hard: true, priority: 3, reason: sodium_heart}
+    - {nutrient: sodium_mg, bound: max, value: 1800, hard: true, priority: 2, reason: sodium_heart_failure, when: [{field: cvd_type, op: "==", value: heart_failure}]}
+    - {nutrient: satfat_g, bound: max, pct_energy: 7, hard: false, priority: 3, reason: satfat_heart}
+    - {nutrient: sugar_g, bound: max, pct_energy: 10, hard: false, priority: 4, reason: sugar_limit}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_general}
+  prefer:
+    - {tag: oily_fish, weight: 15, reason: omega3_heart}
+    - {tag: whole_grain, weight: 5, reason: whole_grain}
+  penalize:
+    - {dish_tag: fried, weight: 30, reason: fried_food}
+  avoid:
+    - {tag: alcohol, severity: limit, reason: alcohol_heart}
+
+obesity:
+  label: Obesity
+  weight_loss_bmi: 0
+  targets:
+    - {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 4, reason: sugar_limit}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_fullness}
+    - {nutrient: protein_g, bound: min, per_kg: 1.0, hard: false, priority: 4, reason: protein_muscle}
+  penalize:
+    - {dish_tag: fried, weight: 30, reason: fried_food}
+    - {dish_tag: sweet, weight: 40, reason: sweet_weight}
+
+ckd:
+  label: Chronic kidney disease
+  weight_loss_bmi: 25
+  targets:
+    - {nutrient: sodium_mg, bound: max, value: 2000, hard: true, priority: 2, reason: sodium_kidney}
+    - {nutrient: protein_g, bound: max, per_kg: 1.0, hard: true, priority: 2, reason: protein_ckd_early, when: [{field: ckd_stage, op: "<=", value: 2}, {field: dialysis, op: "==", value: false}]}
+    - {nutrient: protein_g, bound: max, per_kg: 0.8, hard: true, priority: 2, reason: protein_ckd, when: [{field: ckd_stage, op: ">=", value: 3}, {field: dialysis, op: "==", value: false}]}
+    - {nutrient: protein_g, bound: min, per_kg: 0.6, hard: false, priority: 3, reason: protein_ckd_min, when: [{field: ckd_stage, op: ">=", value: 3}, {field: dialysis, op: "==", value: false}]}
+    - {nutrient: protein_g, bound: min, per_kg: 1.0, hard: false, priority: 2, reason: protein_dialysis, when: [{field: dialysis, op: "==", value: true}]}
+    - {nutrient: protein_g, bound: max, per_kg: 1.2, hard: false, priority: 3, reason: protein_dialysis_max, when: [{field: dialysis, op: "==", value: true}]}
+    - {nutrient: potassium_mg, bound: max, value: 2000, hard: true, priority: 1, reason: potassium_ckd, when_any: [{field: ckd_stage, op: ">=", value: 4}, {field: serum_potassium, op: ">", value: 5.0}, {field: dialysis, op: "==", value: true}]}
+    - {nutrient: phosphorus_mg, bound: max, value: 800, hard: true, priority: 2, reason: phosphorus_ckd, when_any: [{field: ckd_stage, op: ">=", value: 4}, {field: serum_phosphorus, op: ">", value: 4.5}, {field: dialysis, op: "==", value: true}]}
+    - {nutrient: phosphorus_mg, bound: max, value: 1000, hard: false, priority: 3, reason: phosphorus_ckd_early, when: [{field: ckd_stage, op: "==", value: 3}]}
+  leaching_when_potassium_restricted: true
+  avoid:
+    - {tag: star_fruit, severity: avoid, reason: star_fruit_ckd}
+    - {dish: coconut_water, severity: avoid, reason: coconut_water_ckd, when_any: [{field: ckd_stage, op: ">=", value: 4}, {field: serum_potassium, op: ">", value: 5.0}, {field: dialysis, op: "==", value: true}]}
+  advice: [no_salt_substitute]
+
+fatty_liver:
+  label: Fatty liver disease
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 3, reason: sugar_liver}
+    - {nutrient: satfat_g, bound: max, pct_energy: 7, hard: false, priority: 3, reason: satfat_liver}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_general}
+  penalize:
+    - {dish_tag: fried, weight: 30, reason: fried_food}
+    - {dish_tag: sweet, weight: 40, reason: sugar_liver}
+  prefer:
+    - {tag: oily_fish, weight: 8, reason: omega3_liver}
+  avoid:
+    - {tag: alcohol, severity: avoid, reason: alcohol_liver}
+
+metabolic_syndrome:
+  label: Metabolic syndrome
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: sodium_mg, bound: max, value: 2000, hard: true, priority: 3, reason: sodium_bp}
+    - {nutrient: satfat_g, bound: max, pct_energy: 7, hard: false, priority: 3, reason: satfat_heart}
+    - {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 3, reason: sugar_limit}
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 4, reason: fiber_glucose}
+  glycemic_focus: true
+  penalize:
+    - {dish_tag: fried, weight: 25, reason: fried_food}
+    - {dish_tag: sweet, weight: 40, reason: sugar_limit}
+
+arthritis:
+  label: Arthritis
+  weight_loss_bmi: 23
+  targets:
+    - {nutrient: fiber_g, bound: min, per_1000kcal: 14, hard: false, priority: 5, reason: fiber_inflammation}
+    - {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 3, reason: sugar_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
+  prefer:
+    - {tag: oily_fish, weight: 12, reason: omega3_joints}
+    - {tag: whole_grain, weight: 4, reason: whole_grain}
+  penalize:
+    - {dish_tag: fried, weight: 15, reason: fried_food}
+    - {tag: red_meat, weight: 25, reason: red_meat_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
+  avoid:
+    - {tag: purine_high, severity: avoid, reason: purine_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
+    - {tag: alcohol, severity: avoid, reason: alcohol_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
+  advice:
+    - {key: fluids_gout, when: [{field: arthritis_type, op: "==", value: gout}]}

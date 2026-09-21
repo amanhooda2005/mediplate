@@ -1,0 +1,12 @@
+code,name,group,diet,energy_kcal,protein_g,fat_g,carb_g,fiber_g,satfat_g,sugar_g,sodium_mg,potassium_mg,phosphorus_mg,calcium_mg,iron_mg,vitk_ug,chol_mg,omega3_g,source
+SUP001,"Salt, iodised",Condiments,veg,0,0,0,0,0,0,0,38758,8,0,24,0.33,0,0,0,USDA SR Legacy 02047
+SUP002,"Sugar, white",Sugars,veg,387,0,0,99.98,0,0,99.8,1,2,0,1,0.05,0,0,0,USDA SR Legacy 19335
+SUP003,"Curd (dahi), whole milk",Milk and Milk Products,veg,61,3.47,3.25,4.66,0,2.1,0,46,155,95,121,0.05,0.2,13,0.03,USDA SR Legacy 01116 (plain whole-milk yogurt)
+SUP004,"Milk, toned (about 2% fat)",Milk and Milk Products,veg,50,3.3,1.98,4.8,0,1.26,0,47,140,92,120,0.02,0.2,8,0.01,USDA SR Legacy 01079 (2% milk)
+SUP005,"Oats, rolled",Cereals and Millets,veg,379,13.15,6.52,57.6,10.1,1.11,0,6,362,410,52,4.25,2,0,0.1,USDA SR Legacy 08120
+SUP006,Baking soda,Miscellaneous Foods,veg,0,0,0,0,0,0,0,27360,0,0,0,0,0,0,0,USDA SR Legacy 18372
+SUP007,"Tea, brewed",Beverages,veg,1,0,0,0.3,0,0,0,3,37,1,0,0.02,0,0,0,USDA SR Legacy 14355
+SUP008,"Coffee, brewed",Beverages,veg,1,0.12,0.02,0,0,0.002,0,2,49,3,2,0.01,0.1,0,0,USDA SR Legacy 14209
+SUP010,"Soya chunks (defatted soy)",Grain Legumes,veg,330,51.46,1.22,16.4,17.5,0.14,0,20,2384,674,241,9.24,4.1,0,0.14,USDA SR Legacy 16117 (defatted soy flour)
+SUP012,"Fermented soybean (hawaijar / axone / kinema)",Grain Legumes,veg,212,19.4,11,7.6,5.4,1.59,0,7,729,174,217,8.6,900,0,0.63,USDA SR Legacy 16113 (natto); vitamin K set to include menaquinone-7 reported for Bacillus-fermented soybean
+SUP025,"Sago (sabudana)",Cereals and Millets,veg,358,0.19,0.02,87.8,0.9,0.01,0,1,11,7,20,1.58,0,0,0,USDA SR Legacy 20068 (tapioca pearl)

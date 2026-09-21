@@ -1,0 +1,72 @@
+# Ingredient tags used by the safety filter (E2) and Food check.
+# A tag matches an ingredient by exact code, code range, code prefix or IFCT group.
+# Hand-built from IFCT 2017 food groups; needs dietitian review.
+
+allergen_milk:
+  codes: [L001, L002, L003, L004, SUP003, SUP004, T013]
+allergen_peanut:
+  codes: [H012]
+allergen_treenut:
+  codes: [H001, H005, H017, H018, H021]
+allergen_gluten:
+  codes: [A004, A018, A019, A020, A021, A022, A023, A024]
+allergen_egg:
+  prefixes: [M]
+allergen_fish:
+  prefixes: [P]
+  ranges: [[S001, S006]]
+allergen_shellfish:
+  prefixes: [Q, R]
+  ranges: [[S007, S010]]
+allergen_soy:
+  codes: [B024, B025, SUP010, SUP012, T011]
+allergen_sesame:
+  codes: [H009, H010, H011, T004]
+
+beef:
+  ranges: [[O025, O047]]
+pork:
+  ranges: [[O048, O057]]
+red_meat:
+  prefixes: [O]
+poultry:
+  prefixes: [N]
+
+# Organ meats, small oily fish and shellfish: high purine (gout)
+purine_high:
+  codes: [N005, N006, P003, P034, P071]
+  ranges: [[O004, O013], [O017, O024], [O028, O035], [O039, O044], [O051, O057], [S007, S010]]
+  prefixes: [Q, R]
+
+# Omega-3 rich fish (heart and joint friendly)
+oily_fish:
+  codes: [P017, P034, P068, P071, P084, P085]
+
+# Very high vitamin K2 fermented soybean (natto-type)
+fermented_soy:
+  codes: [SUP012]
+
+# Contains furanocoumarins like grapefruit (CYP3A4 interaction)
+grapefruit_like:
+  codes: [E056]
+
+# Star fruit: neurotoxic in kidney disease
+star_fruit:
+  codes: [E062]
+
+alcohol:
+  codes: [K001]
+
+# Vegetables whose potassium can be partly removed by soaking and boiling (leaching)
+leachable:
+  groups: ["Green Leafy Vegetables", "Other Vegetables", "Roots and Tubers"]
+
+# Green leafy vegetables (vitamin K, potassium)
+leafy_green:
+  groups: ["Green Leafy Vegetables"]
+
+whole_grain:
+  codes: [A001, A002, A003, A004, A005, A006, A009, A010, A013, A016, A017, A019, A020, A021, SUP005]
+
+legume:
+  groups: ["Grain Legumes"]

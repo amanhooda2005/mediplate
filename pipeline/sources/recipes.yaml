@@ -1,0 +1,232 @@
+# MediPlate standard recipes v1
+# ---------------------------------------------------------------------------
+# Hand-built from standard Indian household recipes. Every ingredient is a raw
+# weight in grams for ONE serving and points to an IFCT 2017 food code (A001…T014)
+# or a MediPlate supplement code (SUP…) from supplements.csv.
+# `salt` is added salt in grams per serving (kept separate so the planner can
+# offer "less salt" versions). Nutrients are NOT typed here: the pipeline
+# calculates them from IFCT 2017.
+#
+# zones:     home zones where the dish is a regular, everyday food
+# common:    true  -> an all-India dish, used as the 3rd fallback tier
+# universal: true  -> a basic (fruit, curd, salad, nuts) allowed in every tier
+# slot:      breakfast | staple | protein | veg | side | snack | sweet
+#            (sweet = searchable in Food check, never placed in plans)
+# diet:      veg | egg | nonveg
+#
+# STATUS: estimates for a university prototype. A registered dietitian must
+# review quantities before any patient use; replace with INDB recipes when
+# available.
+# ---------------------------------------------------------------------------
+
+# ============================ BREAKFAST ============================
+- {id: idli_sambar, slot: breakfast, zones: [south], diet: veg, name: "Idli with sambar and coconut chutney", ta: "சாம்பார், தேங்காய் சட்னியுடன் இட்லி", hi: "सांबर और नारियल चटनी के साथ इडली", ing: {A014: 60, B003: 20, B021: 20, D075: 30, D046: 15, H007: 15, B001: 5, E064: 3, T005: 3}, salt: 1.6, tags: [fermented, steamed]}
+- {id: plain_dosa, slot: breakfast, zones: [south], diet: veg, name: "Dosa with sambar and chutney", ta: "சாம்பார், சட்னியுடன் தோசை", hi: "सांबर और चटनी के साथ डोसा", ing: {A015: 50, B003: 15, B021: 20, D075: 30, H007: 15, T005: 8}, salt: 1.5, tags: [fermented]}
+- {id: ragi_dosa, slot: breakfast, zones: [south], diet: veg, name: "Ragi dosa with sambar", ta: "சாம்பாருடன் கேழ்வரகு தோசை", hi: "सांबर के साथ रागी डोसा", ing: {A010: 40, A015: 10, B003: 15, B021: 15, D075: 20, H007: 10, T005: 7}, salt: 1.4, tags: [fermented]}
+- {id: pesarattu, slot: breakfast, zones: [south], diet: veg, name: "Pesarattu (green gram dosa) with ginger chutney", ta: "இஞ்சி சட்னியுடன் பெசரட்டு", hi: "अदरक चटनी के साथ पेसरट्टू", ing: {B011: 50, A015: 10, G017: 20, G014: 5, E064: 3, G008: 3, T005: 7}, salt: 1.2, tags: []}
+- {id: rava_upma, slot: breakfast, zones: [south], diet: veg, name: "Vegetable rava upma", ta: "காய்கறி ரவா உப்புமா", hi: "सब्ज़ी रवा उपमा", ing: {A022: 50, G017: 20, D050: 20, F002: 20, D061: 15, T005: 7, H013: 1, G010: 1}, salt: 1.2, tags: []}
+- {id: ven_pongal, slot: breakfast, zones: [south], diet: veg, name: "Ven pongal with coconut chutney", ta: "தேங்காய் சட்னியுடன் வெண் பொங்கல்", hi: "नारियल चटनी के साथ वेन पोंगल", ing: {A015: 45, B010: 20, T013: 7, G031: 1, G025: 1, G014: 2, H005: 4, H007: 15}, salt: 1.3, tags: []}
+- {id: appam_stew, slot: breakfast, zones: [south], diet: veg, name: "Appam with vegetable stew", ta: "காய்கறி ஸ்டூவுடன் ஆப்பம்", hi: "वेजिटेबल स्टू के साथ अप्पम", ing: {A015: 55, H007: 30, SUP002: 3, F006: 40, F002: 20, D050: 15, T001: 5}, salt: 1.2, tags: [fermented]}
+- {id: puttu_kadala, slot: breakfast, zones: [south], diet: veg, name: "Puttu with kadala curry", ta: "கடலைக் கறியுடன் புட்டு", hi: "कडला करी के साथ पुट्टू", ing: {A015: 50, H007: 20, B002: 30, G017: 20, D075: 15, T001: 5}, salt: 1.3, tags: [steamed]}
+- {id: millet_upma, slot: breakfast, zones: [south], diet: veg, name: "Varagu (kodo millet) vegetable upma", ta: "வரகு காய்கறி உப்புமா", hi: "कोदो बाजरा सब्ज़ी उपमा", ing: {A017: 50, G017: 20, F002: 20, D050: 20, T005: 6, H013: 1}, salt: 1.1, tags: []}
+- {id: aloo_paratha, slot: breakfast, zones: [north], diet: veg, name: "Aloo paratha with curd", ta: "தயிருடன் ஆலு பராத்தா", hi: "दही के साथ आलू पराठा", ing: {A019: 70, F006: 60, T013: 8, SUP003: 100}, salt: 1.5, tags: []}
+- {id: gobi_paratha, slot: breakfast, zones: [north], diet: veg, name: "Gobi paratha with curd", ta: "தயிருடன் கோபி பராத்தா", hi: "दही के साथ गोभी पराठा", ing: {A019: 60, D036: 50, T013: 6, SUP003: 100}, salt: 1.4, tags: []}
+- {id: methi_paratha, slot: breakfast, zones: [north], diet: veg, name: "Methi paratha with curd", ta: "தயிருடன் வெந்தயக்கீரை பராத்தா", hi: "दही के साथ मेथी पराठा", ing: {A019: 60, C020: 30, T013: 6, SUP003: 100}, salt: 1.3, tags: []}
+- {id: besan_chilla, slot: breakfast, zones: [north], diet: veg, name: "Besan chilla with mint chutney", ta: "புதினா சட்னியுடன் கடலை மாவு சில்லா", hi: "पुदीना चटनी के साथ बेसन चीला", ing: {B001: 40, G017: 20, D075: 20, G009: 3, G016: 5, T012: 5}, salt: 1.0, tags: []}
+- {id: moong_chilla, slot: breakfast, zones: [north], diet: veg, name: "Moong dal chilla with paneer", ta: "பனீருடன் பாசிப்பருப்பு சில்லா", hi: "पनीर के साथ मूंग दाल चीला", ing: {B010: 45, L003: 20, G017: 15, T012: 5}, salt: 1.0, tags: []}
+- {id: veg_dalia, slot: breakfast, zones: [north], diet: veg, name: "Vegetable dalia (broken wheat)", ta: "காய்கறி கோதுமை ரவை", hi: "सब्ज़ी दलिया", ing: {A021: 50, F002: 20, D061: 15, D050: 15, T012: 5}, salt: 1.0, tags: []}
+- {id: egg_bhurji_roti, slot: breakfast, zones: [north], diet: egg, name: "Egg bhurji with roti", ta: "ரொட்டியுடன் முட்டை புர்ஜி", hi: "रोटी के साथ अंडा भुर्जी", ing: {M001: 100, G017: 30, D075: 30, T012: 5, A019: 40}, salt: 1.2, tags: []}
+- {id: kanda_poha, slot: breakfast, zones: [west], diet: veg, name: "Kanda poha", ta: "வெங்காய அவல் போஹா", hi: "कांदा पोहा", ing: {A011: 50, G017: 30, H012: 8, F006: 20, T005: 5, E033: 5, G010: 1, SUP002: 2}, salt: 1.1, tags: []}
+- {id: methi_thepla, slot: breakfast, zones: [west], diet: veg, name: "Methi thepla with curd", ta: "தயிருடன் மேத்தி தேப்லா", hi: "दही के साथ मेथी थेपला", ing: {A019: 50, B001: 10, C020: 20, SUP003: 100, T012: 6}, salt: 1.2, tags: []}
+- {id: khaman_dhokla, slot: breakfast, zones: [west], diet: veg, name: "Khaman dhokla", ta: "காமன் டோக்ளா", hi: "खमन ढोकला", ing: {B001: 50, SUP003: 20, SUP006: 1.5, SUP002: 5, T012: 4, H013: 1, E033: 5, G001: 2}, salt: 0.8, tags: [fermented, steamed]}
+- {id: thalipeeth, slot: breakfast, zones: [west], diet: veg, name: "Thalipeeth with curd", ta: "தயிருடன் தாலிபீத்", hi: "दही के साथ थालीपीठ", ing: {A005: 20, A003: 10, A019: 10, B001: 10, G017: 20, T005: 6, SUP003: 80}, salt: 1.0, tags: []}
+- {id: sabudana_khichdi, slot: breakfast, zones: [west], diet: veg, name: "Sabudana khichdi", ta: "ஜவ்வரிசி கிச்சடி", hi: "साबूदाना खिचड़ी", ing: {SUP025: 60, H012: 20, F006: 40, T013: 6}, salt: 1.0, tags: []}
+- {id: misal_bhakri, slot: breakfast, zones: [west], diet: veg, name: "Misal (sprouted matki) with jowar bhakri", ta: "ஜோவார் பாக்ரியுடன் மிசல்", hi: "ज्वार भाकरी के साथ मिसल", ing: {B016: 40, G017: 30, D075: 30, T005: 8, A005: 40}, salt: 1.6, tags: []}
+- {id: handvo, slot: breakfast, zones: [west], diet: veg, name: "Handvo (lentil-rice savoury cake)", ta: "ஹண்ட்வோ", hi: "हांडवो", ing: {A014: 20, B010: 10, B021: 10, B003: 10, D007: 40, SUP003: 30, H011: 3, T012: 6}, salt: 1.2, tags: [fermented]}
+- {id: chuda_dahi, slot: breakfast, zones: [east], diet: veg, name: "Chuda dahi with banana", ta: "வாழைப்பழத்துடன் அவல் தயிர்", hi: "केले के साथ चूड़ा दही", ing: {A011: 50, SUP003: 100, E012: 60, I001: 8}, salt: 0, tags: [sweet]}
+- {id: chura_matar, slot: breakfast, zones: [east], diet: veg, name: "Chura matar (poha with peas)", ta: "பட்டாணி அவல்", hi: "चूड़ा मटर", ing: {A011: 50, D061: 40, G017: 20, T006: 5}, salt: 1.0, tags: []}
+- {id: sattu_paratha, slot: breakfast, zones: [east], diet: veg, name: "Sattu paratha", ta: "சத்து பராத்தா", hi: "सत्तू पराठा", ing: {A019: 60, B002: 30, G017: 15, T006: 6}, salt: 1.2, tags: []}
+- {id: luchi_alur_dom, slot: breakfast, zones: [east], diet: veg, name: "Luchi with alur dom", ta: "ஆலூர் தம்முடன் லூச்சி", hi: "आलू दम के साथ लूची", ing: {A018: 50, T006: 20, F006: 80}, salt: 1.4, tags: [fried]}
+- {id: chakuli_ghugni, slot: breakfast, zones: [east], diet: veg, name: "Chakuli pitha with ghugni", ta: "குக்னியுடன் சகுலி பிட்டா", hi: "घुघनी के साथ चकुली पीठा", ing: {A015: 40, B003: 20, T012: 5, B017: 30, G017: 15}, salt: 1.4, tags: [fermented]}
+- {id: jolpan, slot: breakfast, zones: [northeast], diet: veg, name: "Jolpan (chira with curd and jaggery)", ta: "ஜோல்பான் (அவல், தயிர், வெல்லம்)", hi: "जोलपान (चिड़ा, दही, गुड़)", ing: {A011: 50, SUP003: 100, I001: 8, E012: 50}, salt: 0, tags: [sweet]}
+- {id: til_pitha, slot: breakfast, zones: [northeast], diet: veg, name: "Til pitha (rice roll with sesame)", ta: "எள் பிட்டா", hi: "तिल पीठा", ing: {A015: 50, H011: 15, I001: 12}, salt: 0.2, tags: [sweet]}
+- {id: veg_thukpa, slot: breakfast, zones: [northeast], diet: veg, name: "Vegetable thukpa (noodle soup)", ta: "காய்கறி துக்பா", hi: "वेज थुकपा", ing: {A023: 50, F002: 20, C015: 30, D050: 15, G017: 15, G011: 3, T012: 4}, salt: 1.8, tags: [soup]}
+- {id: veg_momos, slot: breakfast, zones: [northeast], diet: veg, name: "Steamed vegetable momos", ta: "காய்கறி மோமோஸ்", hi: "वेज मोमोज़", ing: {A018: 50, C015: 50, F002: 20, G017: 15, T012: 3, D075: 20}, salt: 1.3, tags: [steamed]}
+- {id: chicken_thukpa, slot: breakfast, zones: [northeast], diet: nonveg, name: "Chicken thukpa", ta: "சிக்கன் துக்பா", hi: "चिकन थुकपा", ing: {A023: 45, N003: 50, C015: 30, F002: 15, T012: 3}, salt: 1.8, tags: [soup]}
+- {id: oats_porridge, slot: breakfast, common: true, diet: veg, name: "Oats porridge with milk and apple", ta: "பால், ஆப்பிளுடன் ஓட்ஸ் கஞ்சி", hi: "दूध और सेब के साथ ओट्स दलिया", ing: {SUP005: 40, SUP004: 150, E001: 60}, salt: 0, tags: []}
+- {id: oats_upma, slot: breakfast, common: true, diet: veg, name: "Vegetable oats upma", ta: "காய்கறி ஓட்ஸ் உப்புமா", hi: "सब्ज़ी ओट्स उपमा", ing: {SUP005: 45, G017: 20, F002: 20, D050: 20, D061: 15, T012: 5}, salt: 1.0, tags: []}
+- {id: boiled_egg_roti, slot: breakfast, common: true, diet: egg, name: "Boiled eggs with roti and cucumber", ta: "வேகவைத்த முட்டை, ரொட்டி, வெள்ளரி", hi: "उबले अंडे, रोटी और खीरा", ing: {M004: 100, A019: 40, D043: 50}, salt: 0.6, tags: []}
+- {id: sprouts_bowl, slot: breakfast, common: true, diet: veg, name: "Sprouted moong salad bowl", ta: "முளைகட்டிய பாசிப்பயறு சாலட்", hi: "अंकुरित मूंग सलाद", ing: {B011: 50, G017: 20, D075: 30, D043: 30, E033: 5}, salt: 0.6, tags: []}
+
+# ============================ STAPLES ============================
+- {id: white_rice, slot: staple, zones: [south, east, northeast], diet: veg, name: "Steamed white rice", ta: "வெள்ளை சாதம்", hi: "सादा चावल", ing: {A015: 60}, salt: 0, tags: []}
+- {id: parboiled_rice, slot: staple, zones: [south, east], diet: veg, name: "Parboiled (puzhungal) rice", ta: "புழுங்கல் அரிசி சாதம்", hi: "उसना चावल", ing: {A014: 60}, salt: 0, tags: []}
+- {id: brown_rice, slot: staple, zones: [south, east, northeast], diet: veg, name: "Brown rice", ta: "பழுப்பு அரிசி சாதம்", hi: "ब्राउन राइस", ing: {A013: 60}, salt: 0, tags: []}
+- {id: phulka, slot: staple, zones: [north, west, east], diet: veg, name: "Phulka roti (2)", ta: "புல்கா ரொட்டி (2)", hi: "फुल्का रोटी (2)", ing: {A019: 60}, salt: 0, tags: []}
+- {id: bajra_roti, slot: staple, zones: [west, north], diet: veg, name: "Bajra roti (2)", ta: "கம்பு ரொட்டி (2)", hi: "बाजरे की रोटी (2)", ing: {A003: 60, T013: 2}, salt: 0, tags: []}
+- {id: jowar_bhakri, slot: staple, zones: [west, south], diet: veg, name: "Jowar bhakri (2)", ta: "சோள ரொட்டி (2)", hi: "ज्वार भाकरी (2)", ing: {A005: 60}, salt: 0, tags: []}
+- {id: makki_roti, slot: staple, zones: [north], diet: veg, name: "Makki roti (2)", ta: "மக்காச்சோள ரொட்டி (2)", hi: "मक्की की रोटी (2)", ing: {A006: 60, T013: 3}, salt: 0, tags: []}
+- {id: ragi_mudde, slot: staple, zones: [south], diet: veg, name: "Ragi mudde / ragi kali", ta: "கேழ்வரகு களி", hi: "रागी मुद्दे", ing: {A010: 60}, salt: 0.2, tags: []}
+- {id: millet_rice, slot: staple, zones: [south], diet: veg, name: "Samai / varagu millet rice", ta: "சாமை / வரகு சாதம்", hi: "कुटकी / कोदो चावल", ing: {A016: 60}, salt: 0, tags: []}
+- {id: missi_roti, slot: staple, zones: [north], diet: veg, name: "Missi roti (2)", ta: "மிஸ்ஸி ரொட்டி (2)", hi: "मिस्सी रोटी (2)", ing: {A019: 40, B001: 20, T013: 2}, salt: 0.4, tags: []}
+- {id: multigrain_roti, slot: staple, zones: [north, west], diet: veg, name: "Multigrain roti (2)", ta: "பல்தானிய ரொட்டி (2)", hi: "मल्टीग्रेन रोटी (2)", ing: {A019: 30, A005: 10, A003: 10, A010: 10}, salt: 0, tags: []}
+- {id: lemon_rice, slot: staple, zones: [south], diet: veg, name: "Lemon rice", ta: "எலுமிச்சை சாதம்", hi: "नींबू चावल", ing: {A015: 55, H012: 8, T005: 5, E033: 8, G033: 0.5}, salt: 1.0, tags: []}
+- {id: curd_rice, slot: staple, zones: [south], diet: veg, name: "Curd rice", ta: "தயிர் சாதம்", hi: "दही चावल", ing: {A015: 45, SUP003: 120, G014: 2, H013: 1, T005: 3}, salt: 1.0, tags: []}
+- {id: jeera_rice, slot: staple, zones: [north], diet: veg, name: "Jeera rice", ta: "சீரக சாதம்", hi: "जीरा चावल", ing: {A015: 60, T013: 4, G025: 1}, salt: 0.8, tags: []}
+- {id: khichdi, slot: staple, common: true, diet: veg, name: "Moong dal khichdi", ta: "பாசிப்பருப்பு கிச்சடி", hi: "मूंग दाल खिचड़ी", ing: {A015: 35, B010: 25, T013: 4, G033: 0.5, D061: 10, F002: 10}, salt: 1.0, tags: []}
+
+# ============================ PROTEIN DISHES ============================
+# North
+- {id: dal_tadka, slot: protein, zones: [north], diet: veg, name: "Dal tadka", ta: "தால் தட்கா", hi: "दाल तड़का", ing: {B021: 20, B013: 15, D075: 25, G017: 15, T013: 4, G025: 0.5, G011: 2}, salt: 1.2, tags: []}
+- {id: rajma, slot: protein, zones: [north], diet: veg, name: "Rajma curry", ta: "ராஜ்மா கறி", hi: "राजमा", ing: {B020: 35, D075: 40, G017: 20, T012: 5, G014: 2, G011: 2}, salt: 1.3, tags: []}
+- {id: chole, slot: protein, zones: [north], diet: veg, name: "Chole (chickpea curry)", ta: "சோலே (கொண்டைக்கடலை கறி)", hi: "छोले", ing: {B002: 35, D075: 40, G017: 25, T012: 5}, salt: 1.3, tags: []}
+- {id: kadhi_north, slot: protein, zones: [north], diet: veg, name: "Punjabi kadhi (no pakora)", ta: "பஞ்சாபி கடி", hi: "पंजाबी कढ़ी (बिना पकौड़ी)", ing: {B001: 15, SUP003: 100, T013: 3, G026: 0.5}, salt: 1.1, tags: []}
+- {id: dal_makhani, slot: protein, zones: [north], diet: veg, name: "Dal makhani", ta: "தால் மக்கனி", hi: "दाल मखनी", ing: {B004: 30, B020: 5, T013: 8, D075: 30, SUP004: 30}, salt: 1.3, tags: []}
+- {id: palak_paneer, slot: protein, zones: [north], diet: veg, name: "Palak paneer", ta: "பாலக் பனீர்", hi: "पालक पनीर", ing: {C033: 120, L003: 50, G017: 20, D075: 20, T012: 5}, salt: 1.2, tags: []}
+- {id: matar_paneer, slot: protein, zones: [north], diet: veg, name: "Matar paneer", ta: "மட்டர் பனீர்", hi: "मटर पनीर", ing: {L003: 50, D061: 40, D075: 40, G017: 20, T012: 5}, salt: 1.2, tags: []}
+- {id: soya_curry, slot: protein, zones: [north], diet: veg, name: "Soya chunk curry", ta: "சோயா சங்க்ஸ் கறி", hi: "सोया चंक्स करी", ing: {SUP010: 25, D061: 20, D075: 40, G017: 25, T012: 5}, salt: 1.2, tags: []}
+- {id: moong_dal_yellow, slot: protein, zones: [north], diet: veg, name: "Yellow moong dal", ta: "மஞ்சள் பாசிப்பருப்பு", hi: "पीली मूंग दाल", ing: {B010: 30, D075: 15, T013: 3, G025: 0.5}, salt: 1.0, tags: []}
+- {id: chicken_curry_north, slot: protein, zones: [north], diet: nonveg, name: "Home-style chicken curry", ta: "வீட்டு முறை சிக்கன் கறி", hi: "घर जैसा चिकन करी", ing: {N001: 90, G017: 40, D075: 40, SUP003: 20, T012: 6, G011: 3, G014: 3}, salt: 1.4, tags: []}
+- {id: egg_curry_north, slot: protein, zones: [north], diet: egg, name: "Anda curry", ta: "முட்டைக் கறி", hi: "अंडा करी", ing: {M001: 100, G017: 40, D075: 40, T012: 6}, salt: 1.3, tags: []}
+- {id: mutton_curry, slot: protein, zones: [north], diet: nonveg, name: "Mutton curry", ta: "ஆட்டுக்கறி குழம்பு", hi: "मटन करी", ing: {O003: 80, G017: 40, D075: 40, T012: 6, G011: 3}, salt: 1.4, tags: []}
+# South
+- {id: sambar, slot: protein, zones: [south], diet: veg, name: "Sambar with drumstick and okra", ta: "முருங்கை, வெண்டைக்காய் சாம்பார்", hi: "सहजन और भिंडी सांबर", ing: {B021: 30, D046: 25, D056: 20, D075: 25, G018: 15, E064: 5, T005: 4, G022: 1}, salt: 1.3, tags: []}
+- {id: rasam, slot: protein, zones: [south], diet: veg, name: "Tomato rasam with dal", ta: "பருப்பு தக்காளி ரசம்", hi: "दाल टमाटर रसम", ing: {B021: 10, D075: 50, E064: 5, G031: 1, G011: 2, G025: 0.5, T005: 3}, salt: 1.1, tags: [soup]}
+- {id: moong_kootu, slot: protein, zones: [south], diet: veg, name: "Snake gourd moong kootu", ta: "புடலங்காய் பாசிப்பருப்பு கூட்டு", hi: "चिचिंडा मूंग कूटू", ing: {B010: 25, D070: 80, H007: 10, G025: 0.5, T001: 3}, salt: 1.0, tags: []}
+- {id: keerai_kootu, slot: protein, zones: [south], diet: veg, name: "Keerai (amaranth) kootu", ta: "கீரைக் கூட்டு", hi: "चौलाई कूटू", ing: {C002: 60, B010: 25, H007: 10, T005: 3}, salt: 1.0, tags: []}
+- {id: moor_kuzhambu, slot: protein, zones: [south], diet: veg, name: "Moor kuzhambu (curd curry with ash gourd)", ta: "மோர்க் குழம்பு", hi: "मोर कुलंबु (पेठा दही करी)", ing: {SUP003: 100, B021: 5, H007: 15, D001: 60, T001: 3}, salt: 1.0, tags: []}
+- {id: paruppu_ghee, slot: protein, zones: [south], diet: veg, name: "Paruppu (plain toor dal) with ghee", ta: "நெய் பருப்பு", hi: "घी वाली तुअर दाल", ing: {B021: 30, T013: 4}, salt: 0.8, tags: []}
+- {id: chettinad_chicken, slot: protein, zones: [south], diet: nonveg, name: "Chettinad chicken curry", ta: "செட்டிநாடு சிக்கன் குழம்பு", hi: "चेट्टिनाड चिकन करी", ing: {N001: 90, G017: 40, D075: 30, H007: 10, T004: 6, G031: 1}, salt: 1.4, tags: []}
+- {id: kerala_fish_curry, slot: protein, zones: [south], diet: nonveg, name: "Kerala meen curry (seer fish)", ta: "கேரள மீன் குழம்பு (வஞ்சிரம்)", hi: "केरल मीन करी (सुरमई)", ing: {P087: 90, H007: 20, D075: 30, G017: 20, E064: 5, T001: 5}, salt: 1.4, tags: []}
+- {id: mackerel_curry, slot: protein, zones: [south], diet: nonveg, name: "Ayala (mackerel) curry", ta: "கானாங்கெளுத்தி மீன் குழம்பு", hi: "बांगड़ा मछली करी", ing: {P034: 90, D075: 30, G017: 20, E064: 5, T001: 4}, salt: 1.4, tags: []}
+- {id: egg_roast, slot: protein, zones: [south], diet: egg, name: "Kerala egg roast", ta: "முட்டை ரோஸ்ட்", hi: "केरल अंडा रोस्ट", ing: {M001: 100, G017: 50, D075: 30, T001: 6}, salt: 1.2, tags: []}
+# East
+- {id: dalma, slot: protein, zones: [east], diet: veg, name: "Dalma (dal with vegetables)", ta: "டால்மா (காய்கறி பருப்பு)", hi: "डालमा", ing: {B021: 30, F006: 20, D065: 30, D031: 30, D063: 20, T013: 3, G025: 0.5}, salt: 1.3, tags: []}
+- {id: cholar_dal, slot: protein, zones: [east], diet: veg, name: "Cholar dal", ta: "சோலார் தால்", hi: "छोलार दाल", ing: {B001: 30, H007: 8, SUP002: 3, T013: 4, G025: 0.5}, salt: 1.2, tags: []}
+- {id: masoor_dal_bengali, slot: protein, zones: [east], diet: veg, name: "Musur dal", ta: "மசூர் பருப்பு", hi: "मसूर दाल", ing: {B013: 30, G017: 10, D075: 15, T006: 3, G033: 0.5}, salt: 1.0, tags: []}
+- {id: ghugni, slot: protein, zones: [east], diet: veg, name: "Ghugni (dried pea curry)", ta: "குக்னி (பட்டாணி கறி)", hi: "घुघनी", ing: {B017: 35, G017: 20, D075: 20, T006: 4}, salt: 1.2, tags: []}
+- {id: moong_dal_bengali, slot: protein, zones: [east], diet: veg, name: "Bhaja moong dal with vegetables", ta: "வறுத்த பாசிப்பருப்பு காய்கறி", hi: "भाजा मूंग दाल सब्ज़ी के साथ", ing: {B010: 30, D036: 30, D061: 15, T013: 3}, salt: 1.1, tags: []}
+- {id: machher_jhol, slot: protein, zones: [east], diet: nonveg, name: "Machher jhol (rohu fish curry)", ta: "மச்சேர் ஜோல் (ரோகு மீன்)", hi: "माछेर झोल (रोहू)", ing: {S006: 90, F006: 40, D031: 30, D075: 20, T006: 7, G033: 1}, salt: 1.4, tags: []}
+- {id: shorshe_ilish, slot: protein, zones: [east], diet: nonveg, name: "Shorshe ilish (hilsa in mustard)", ta: "கடுகு ஹில்சா மீன்", hi: "सरसों इलिश", ing: {P017: 90, H013: 8, G001: 3, T006: 8}, salt: 1.3, tags: []}
+- {id: dimer_dalna, slot: protein, zones: [east], diet: egg, name: "Dimer dalna (egg and potato curry)", ta: "முட்டை உருளைக்கிழங்கு கறி", hi: "डिमेर डालना", ing: {M001: 100, F006: 50, G017: 30, D075: 30, T006: 7}, salt: 1.3, tags: []}
+- {id: chicken_curry_bengali, slot: protein, zones: [east], diet: nonveg, name: "Bengali chicken curry", ta: "வங்காள சிக்கன் கறி", hi: "बंगाली चिकन करी", ing: {N001: 90, F006: 40, G017: 40, SUP003: 20, T006: 7}, salt: 1.4, tags: []}
+# West
+- {id: gujarati_dal, slot: protein, zones: [west], diet: veg, name: "Gujarati dal", ta: "குஜராத்தி பருப்பு", hi: "गुजराती दाल", ing: {B021: 30, D075: 20, I001: 6, E064: 3, H013: 0.5, T013: 3}, salt: 1.1, tags: []}
+- {id: gujarati_kadhi, slot: protein, zones: [west], diet: veg, name: "Gujarati kadhi", ta: "குஜராத்தி கடி", hi: "गुजराती कढ़ी", ing: {SUP003: 120, B001: 12, SUP002: 5, T013: 3}, salt: 1.1, tags: []}
+- {id: varan, slot: protein, zones: [west], diet: veg, name: "Varan (plain toor dal)", ta: "வரண் (துவரம் பருப்பு)", hi: "वरण", ing: {B021: 30, T013: 4, G033: 0.5}, salt: 0.9, tags: []}
+- {id: amti, slot: protein, zones: [west], diet: veg, name: "Amti", ta: "ஆம்டி", hi: "आमटी", ing: {B021: 30, E064: 4, I001: 5, H007: 5, T005: 4}, salt: 1.1, tags: []}
+- {id: matki_usal, slot: protein, zones: [west], diet: veg, name: "Matki usal (sprouted moth beans)", ta: "முளைகட்டிய மட்கி உசல்", hi: "मटकी उसल", ing: {B016: 40, G017: 25, D075: 25, H007: 8, T005: 5}, salt: 1.2, tags: []}
+- {id: pithla, slot: protein, zones: [west], diet: veg, name: "Pithla", ta: "பித்லா", hi: "पिठला", ing: {B001: 35, G017: 25, T005: 6}, salt: 1.2, tags: []}
+- {id: goan_fish_curry, slot: protein, zones: [west], diet: nonveg, name: "Goan fish curry (pomfret)", ta: "கோவா மீன் குழம்பு (வாவல்)", hi: "गोवा फिश करी (पॉम्फ्रेट)", ing: {P057: 90, H007: 25, D075: 20, E064: 5, T001: 5}, salt: 1.4, tags: []}
+- {id: chicken_xacuti, slot: protein, zones: [west], diet: nonveg, name: "Chicken xacuti", ta: "சிக்கன் ஷாகுட்டி", hi: "चिकन शकुती", ing: {N001: 90, H007: 25, G017: 30, T001: 6}, salt: 1.4, tags: []}
+- {id: anda_curry_west, slot: protein, zones: [west], diet: egg, name: "Maharashtrian anda curry", ta: "மகாராஷ்டிர முட்டைக் கறி", hi: "महाराष्ट्रीयन अंडा करी", ing: {M001: 100, G017: 40, H006: 8, T005: 6}, salt: 1.3, tags: []}
+# North-East
+- {id: masor_tenga, slot: protein, zones: [northeast], diet: nonveg, name: "Masor tenga (sour fish curry)", ta: "மசோர் டெங்கா (புளிப்பு மீன் கறி)", hi: "मासोर टेंगा", ing: {S006: 90, D075: 60, E033: 5, T006: 5}, salt: 1.3, tags: []}
+- {id: assamese_dal, slot: protein, zones: [northeast], diet: veg, name: "Assamese masoor dal with lemon", ta: "அசாம் மசூர் பருப்பு", hi: "असमिया मसूर दाल", ing: {B013: 30, E033: 5, T006: 3}, salt: 1.0, tags: []}
+- {id: mati_dail, slot: protein, zones: [northeast], diet: veg, name: "Mati dail (black gram dal)", ta: "உளுந்து பருப்பு", hi: "माटी दाइल (उड़द दाल)", ing: {B004: 30, T006: 3}, salt: 1.0, tags: []}
+- {id: axone_pork, slot: protein, zones: [northeast], diet: nonveg, name: "Axone pork", ta: "அகோனே பன்றிக்கறி", hi: "अखुनी पोर्क", ing: {O048: 90, SUP012: 20, G017: 20, D075: 30, G014: 3, G011: 3, T012: 3}, salt: 1.5, tags: [fermented]}
+- {id: eromba, slot: protein, zones: [northeast], diet: nonveg, name: "Eromba (vegetable and fish mash)", ta: "எரோம்பா", hi: "इरोम्बा", ing: {F006: 50, D050: 30, D031: 30, S006: 20, G022: 2}, salt: 1.6, tags: [fermented]}
+- {id: bamboo_pork, slot: protein, zones: [northeast], diet: nonveg, name: "Pork with bamboo shoot", ta: "மூங்கில் குருத்து பன்றிக்கறி", hi: "बांस की कोंपल के साथ पोर्क", ing: {O048: 80, D002: 60, G011: 3, T012: 3}, salt: 1.4, tags: []}
+- {id: bamboo_chicken, slot: protein, zones: [northeast], diet: nonveg, name: "Chicken with bamboo shoot", ta: "மூங்கில் குருத்து சிக்கன்", hi: "बांस की कोंपल के साथ चिकन", ing: {N001: 90, D002: 50, G014: 3, T012: 4}, salt: 1.4, tags: []}
+- {id: hawaijar, slot: protein, zones: [northeast], diet: veg, name: "Hawaijar (fermented soybean) with tomato", ta: "ஹவைஜார் (புளித்த சோயா)", hi: "हवाइजार (किण्वित सोयाबीन)", ing: {SUP012: 40, G017: 20, G001: 3, D075: 30}, salt: 1.0, tags: [fermented]}
+# Common all-India
+- {id: mixed_dal, slot: protein, common: true, diet: veg, name: "Mixed dal", ta: "கலப்பு பருப்பு", hi: "मिक्स दाल", ing: {B021: 15, B010: 15, B013: 10, D075: 20, T013: 3}, salt: 1.0, tags: []}
+- {id: paneer_tikka, slot: protein, common: true, diet: veg, name: "Grilled paneer tikka", ta: "கிரில் பனீர் டிக்கா", hi: "ग्रिल्ड पनीर टिक्का", ing: {L003: 80, SUP003: 20, D033: 30, G017: 20, T012: 3}, salt: 1.0, tags: []}
+- {id: grilled_fish, slot: protein, common: true, diet: nonveg, name: "Grilled rohu with lemon", ta: "எலுமிச்சை கிரில் மீன்", hi: "नींबू ग्रिल्ड मछली", ing: {S006: 100, SUP003: 20, E033: 5, T012: 3}, salt: 1.0, tags: []}
+- {id: chicken_stew_light, slot: protein, common: true, diet: nonveg, name: "Light chicken and vegetable stew", ta: "லேசான சிக்கன் காய்கறி ஸ்டூ", hi: "हल्का चिकन सब्ज़ी स्टू", ing: {N003: 90, F002: 30, D050: 30, T012: 3}, salt: 1.0, tags: []}
+- {id: sprouts_curry, slot: protein, common: true, diet: veg, name: "Sprouted moong curry", ta: "முளைகட்டிய பாசிப்பயறு கறி", hi: "अंकुरित मूंग करी", ing: {B011: 40, D075: 30, G017: 20, T012: 4}, salt: 1.0, tags: []}
+
+# ============================ VEGETABLE SIDES ============================
+# North
+- {id: aloo_gobi, slot: veg, zones: [north], diet: veg, name: "Aloo gobi", ta: "ஆலு கோபி", hi: "आलू गोभी", ing: {F006: 60, D036: 80, G017: 15, T012: 6}, salt: 1.0, tags: []}
+- {id: bhindi_masala, slot: veg, zones: [north], diet: veg, name: "Bhindi masala", ta: "வெண்டைக்காய் மசாலா", hi: "भिंडी मसाला", ing: {D056: 120, G017: 20, T012: 6}, salt: 1.0, tags: []}
+- {id: baingan_bharta, slot: veg, zones: [north], diet: veg, name: "Baingan bharta", ta: "கத்திரிக்காய் பர்த்தா", hi: "बैंगन भर्ता", ing: {D031: 150, G017: 20, D075: 30, T006: 5}, salt: 1.0, tags: []}
+- {id: lauki_sabzi, slot: veg, zones: [north], diet: veg, name: "Lauki sabzi", ta: "சுரைக்காய் பொரியல்", hi: "लौकी की सब्ज़ी", ing: {D007: 150, D075: 20, T012: 4}, salt: 0.8, tags: []}
+- {id: sarson_saag, slot: veg, zones: [north], diet: veg, name: "Sarson ka saag", ta: "கடுகுக்கீரை சாக்", hi: "सरसों का साग", ing: {C026: 100, C033: 40, C008: 20, A006: 5, T013: 5}, salt: 1.0, tags: []}
+- {id: methi_aloo, slot: veg, zones: [north], diet: veg, name: "Methi aloo", ta: "வெந்தயக்கீரை உருளைக்கிழங்கு", hi: "मेथी आलू", ing: {C020: 50, F006: 70, T012: 5}, salt: 0.9, tags: []}
+- {id: mixed_veg_north, slot: veg, zones: [north], diet: veg, name: "Mixed vegetable sabzi", ta: "கலப்புக் காய்கறி", hi: "मिक्स वेज सब्ज़ी", ing: {F002: 40, D050: 40, D036: 40, D061: 20, T012: 5}, salt: 1.0, tags: []}
+- {id: cabbage_matar, slot: veg, zones: [north], diet: veg, name: "Patta gobhi matar", ta: "முட்டைக்கோஸ் பட்டாணி", hi: "पत्ता गोभी मटर", ing: {C015: 120, D061: 30, T012: 5}, salt: 0.9, tags: []}
+- {id: tinda_sabzi, slot: veg, zones: [north], diet: veg, name: "Tinda sabzi", ta: "டிண்டா பொரியல்", hi: "टिंडे की सब्ज़ी", ing: {D073: 150, D075: 20, T012: 4}, salt: 0.8, tags: []}
+# South
+- {id: beans_poriyal, slot: veg, zones: [south], diet: veg, name: "Beans poriyal", ta: "பீன்ஸ் பொரியல்", hi: "बीन्स पोरियल", ing: {D050: 120, H007: 10, T005: 4, H013: 0.5}, salt: 0.8, tags: []}
+- {id: cabbage_thoran, slot: veg, zones: [south], diet: veg, name: "Cabbage thoran", ta: "முட்டைக்கோஸ் தோரன்", hi: "पत्ता गोभी थोरन", ing: {C015: 120, H007: 15, T001: 4}, salt: 0.8, tags: []}
+- {id: avial, slot: veg, zones: [south], diet: veg, name: "Avial", ta: "அவியல்", hi: "अवियल", ing: {D070: 30, D046: 25, F002: 25, D063: 25, D050: 20, H007: 20, SUP003: 20, T001: 4}, salt: 0.9, tags: []}
+- {id: keerai_poriyal, slot: veg, zones: [south], diet: veg, name: "Keerai poriyal (greens stir-fry)", ta: "கீரைப் பொரியல்", hi: "चौलाई पोरियल", ing: {C002: 100, H007: 10, T005: 3}, salt: 0.6, tags: []}
+- {id: carrot_beans_poriyal, slot: veg, zones: [south], diet: veg, name: "Carrot beans poriyal", ta: "கேரட் பீன்ஸ் பொரியல்", hi: "गाजर बीन्स पोरियल", ing: {F002: 60, D050: 60, H007: 10, T005: 4}, salt: 0.8, tags: []}
+- {id: pavakkai_poriyal, slot: veg, zones: [south], diet: veg, name: "Pavakkai (bitter gourd) poriyal", ta: "பாகற்காய் பொரியல்", hi: "करेला पोरियल", ing: {D004: 100, G017: 20, T004: 5}, salt: 0.8, tags: []}
+- {id: vazhakkai_fry, slot: veg, zones: [south], diet: veg, name: "Vazhakkai (raw banana) fry", ta: "வாழைக்காய் வறுவல்", hi: "कच्चे केले की सब्ज़ी", ing: {D063: 100, T005: 7}, salt: 0.8, tags: []}
+- {id: chow_chow_kootu, slot: veg, zones: [south], diet: veg, name: "Chow chow kootu", ta: "சௌசௌ கூட்டு", hi: "चाऊ चाऊ कूटू", ing: {D038: 120, B010: 10, H007: 10, T005: 3}, salt: 0.8, tags: []}
+# East
+- {id: shukto, slot: veg, zones: [east], diet: veg, name: "Shukto", ta: "சுக்தோ", hi: "शुक्तो", ing: {D004: 25, D031: 30, D063: 30, F013: 25, D046: 20, SUP004: 20, T006: 5, H013: 2}, salt: 0.8, tags: []}
+- {id: aloo_posto, slot: veg, zones: [east], diet: veg, name: "Aloo posto", ta: "ஆலு போஸ்தோ", hi: "आलू पोस्तो", ing: {F006: 100, G032: 10, T006: 6}, salt: 0.8, tags: []}
+- {id: begun_bhaja, slot: veg, zones: [east], diet: veg, name: "Begun bhaja (fried brinjal)", ta: "வறுத்த கத்திரிக்காய்", hi: "बेगुन भाजा", ing: {D031: 100, T006: 12}, salt: 0.7, tags: [fried]}
+- {id: lau_ghonto, slot: veg, zones: [east], diet: veg, name: "Lau ghonto (bottle gourd)", ta: "சுரைக்காய் கூட்டு", hi: "लौ घोंटो", ing: {D007: 150, B010: 10, T013: 3}, salt: 0.8, tags: []}
+- {id: chorchori, slot: veg, zones: [east], diet: veg, name: "Chorchori (mixed vegetables)", ta: "சோர்சோரி", hi: "चोरचोरी", ing: {D065: 40, F006: 30, D031: 30, D068: 30, T006: 5}, salt: 0.9, tags: []}
+- {id: saag_bhaja, slot: veg, zones: [east], diet: veg, name: "Palong saag bhaja (spinach)", ta: "பசலைக்கீரை வதக்கல்", hi: "पालक भाजा", ing: {C033: 120, G011: 3, T006: 4}, salt: 0.7, tags: []}
+- {id: bandhakopi, slot: veg, zones: [east], diet: veg, name: "Bandhakopi tarkari (cabbage)", ta: "முட்டைக்கோஸ் தர்காரி", hi: "बंधाकोपी तरकारी", ing: {C015: 120, F006: 30, D061: 20, T006: 5}, salt: 0.9, tags: []}
+# West
+- {id: bhinda_shaak, slot: veg, zones: [west], diet: veg, name: "Bhinda nu shaak (okra)", ta: "வெண்டைக்காய் ஷாக்", hi: "भिंडा नु शाक", ing: {D056: 120, T005: 6, G025: 0.5}, salt: 0.9, tags: []}
+- {id: batata_bhaji, slot: veg, zones: [west], diet: veg, name: "Batata bhaji (potato)", ta: "உருளைக்கிழங்கு பாஜி", hi: "बटाटा भाजी", ing: {F006: 120, T005: 6, G010: 1}, salt: 0.9, tags: []}
+- {id: cabbage_sambharo, slot: veg, zones: [west], diet: veg, name: "Cabbage sambharo", ta: "முட்டைக்கோஸ் சம்பாரோ", hi: "पत्ता गोभी संभारो", ing: {C015: 100, F002: 30, D033: 20, T005: 4}, salt: 0.8, tags: []}
+- {id: undhiyu, slot: veg, zones: [west], diet: veg, name: "Undhiyu", ta: "உந்தியு", hi: "उंधियू", ing: {D047: 40, F013: 30, F017: 30, D031: 30, D063: 20, T005: 8}, salt: 1.0, tags: []}
+- {id: gavar_sabzi, slot: veg, zones: [west], diet: veg, name: "Gavar (cluster beans) sabzi", ta: "கொத்தவரங்காய் பொரியல்", hi: "ग्वार फली की सब्ज़ी", ing: {D039: 120, T005: 5}, salt: 0.8, tags: []}
+- {id: flower_bhaji, slot: veg, zones: [west], diet: veg, name: "Flower bhaji (cauliflower)", ta: "காலிஃபிளவர் பாஜி", hi: "फूलगोभी भाजी", ing: {D036: 120, D061: 20, T005: 5}, salt: 0.8, tags: []}
+- {id: vangi_bhaji, slot: veg, zones: [west], diet: veg, name: "Vangi bhaji (brinjal with peanut)", ta: "வேர்க்கடலை கத்திரிக்காய்", hi: "वांगी भाजी", ing: {D031: 130, H012: 8, T005: 5}, salt: 0.8, tags: []}
+# North-East
+- {id: aloo_pitika, slot: veg, zones: [northeast], diet: veg, name: "Aloo pitika (mashed potato)", ta: "ஆலு பிடிகா", hi: "आलू पिटिका", ing: {F006: 120, T006: 5, G018: 10, G001: 2}, salt: 0.7, tags: []}
+- {id: bamboo_fry, slot: veg, zones: [northeast], diet: veg, name: "Bamboo shoot stir-fry", ta: "மூங்கில் குருத்து வதக்கல்", hi: "बांस की कोंपल भुजिया", ing: {D002: 100, T006: 4}, salt: 0.8, tags: []}
+- {id: kumura_bhaji, slot: veg, zones: [northeast], diet: veg, name: "Kumura bhaji (pumpkin)", ta: "பூசணிக்காய் பொரியல்", hi: "कद्दू भाजी", ing: {D066: 130, T006: 4}, salt: 0.7, tags: []}
+- {id: lai_xaak, slot: veg, zones: [northeast], diet: veg, name: "Lai xaak (mustard greens)", ta: "கடுகுக்கீரை", hi: "लाई साग", ing: {C026: 120, G011: 3, T006: 3}, salt: 0.6, tags: []}
+- {id: iskut_sabzi, slot: veg, zones: [northeast], diet: veg, name: "Iskut (chayote) sabzi", ta: "சௌசௌ பொரியல்", hi: "इस्कुट (चायोटे) सब्ज़ी", ing: {D038: 150, T006: 4}, salt: 0.7, tags: []}
+- {id: beans_ne, slot: veg, zones: [northeast], diet: veg, name: "French beans with garlic", ta: "பூண்டு பீன்ஸ்", hi: "लहसुन वाली बीन्स", ing: {D050: 120, T006: 4, G011: 2}, salt: 0.7, tags: []}
+# Common
+- {id: stir_fry_veg, slot: veg, common: true, diet: veg, name: "Stir-fried mixed vegetables", ta: "வதக்கிய கலப்புக் காய்கறி", hi: "भुनी हुई मिक्स सब्ज़ियाँ", ing: {C015: 40, F002: 40, D033: 30, D050: 30, T012: 4}, salt: 0.7, tags: []}
+- {id: mushroom_peas, slot: veg, common: true, diet: veg, name: "Mushroom and peas", ta: "காளான் பட்டாணி", hi: "मशरूम मटर", ing: {J001: 80, D061: 40, T012: 4}, salt: 0.7, tags: []}
+
+# ============================ SIDES (universal basics) ============================
+- {id: no_side, slot: side, universal: true, diet: veg, name: "No side dish", ta: "பக்க உணவு இல்லை", hi: "कोई साइड नहीं", ing: {}, salt: 0, tags: [none]}
+- {id: plain_curd, slot: side, universal: true, diet: veg, name: "Plain curd", ta: "தயிர்", hi: "सादा दही", ing: {SUP003: 100}, salt: 0, tags: []}
+- {id: buttermilk, slot: side, universal: true, diet: veg, name: "Spiced buttermilk", ta: "மோர்", hi: "छाछ", ing: {SUP003: 60, G025: 0.3}, salt: 0.5, tags: []}
+- {id: cucumber_raita, slot: side, universal: true, diet: veg, name: "Cucumber raita", ta: "வெள்ளரி ரைத்தா", hi: "खीरे का रायता", ing: {SUP003: 80, D043: 40}, salt: 0.5, tags: []}
+- {id: green_salad, slot: side, universal: true, diet: veg, name: "Green salad", ta: "பச்சைக் காய்கறி சாலட்", hi: "हरा सलाद", ing: {D043: 50, D075: 40, F002: 30, G017: 20, E033: 5}, salt: 0.3, tags: []}
+
+# ============================ SNACKS ============================
+- {id: chana_sundal, slot: snack, zones: [south], diet: veg, name: "Chana sundal", ta: "கொண்டைக்கடலை சுண்டல்", hi: "चना सुंडल", ing: {B002: 35, H007: 8, T005: 3, G010: 1}, salt: 0.6, tags: []}
+- {id: ragi_malt, slot: snack, zones: [south], diet: veg, name: "Ragi malt with milk", ta: "கேழ்வரகு கூழ் (பால்)", hi: "दूध वाला रागी माल्ट", ing: {A010: 20, SUP004: 150, I001: 5}, salt: 0, tags: []}
+- {id: filter_coffee, slot: snack, zones: [south], diet: veg, name: "Filter coffee (less sugar)", ta: "ஃபில்டர் காபி (குறைந்த சர்க்கரை)", hi: "फ़िल्टर कॉफ़ी (कम चीनी)", ing: {SUP004: 100, SUP008: 50, SUP002: 5}, salt: 0, tags: []}
+- {id: murukku, slot: snack, zones: [south], diet: veg, name: "Murukku", ta: "முறுக்கு", hi: "मुरुक्कू", ing: {A015: 25, B003: 5, T005: 10}, salt: 0.6, tags: [fried]}
+- {id: coconut_water, slot: snack, zones: [south], diet: veg, name: "Tender coconut water", ta: "இளநீர்", hi: "नारियल पानी", ing: {K002: 250}, salt: 0, tags: []}
+- {id: sprouts_chaat, slot: snack, zones: [west, north], diet: veg, name: "Sprouts chaat", ta: "முளைகட்டிய பயறு சாட்", hi: "अंकुरित चाट", ing: {B011: 40, G017: 15, D075: 20, E033: 5}, salt: 0.5, tags: []}
+- {id: peanut_chikki, slot: snack, zones: [west], diet: veg, name: "Peanut chikki", ta: "கடலை மிட்டாய்", hi: "मूंगफली चिक्की", ing: {H012: 20, I001: 15}, salt: 0, tags: [sweet]}
+- {id: jhal_muri, slot: snack, zones: [east], diet: veg, name: "Jhal muri", ta: "ஜல் முரி (பொரி)", hi: "झाल मुड़ी", ing: {A012: 30, H012: 10, G017: 15, D043: 20, T006: 3}, salt: 0.6, tags: []}
+- {id: kala_chana_chaat, slot: snack, zones: [east], diet: veg, name: "Kala chana chaat", ta: "கருப்பு கொண்டைக்கடலை சாட்", hi: "काला चना चाट", ing: {B002: 35, G017: 15, E033: 5}, salt: 0.5, tags: []}
+- {id: samosa, slot: snack, zones: [north], diet: veg, name: "Samosa", ta: "சமோசா", hi: "समोसा", ing: {A018: 30, F006: 50, D061: 10, T012: 12}, salt: 0.8, tags: [fried]}
+- {id: pakora, slot: snack, zones: [north, east], diet: veg, name: "Onion pakora", ta: "வெங்காய பக்கோடா", hi: "प्याज़ पकौड़ा", ing: {B001: 30, G017: 40, T012: 12}, salt: 0.8, tags: [fried]}
+- {id: sweet_lassi, slot: snack, zones: [north], diet: veg, name: "Sweet lassi", ta: "இனிப்பு லஸ்ஸி", hi: "मीठी लस्सी", ing: {SUP003: 150, SUP002: 15}, salt: 0, tags: [sweet]}
+- {id: boiled_corn, slot: snack, zones: [north, northeast], diet: veg, name: "Boiled corn (bhutta)", ta: "வேகவைத்த சோளம்", hi: "उबला भुट्टा", ing: {A007: 100}, salt: 0.3, tags: []}
+- {id: roasted_chana, slot: snack, universal: true, diet: veg, name: "Roasted chana", ta: "வறுத்த கடலை", hi: "भुने चने", ing: {B002: 30}, salt: 0.2, tags: []}
+- {id: masala_chai, slot: snack, universal: true, diet: veg, name: "Masala chai (less sugar)", ta: "மசாலா டீ (குறைந்த சர்க்கரை)", hi: "मसाला चाय (कम चीनी)", ing: {SUP004: 100, SUP007: 100, SUP002: 5, G014: 1}, salt: 0, tags: []}
+- {id: nuts_mix, slot: snack, universal: true, diet: veg, name: "Almonds and walnuts (handful)", ta: "பாதாம், அக்ரூட் (ஒரு கைப்பிடி)", hi: "बादाम और अखरोट (मुट्ठी भर)", ing: {H001: 10, H021: 10}, salt: 0, tags: []}
+- {id: boiled_egg, slot: snack, universal: true, diet: egg, name: "Boiled egg", ta: "வேகவைத்த முட்டை", hi: "उबला अंडा", ing: {M004: 50}, salt: 0.2, tags: []}
+- {id: fruit_apple, slot: snack, universal: true, diet: veg, name: "Apple", ta: "ஆப்பிள்", hi: "सेब", ing: {E001: 150}, salt: 0, tags: [fruit]}
+- {id: fruit_banana, slot: snack, universal: true, diet: veg, name: "Banana", ta: "வாழைப்பழம்", hi: "केला", ing: {E012: 100}, salt: 0, tags: [fruit]}
+- {id: fruit_guava, slot: snack, universal: true, diet: veg, name: "Guava", ta: "கொய்யா", hi: "अमरूद", ing: {E028: 150}, salt: 0, tags: [fruit]}
+- {id: fruit_papaya, slot: snack, universal: true, diet: veg, name: "Papaya", ta: "பப்பாளி", hi: "पपीता", ing: {E049: 150}, salt: 0, tags: [fruit]}
+- {id: fruit_orange, slot: snack, universal: true, diet: veg, name: "Orange", ta: "ஆரஞ்சு", hi: "संतरा", ing: {E047: 150}, salt: 0, tags: [fruit]}
+- {id: fruit_pomegranate, slot: snack, universal: true, diet: veg, name: "Pomegranate", ta: "மாதுளை", hi: "अनार", ing: {E055: 100}, salt: 0, tags: [fruit]}
+- {id: fruit_watermelon, slot: snack, universal: true, diet: veg, name: "Watermelon", ta: "தர்பூசணி", hi: "तरबूज़", ing: {E065: 200}, salt: 0, tags: [fruit]}
+- {id: fruit_pear, slot: snack, universal: true, diet: veg, name: "Pear", ta: "பேரிக்காய்", hi: "नाशपाती", ing: {E051: 150}, salt: 0, tags: [fruit]}
+- {id: fruit_mango, slot: snack, universal: true, diet: veg, name: "Mango", ta: "மாம்பழம்", hi: "आम", ing: {E036: 120}, salt: 0, tags: [fruit]}
+- {id: fruit_jamun, slot: snack, universal: true, diet: veg, name: "Jamun", ta: "நாவல் பழம்", hi: "जामुन", ing: {E031: 100}, salt: 0, tags: [fruit]}
+- {id: fruit_pummelo, slot: snack, universal: true, diet: veg, name: "Pummelo (chakotra)", ta: "பம்பளிமாஸ்", hi: "चकोतरा", ing: {E056: 150}, salt: 0, tags: [fruit]}
+
+# ============================ SWEETS (Food check only) ============================
+- {id: gulab_jamun, slot: sweet, universal: true, diet: veg, name: "Gulab jamun (2 pieces)", ta: "குலாப் ஜாமூன் (2)", hi: "गुलाब जामुन (2)", ing: {L004: 30, A018: 10, SUP002: 40, T013: 10}, salt: 0, tags: [sweet, fried]}
+- {id: rasgulla, slot: sweet, universal: true, diet: veg, name: "Rasgulla (2 pieces)", ta: "ரசகுல்லா (2)", hi: "रसगुल्ला (2)", ing: {L002: 200, SUP002: 35}, salt: 0, tags: [sweet]}
+- {id: kheer, slot: sweet, universal: true, diet: veg, name: "Rice kheer / payasam", ta: "பாயசம்", hi: "खीर", ing: {A015: 15, L002: 150, SUP002: 20, H005: 5}, salt: 0, tags: [sweet]}
+- {id: jalebi, slot: sweet, universal: true, diet: veg, name: "Jalebi (100 g)", ta: "ஜிலேபி (100 கி)", hi: "जलेबी (100 ग्राम)", ing: {A018: 35, SUP002: 45, T012: 15}, salt: 0, tags: [sweet, fried]}
+- {id: besan_laddoo, slot: sweet, universal: true, diet: veg, name: "Besan laddoo (1)", ta: "கடலை மாவு லட்டு (1)", hi: "बेसन लड्डू (1)", ing: {B001: 20, T013: 10, SUP002: 15}, salt: 0, tags: [sweet]}
+- {id: rava_kesari, slot: sweet, universal: true, diet: veg, name: "Rava kesari", ta: "ரவா கேசரி", hi: "रवा केसरी", ing: {A022: 25, T013: 10, SUP002: 25}, salt: 0, tags: [sweet]}
+- {id: mishti_doi, slot: sweet, universal: true, diet: veg, name: "Mishti doi", ta: "மிஷ்டி தோய் (இனிப்பு தயிர்)", hi: "मिष्टी दोई", ing: {SUP003: 150, SUP002: 18}, salt: 0, tags: [sweet]}
+- {id: puran_poli, slot: sweet, universal: true, diet: veg, name: "Puran poli", ta: "போளி", hi: "पूरन पोली", ing: {A019: 30, B001: 25, I001: 25, T013: 8}, salt: 0, tags: [sweet]}
+- {id: toddy_drink, slot: sweet, universal: true, diet: veg, name: "Toddy (palm wine), 1 glass", ta: "கள் (1 கிளாஸ்)", hi: "ताड़ी (1 गिलास)", ing: {K001: 250}, salt: 0, tags: [alcohol]}

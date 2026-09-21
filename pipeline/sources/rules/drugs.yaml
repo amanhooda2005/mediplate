@@ -1,0 +1,269 @@
+# Medicine–food rules (knowledge base D3)
+# ---------------------------------------------------------------------------
+# Effects a medicine can have on the plan:
+#   nutrient:        daily limit, same fields as disease targets
+#   meal_carb_min:   every main meal must carry at least this many grams of carbs
+#   vitk_band:       daily vitamin K must stay between min and max (µg)
+#   avoid:           tag / codes / dish with severity avoid | limit
+#   disease_alert:   warning when this medicine is taken with a condition
+#   advice:          timing / general advice (key into messages)
+#   timing:          before_breakfast | with_meals | with_breakfast | bedtime | any
+# Sources: product labels (CDSCO / US FDA), BNF interaction notes, ADA 2025,
+# KDIGO 2024. STATUS: prototype values — pharmacist review required.
+# ---------------------------------------------------------------------------
+
+classes:
+  biguanide:
+    label: Metformin
+    timing: with_meals
+    effects:
+      - {advice: metformin_meals}
+      - {avoid: {tag: alcohol}, severity: limit, reason: alcohol_metformin}
+  sulfonylurea:
+    label: Sulfonylurea
+    timing: with_breakfast
+    effects:
+      - {meal_carb_min: 30, reason: hypo_su}
+      - {advice: no_skip_meals}
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_hypo}
+  insulin:
+    label: Insulin
+    timing: with_meals
+    effects:
+      - {meal_carb_min: 30, reason: hypo_insulin}
+      - {advice: no_skip_meals}
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_hypo}
+  dpp4:
+    label: DPP-4 inhibitor
+    timing: any
+    effects: []
+  sglt2:
+    label: SGLT2 inhibitor
+    timing: with_breakfast
+    effects:
+      - {nutrient: {nutrient: carb_g, bound: min, value: 130, hard: true, priority: 1, reason: carb_min_sglt2}}
+      - {advice: fluids_sglt2}
+  glp1:
+    label: GLP-1 medicine
+    timing: any
+    effects:
+      - {advice: glp1_small_meals}
+  tzd:
+    label: Pioglitazone
+    timing: any
+    effects:
+      - {disease_alert: {condition: heart_failure, severity: high, reason: pioglitazone_hf}}
+  ccb:
+    label: Calcium channel blocker
+    timing: any
+    effects: []
+  ccb_cyp3a4:
+    label: Calcium channel blocker (felodipine / nifedipine)
+    timing: any
+    effects:
+      - {avoid: {tag: grapefruit_like}, severity: avoid, reason: grapefruit_ccb}
+  arb:
+    label: ARB (sartan)
+    timing: any
+    effects:
+      - {nutrient: {nutrient: potassium_mg, bound: max, value: 2000, hard: true, priority: 1, reason: potassium_raas, when_any: [{field: ckd_stage, op: ">=", value: 3}, {field: serum_potassium, op: ">", value: 5.0}]}}
+      - {advice: no_salt_substitute}
+  acei:
+    label: ACE inhibitor (pril)
+    timing: any
+    effects:
+      - {nutrient: {nutrient: potassium_mg, bound: max, value: 2000, hard: true, priority: 1, reason: potassium_raas, when_any: [{field: ckd_stage, op: ">=", value: 3}, {field: serum_potassium, op: ">", value: 5.0}]}}
+      - {advice: no_salt_substitute}
+  mra:
+    label: Potassium-sparing diuretic
+    timing: with_breakfast
+    effects:
+      - {nutrient: {nutrient: potassium_mg, bound: max, value: 2500, hard: true, priority: 1, reason: potassium_mra}}
+      - {nutrient: {nutrient: potassium_mg, bound: max, value: 2000, hard: true, priority: 1, reason: potassium_mra, when_any: [{field: ckd_stage, op: ">=", value: 3}, {field: serum_potassium, op: ">", value: 5.0}]}}
+      - {advice: no_salt_substitute}
+  beta_blocker:
+    label: Beta blocker
+    timing: any
+    effects: []
+  thiazide:
+    label: Thiazide diuretic
+    timing: with_breakfast
+    effects:
+      - {advice: diuretic_morning}
+  loop_diuretic:
+    label: Loop diuretic
+    timing: with_breakfast
+    effects:
+      - {advice: diuretic_morning}
+  statin_cyp3a4:
+    label: Statin (atorvastatin / simvastatin)
+    timing: bedtime
+    effects:
+      - {avoid: {tag: grapefruit_like}, severity: avoid, reason: grapefruit_statin}
+  statin:
+    label: Statin
+    timing: any
+    effects: []
+  fibrate:
+    label: Fenofibrate
+    timing: with_meals
+    effects: []
+  vka:
+    label: Warfarin-type blood thinner
+    timing: bedtime
+    effects:
+      - {vitk_band: {min: 50, max: 150}, reason: vitk_consistent}
+      - {avoid: {tag: fermented_soy}, severity: avoid, reason: natto_warfarin}
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_warfarin}
+      - {advice: warfarin_consistent}
+  doac:
+    label: Newer blood thinner
+    timing: with_meals
+    effects:
+      - {advice: doac_food}
+  antiplatelet:
+    label: Aspirin / clopidogrel
+    timing: with_meals
+    effects:
+      - {avoid: {tag: alcohol}, severity: limit, reason: alcohol_bleeding}
+  digoxin:
+    label: Digoxin
+    timing: any
+    effects:
+      - {advice: digoxin_fiber}
+  nitrate:
+    label: Nitrate
+    timing: any
+    effects:
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_nitrate}
+  thyroid:
+    label: Levothyroxine
+    timing: before_breakfast
+    effects:
+      - {advice: levothyroxine_empty}
+  xanthine_oxidase:
+    label: Allopurinol / febuxostat
+    timing: with_meals
+    effects:
+      - {advice: fluids_gout}
+  colchicine:
+    label: Colchicine
+    timing: any
+    effects:
+      - {avoid: {tag: grapefruit_like}, severity: avoid, reason: grapefruit_colchicine}
+  methotrexate:
+    label: Methotrexate
+    timing: any
+    effects:
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_methotrexate}
+      - {advice: methotrexate_folate}
+  dmard:
+    label: Hydroxychloroquine / sulfasalazine
+    timing: with_meals
+    effects: []
+  steroid:
+    label: Steroid (prednisolone)
+    timing: with_breakfast
+    effects:
+      - {nutrient: {nutrient: sodium_mg, bound: max, value: 2000, hard: true, priority: 3, reason: sodium_steroid}}
+      - {nutrient: {nutrient: sugar_g, bound: max, pct_energy: 5, hard: false, priority: 3, reason: sugar_steroid}}
+      - {advice: steroid_calcium}
+  nsaid:
+    label: Painkiller (NSAID)
+    timing: with_meals
+    effects:
+      - {disease_alert: {condition: ckd, severity: high, reason: nsaid_ckd}}
+      - {disease_alert: {condition: heart_failure, severity: high, reason: nsaid_hf}}
+      - {disease_alert: {condition: hypertension, severity: medium, reason: nsaid_bp}}
+      - {avoid: {tag: alcohol}, severity: avoid, reason: alcohol_nsaid}
+  phosphate_binder:
+    label: Phosphate binder
+    timing: with_meals
+    effects:
+      - {advice: binder_meals}
+  sodium_bicarbonate:
+    label: Sodium bicarbonate
+    timing: any
+    effects:
+      - {advice: bicarbonate_sodium}
+  iron:
+    label: Iron tablet
+    timing: before_breakfast
+    effects:
+      - {advice: iron_tea}
+  calcium:
+    label: Calcium tablet
+    timing: with_meals
+    effects:
+      - {advice: calcium_separate}
+  udca:
+    label: Ursodeoxycholic acid
+    timing: with_meals
+    effects: []
+
+medicines:
+  - {id: metformin, name: Metformin, class: biguanide}
+  - {id: glimepiride, name: Glimepiride, class: sulfonylurea}
+  - {id: gliclazide, name: Gliclazide, class: sulfonylurea}
+  - {id: glibenclamide, name: Glibenclamide, class: sulfonylurea}
+  - {id: insulin_basal, name: "Insulin (long-acting, e.g. glargine)", class: insulin}
+  - {id: insulin_premix, name: "Insulin (premixed, e.g. 30/70)", class: insulin}
+  - {id: insulin_rapid, name: "Insulin (mealtime, e.g. aspart)", class: insulin}
+  - {id: sitagliptin, name: Sitagliptin, class: dpp4}
+  - {id: vildagliptin, name: Vildagliptin, class: dpp4}
+  - {id: teneligliptin, name: Teneligliptin, class: dpp4}
+  - {id: empagliflozin, name: Empagliflozin, class: sglt2}
+  - {id: dapagliflozin, name: Dapagliflozin, class: sglt2}
+  - {id: semaglutide, name: Semaglutide, class: glp1}
+  - {id: liraglutide, name: Liraglutide, class: glp1}
+  - {id: pioglitazone, name: Pioglitazone, class: tzd}
+  - {id: amlodipine, name: Amlodipine, class: ccb}
+  - {id: cilnidipine, name: Cilnidipine, class: ccb}
+  - {id: nifedipine, name: Nifedipine, class: ccb_cyp3a4}
+  - {id: felodipine, name: Felodipine, class: ccb_cyp3a4}
+  - {id: telmisartan, name: Telmisartan, class: arb}
+  - {id: losartan, name: Losartan, class: arb}
+  - {id: olmesartan, name: Olmesartan, class: arb}
+  - {id: ramipril, name: Ramipril, class: acei}
+  - {id: enalapril, name: Enalapril, class: acei}
+  - {id: spironolactone, name: Spironolactone, class: mra}
+  - {id: eplerenone, name: Eplerenone, class: mra}
+  - {id: metoprolol, name: Metoprolol, class: beta_blocker}
+  - {id: atenolol, name: Atenolol, class: beta_blocker}
+  - {id: bisoprolol, name: Bisoprolol, class: beta_blocker}
+  - {id: hydrochlorothiazide, name: Hydrochlorothiazide, class: thiazide}
+  - {id: chlorthalidone, name: Chlorthalidone, class: thiazide}
+  - {id: indapamide, name: Indapamide, class: thiazide}
+  - {id: furosemide, name: Furosemide, class: loop_diuretic}
+  - {id: torsemide, name: Torsemide, class: loop_diuretic}
+  - {id: atorvastatin, name: Atorvastatin, class: statin_cyp3a4}
+  - {id: simvastatin, name: Simvastatin, class: statin_cyp3a4}
+  - {id: rosuvastatin, name: Rosuvastatin, class: statin}
+  - {id: fenofibrate, name: Fenofibrate, class: fibrate}
+  - {id: warfarin, name: Warfarin, class: vka}
+  - {id: acenocoumarol, name: Acenocoumarol, class: vka}
+  - {id: apixaban, name: Apixaban, class: doac}
+  - {id: rivaroxaban, name: Rivaroxaban, class: doac}
+  - {id: aspirin, name: Aspirin (low dose), class: antiplatelet}
+  - {id: clopidogrel, name: Clopidogrel, class: antiplatelet}
+  - {id: digoxin, name: Digoxin, class: digoxin}
+  - {id: isosorbide, name: Isosorbide mononitrate, class: nitrate}
+  - {id: levothyroxine, name: Levothyroxine, class: thyroid}
+  - {id: allopurinol, name: Allopurinol, class: xanthine_oxidase}
+  - {id: febuxostat, name: Febuxostat, class: xanthine_oxidase}
+  - {id: colchicine, name: Colchicine, class: colchicine}
+  - {id: methotrexate, name: Methotrexate, class: methotrexate}
+  - {id: hydroxychloroquine, name: Hydroxychloroquine, class: dmard}
+  - {id: sulfasalazine, name: Sulfasalazine, class: dmard}
+  - {id: prednisolone, name: Prednisolone, class: steroid}
+  - {id: diclofenac, name: Diclofenac, class: nsaid}
+  - {id: aceclofenac, name: Aceclofenac, class: nsaid}
+  - {id: ibuprofen, name: Ibuprofen, class: nsaid}
+  - {id: naproxen, name: Naproxen, class: nsaid}
+  - {id: etoricoxib, name: Etoricoxib, class: nsaid}
+  - {id: sevelamer, name: Sevelamer, class: phosphate_binder}
+  - {id: calcium_acetate, name: Calcium acetate, class: phosphate_binder}
+  - {id: sodium_bicarbonate, name: Sodium bicarbonate tablets, class: sodium_bicarbonate}
+  - {id: ferrous_sulfate, name: Iron (ferrous sulfate / fumarate), class: iron}
+  - {id: calcium_carbonate, name: Calcium carbonate, class: calcium}
+  - {id: ursodiol, name: Ursodeoxycholic acid, class: udca}

@@ -1,0 +1,222 @@
+# Every message the engine can show, in English (en), Tamil (ta) and Hindi (hi).
+# {placeholders} are filled by the engine. Translations should be reviewed by native speakers.
+
+# ---------- nutrient names ----------
+n_energy_kcal: {en: "Energy", ta: "ஆற்றல்", hi: "ऊर्जा"}
+n_protein_g: {en: "Protein", ta: "புரதம்", hi: "प्रोटीन"}
+n_carb_g: {en: "Carbohydrates", ta: "மாவுச்சத்து", hi: "कार्बोहाइड्रेट"}
+n_fat_g: {en: "Fat", ta: "கொழுப்பு", hi: "वसा"}
+n_satfat_g: {en: "Saturated fat", ta: "நிறைவுற்ற கொழுப்பு", hi: "संतृप्त वसा"}
+n_fiber_g: {en: "Fibre", ta: "நார்ச்சத்து", hi: "फाइबर"}
+n_sugar_g: {en: "Added sugar", ta: "சேர்க்கப்பட்ட சர்க்கரை", hi: "अतिरिक्त चीनी"}
+n_sodium_mg: {en: "Sodium (salt)", ta: "சோடியம் (உப்பு)", hi: "सोडियम (नमक)"}
+n_potassium_mg: {en: "Potassium", ta: "பொட்டாசியம்", hi: "पोटैशियम"}
+n_phosphorus_mg: {en: "Phosphorus", ta: "பாஸ்பரஸ்", hi: "फॉस्फोरस"}
+n_vitk_ug: {en: "Vitamin K", ta: "வைட்டமின் K", hi: "विटामिन K"}
+
+# ---------- disease names ----------
+d_diabetes: {en: "Diabetes", ta: "நீரிழிவு", hi: "मधुमेह"}
+d_hypertension: {en: "High blood pressure", ta: "உயர் ரத்த அழுத்தம்", hi: "उच्च रक्तचाप"}
+d_cvd: {en: "Heart disease or stroke", ta: "இதய நோய் அல்லது பக்கவாதம்", hi: "हृदय रोग या स्ट्रोक"}
+d_heart_failure: {en: "Heart failure", ta: "இதய செயலிழப்பு", hi: "हार्ट फेलियर"}
+d_obesity: {en: "Obesity", ta: "உடல் பருமன்", hi: "मोटापा"}
+d_ckd: {en: "Kidney disease", ta: "சிறுநீரக நோய்", hi: "गुर्दे की बीमारी"}
+d_fatty_liver: {en: "Fatty liver", ta: "கொழுப்பு கல்லீரல்", hi: "फैटी लिवर"}
+d_metabolic_syndrome: {en: "Metabolic syndrome", ta: "வளர்சிதை மாற்ற நோய்க்குறி", hi: "मेटाबोलिक सिंड्रोम"}
+d_arthritis: {en: "Arthritis", ta: "மூட்டுவலி", hi: "गठिया"}
+d_medicine: {en: "Your medicines", ta: "உங்கள் மருந்துகள்", hi: "आपकी दवाएँ"}
+d_general: {en: "General health", ta: "பொது ஆரோக்கியம்", hi: "सामान्य स्वास्थ्य"}
+
+# ---------- disease reasons ----------
+carb_diabetes: {en: "Carbohydrates kept under half of your energy to steady blood sugar.", ta: "இரத்த சர்க்கரையை சீராக வைக்க மாவுச்சத்து உங்கள் ஆற்றலில் பாதிக்குக் கீழ் வைக்கப்பட்டுள்ளது.", hi: "ब्लड शुगर स्थिर रखने के लिए कार्बोहाइड्रेट आपकी ऊर्जा के आधे से कम रखे गए हैं।"}
+fiber_glucose: {en: "Fibre slows how fast sugar enters your blood.", ta: "நார்ச்சத்து சர்க்கரை இரத்தத்தில் சேரும் வேகத்தைக் குறைக்கிறது.", hi: "फाइबर खून में शुगर पहुँचने की रफ़्तार धीमी करता है।"}
+sugar_limit: {en: "Added sugar kept low.", ta: "சேர்க்கப்பட்ட சர்க்கரை குறைவாக வைக்கப்பட்டுள்ளது.", hi: "अतिरिक्त चीनी कम रखी गई है।"}
+satfat_heart: {en: "Saturated fat (ghee, butter, coconut, fatty meat) kept low to protect your heart.", ta: "இதயத்தைப் பாதுகாக்க நிறைவுற்ற கொழுப்பு (நெய், வெண்ணெய், தேங்காய், கொழுப்பு இறைச்சி) குறைவாக வைக்கப்பட்டுள்ளது.", hi: "दिल की सुरक्षा के लिए संतृप्त वसा (घी, मक्खन, नारियल, चर्बी वाला मांस) कम रखी गई है।"}
+sodium_general: {en: "Salt kept within the daily limit.", ta: "உப்பு தினசரி வரம்பிற்குள் வைக்கப்பட்டுள்ளது.", hi: "नमक रोज़ की सीमा में रखा गया है।"}
+sweet_diabetes: {en: "Sweets raise blood sugar quickly.", ta: "இனிப்புகள் இரத்த சர்க்கரையை வேகமாக உயர்த்தும்.", hi: "मिठाइयाँ ब्लड शुगर तेज़ी से बढ़ाती हैं।"}
+fried_food: {en: "Deep-fried food is kept rare.", ta: "எண்ணெயில் பொரித்த உணவு அரிதாகவே சேர்க்கப்படுகிறது.", hi: "तली हुई चीज़ें कभी-कभार ही रखी गई हैं।"}
+sodium_bp: {en: "Salt limited to 2,000 mg sodium a day (about 5 g salt) to lower blood pressure.", ta: "இரத்த அழுத்தத்தைக் குறைக்க உப்பு நாளொன்றுக்கு 2,000 மி.கி சோடியம் (சுமார் 5 கி உப்பு) வரை.", hi: "रक्तचाप घटाने के लिए नमक रोज़ 2,000 मि.ग्रा. सोडियम (लगभग 5 ग्राम नमक) तक।"}
+potassium_dash: {en: "Potassium-rich vegetables and fruits help lower blood pressure.", ta: "பொட்டாசியம் நிறைந்த காய்கறி, பழங்கள் இரத்த அழுத்தத்தைக் குறைக்க உதவும்.", hi: "पोटैशियम वाली सब्ज़ियाँ और फल रक्तचाप घटाने में मदद करते हैं।"}
+fiber_general: {en: "Plenty of fibre from whole grains, dals and vegetables.", ta: "முழு தானியங்கள், பருப்பு, காய்கறிகளிலிருந்து போதுமான நார்ச்சத்து.", hi: "साबुत अनाज, दाल और सब्ज़ियों से भरपूर फाइबर।"}
+alcohol_bp: {en: "Alcohol raises blood pressure.", ta: "மது இரத்த அழுத்தத்தை உயர்த்தும்.", hi: "शराब रक्तचाप बढ़ाती है।"}
+sodium_heart: {en: "Salt limited to protect your heart.", ta: "இதயத்தைப் பாதுகாக்க உப்பு கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "दिल की सुरक्षा के लिए नमक सीमित किया गया है।"}
+sodium_heart_failure: {en: "Stricter salt limit for heart failure, to reduce fluid build-up.", ta: "இதய செயலிழப்பில் நீர் தேக்கத்தைக் குறைக்க உப்பு மேலும் கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "हार्ट फेलियर में पानी जमा होना कम करने के लिए नमक और सख़्ती से सीमित।"}
+omega3_heart: {en: "Oily fish gives omega-3 fats that help the heart.", ta: "எண்ணெய் மீன்களில் உள்ள ஒமேகா-3 இதயத்திற்கு நல்லது.", hi: "तैलीय मछली का ओमेगा-3 दिल के लिए अच्छा है।"}
+whole_grain: {en: "Whole grains and millets preferred.", ta: "முழு தானியங்கள், சிறுதானியங்கள் முன்னுரிமை.", hi: "साबुत अनाज और मोटे अनाज को प्राथमिकता।"}
+alcohol_heart: {en: "Alcohol is harmful for the heart.", ta: "மது இதயத்திற்குத் தீங்கு.", hi: "शराब दिल के लिए हानिकारक है।"}
+fiber_fullness: {en: "Fibre keeps you full for longer.", ta: "நார்ச்சத்து நீண்ட நேரம் வயிறு நிறைந்த உணர்வைத் தரும்.", hi: "फाइबर देर तक पेट भरा रखता है।"}
+protein_muscle: {en: "Enough protein to keep muscle while losing weight.", ta: "எடை குறையும்போது தசையைக் காக்க போதுமான புரதம்.", hi: "वज़न घटाते समय मांसपेशियाँ बचाने के लिए पर्याप्त प्रोटीन।"}
+sweet_weight: {en: "Sweets add calories without filling you up.", ta: "இனிப்புகள் வயிறு நிரப்பாமல் கலோரியைக் கூட்டும்.", hi: "मिठाइयाँ पेट भरे बिना कैलोरी बढ़ाती हैं।"}
+sodium_kidney: {en: "Salt limited to protect your kidneys and blood pressure.", ta: "சிறுநீரகம், இரத்த அழுத்தத்தைப் பாதுகாக்க உப்பு கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "गुर्दे और रक्तचाप की सुरक्षा के लिए नमक सीमित।"}
+protein_ckd_early: {en: "Protein kept moderate so your kidneys are not overworked.", ta: "சிறுநீரகத்திற்கு அதிக சுமை வராமல் புரதம் மிதமாக வைக்கப்பட்டுள்ளது.", hi: "गुर्दों पर ज़्यादा बोझ न पड़े, इसलिए प्रोटीन संतुलित रखा गया।"}
+protein_ckd: {en: "Protein limited to 0.8 g per kg body weight to slow kidney damage.", ta: "சிறுநீரக பாதிப்பை மெதுவாக்க புரதம் உடல் எடை கிலோவுக்கு 0.8 கி வரை.", hi: "गुर्दे की क्षति धीमी करने के लिए प्रोटीन 0.8 ग्राम प्रति किलो वज़न तक।"}
+protein_ckd_min: {en: "Protein not allowed to drop too low, to avoid muscle loss.", ta: "தசை இழப்பைத் தவிர்க்க புரதம் மிகக் குறையாமல் பார்க்கப்படுகிறது.", hi: "मांसपेशियाँ न घटें, इसलिए प्रोटीन बहुत कम नहीं होने दिया गया।"}
+protein_dialysis: {en: "Dialysis removes protein, so you need more of it.", ta: "டயாலிசிஸ் புரதத்தை வெளியேற்றுவதால் அதிக புரதம் தேவை.", hi: "डायलिसिस से प्रोटीन निकलता है, इसलिए ज़्यादा प्रोटीन चाहिए।"}
+protein_dialysis_max: {en: "Protein kept within the dialysis range.", ta: "டயாலிசிஸ் வரம்பிற்குள் புரதம்.", hi: "प्रोटीन डायलिसिस सीमा के भीतर।"}
+potassium_ckd: {en: "Potassium limited to 2,000 mg a day: when kidneys can't clear it, high potassium can upset your heart rhythm.", ta: "பொட்டாசியம் நாளொன்றுக்கு 2,000 மி.கி வரை: சிறுநீரகம் வெளியேற்ற முடியாதபோது அதிக பொட்டாசியம் இதயத் துடிப்பைப் பாதிக்கும்.", hi: "पोटैशियम रोज़ 2,000 मि.ग्रा. तक: जब गुर्दे इसे बाहर नहीं निकाल पाते, तो ज़्यादा पोटैशियम दिल की धड़कन बिगाड़ सकता है।"}
+phosphorus_ckd: {en: "Phosphorus limited to protect your bones and blood vessels.", ta: "எலும்பு, இரத்த நாளங்களைப் பாதுகாக்க பாஸ்பரஸ் கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "हड्डियों और रक्त वाहिकाओं की सुरक्षा के लिए फॉस्फोरस सीमित।"}
+phosphorus_ckd_early: {en: "Phosphorus kept moderate.", ta: "பாஸ்பரஸ் மிதமாக வைக்கப்பட்டுள்ளது.", hi: "फॉस्फोरस संतुलित रखा गया।"}
+star_fruit_ckd: {en: "Star fruit can be poisonous when kidneys are weak.", ta: "சிறுநீரகம் பலவீனமாக இருக்கும்போது தமரத்தம் பழம் நச்சாகலாம்.", hi: "गुर्दे कमज़ोर हों तो कमरख ज़हरीला हो सकता है।"}
+coconut_water_ckd: {en: "Coconut water is very high in potassium.", ta: "இளநீரில் பொட்டாசியம் மிக அதிகம்.", hi: "नारियल पानी में पोटैशियम बहुत ज़्यादा होता है।"}
+no_salt_substitute: {en: "Do not use 'low-sodium' salt substitutes: they are made of potassium.", ta: "'குறைந்த சோடியம்' உப்பு மாற்றுகளைப் பயன்படுத்த வேண்டாம்: அவை பொட்டாசியத்தால் ஆனவை.", hi: "'लो-सोडियम' नमक का इस्तेमाल न करें: वह पोटैशियम से बना होता है।"}
+sugar_liver: {en: "Added sugar and sweet drinks kept very low: they turn into liver fat.", ta: "சேர்க்கப்பட்ட சர்க்கரை, இனிப்பு பானங்கள் மிகக் குறைவு: அவை கல்லீரல் கொழுப்பாக மாறும்.", hi: "अतिरिक्त चीनी और मीठे पेय बहुत कम: ये लिवर की चर्बी बनते हैं।"}
+satfat_liver: {en: "Saturated fat kept low for your liver.", ta: "கல்லீரலுக்காக நிறைவுற்ற கொழுப்பு குறைவு.", hi: "लिवर के लिए संतृप्त वसा कम।"}
+omega3_liver: {en: "Omega-3 from fish can reduce liver fat.", ta: "மீனில் உள்ள ஒமேகா-3 கல்லீரல் கொழுப்பைக் குறைக்கலாம்.", hi: "मछली का ओमेगा-3 लिवर की चर्बी घटा सकता है।"}
+alcohol_liver: {en: "No alcohol with fatty liver.", ta: "கொழுப்பு கல்லீரலில் மது கூடாது.", hi: "फैटी लिवर में शराब बिल्कुल नहीं।"}
+fiber_inflammation: {en: "Fibre-rich food helps lower inflammation.", ta: "நார்ச்சத்து உணவு அழற்சியைக் குறைக்க உதவும்.", hi: "फाइबर वाला खाना सूजन कम करने में मदद करता है।"}
+sugar_gout: {en: "Sugary drinks raise uric acid.", ta: "இனிப்பு பானங்கள் யூரிக் அமிலத்தை உயர்த்தும்.", hi: "मीठे पेय यूरिक एसिड बढ़ाते हैं।"}
+omega3_joints: {en: "Oily fish helps joint inflammation.", ta: "எண்ணெய் மீன் மூட்டு அழற்சிக்கு உதவும்.", hi: "तैलीय मछली जोड़ों की सूजन में मदद करती है।"}
+red_meat_gout: {en: "Red meat raises uric acid.", ta: "சிவப்பு இறைச்சி யூரிக் அமிலத்தை உயர்த்தும்.", hi: "लाल मांस यूरिक एसिड बढ़ाता है।"}
+purine_gout: {en: "Organ meat, small oily fish and shellfish are very high in purines and can trigger gout.", ta: "உள்ளுறுப்பு இறைச்சி, சிறிய எண்ணெய் மீன், ஓடுமீன்களில் பியூரின் அதிகம்; கீல்வாதத்தைத் தூண்டும்.", hi: "कलेजी-गुर्दा जैसे अंग, छोटी तैलीय मछली और झींगा-केकड़ा में प्यूरीन बहुत होता है; गाउट भड़का सकते हैं।"}
+alcohol_gout: {en: "Alcohol raises uric acid and triggers gout attacks.", ta: "மது யூரிக் அமிலத்தை உயர்த்தி கீல்வாதத்தைத் தூண்டும்.", hi: "शराब यूरिक एसिड बढ़ाकर गाउट का दौरा ला सकती है।"}
+fluids_gout: {en: "Drink 2 to 3 litres of water a day unless your doctor has limited fluids.", ta: "மருத்துவர் நீரைக் கட்டுப்படுத்தவில்லை என்றால் நாளொன்றுக்கு 2–3 லிட்டர் தண்ணீர் குடிக்கவும்.", hi: "अगर डॉक्टर ने पानी सीमित नहीं किया है तो रोज़ 2–3 लीटर पानी पिएँ।"}
+
+# ---------- medicine reasons ----------
+metformin_meals: {en: "Take metformin with food to avoid stomach upset.", ta: "வயிற்று உபாதையைத் தவிர்க்க மெட்ஃபார்மினை உணவுடன் எடுக்கவும்.", hi: "पेट की परेशानी से बचने के लिए मेटफॉर्मिन खाने के साथ लें।"}
+alcohol_metformin: {en: "Alcohol with metformin can cause a dangerous acid build-up.", ta: "மெட்ஃபார்மினுடன் மது ஆபத்தான அமிலத் தேக்கத்தை ஏற்படுத்தலாம்.", hi: "मेटफॉर्मिन के साथ शराब से खतरनाक एसिड जमा हो सकता है।"}
+hypo_su: {en: "Every main meal has enough carbohydrate so your diabetes tablet does not drop your sugar too low.", ta: "நீரிழிவு மாத்திரையால் சர்க்கரை மிகக் குறையாமல் இருக்க ஒவ்வொரு முக்கிய உணவிலும் போதுமான மாவுச்சத்து உள்ளது.", hi: "हर मुख्य भोजन में पर्याप्त कार्बोहाइड्रेट है ताकि डायबिटीज़ की गोली से शुगर बहुत कम न हो।"}
+no_skip_meals: {en: "Do not skip meals on this medicine.", ta: "இந்த மருந்தில் உணவைத் தவிர்க்க வேண்டாம்.", hi: "इस दवा पर खाना न छोड़ें।"}
+alcohol_hypo: {en: "Alcohol with this medicine can cause very low blood sugar.", ta: "இந்த மருந்துடன் மது மிகக் குறைந்த இரத்த சர்க்கரையை உண்டாக்கும்.", hi: "इस दवा के साथ शराब से शुगर बहुत कम हो सकती है।"}
+hypo_insulin: {en: "Every main meal has enough carbohydrate to match your insulin and prevent low sugar.", ta: "இன்சுலினுக்கு ஏற்ப, சர்க்கரை குறையாமல் இருக்க ஒவ்வொரு முக்கிய உணவிலும் போதுமான மாவுச்சத்து.", hi: "इंसुलिन के हिसाब से और शुगर कम न हो, इसलिए हर मुख्य भोजन में पर्याप्त कार्बोहाइड्रेट।"}
+carb_min_sglt2: {en: "At least 130 g carbohydrate a day: very low-carb diets are risky with this medicine (ketoacidosis).", ta: "நாளொன்றுக்கு குறைந்தது 130 கி மாவுச்சத்து: இந்த மருந்துடன் மிகக் குறைந்த மாவுச்சத்து உணவு ஆபத்தானது (கீட்டோஅசிடோசிஸ்).", hi: "रोज़ कम से कम 130 ग्राम कार्बोहाइड्रेट: इस दवा के साथ बहुत कम कार्ब वाला खाना जोखिम भरा है (कीटोएसिडोसिस)।"}
+fluids_sglt2: {en: "Drink enough water; this medicine passes sugar and water into urine.", ta: "போதுமான தண்ணீர் குடிக்கவும்; இந்த மருந்து சர்க்கரையையும் நீரையும் சிறுநீரில் வெளியேற்றும்.", hi: "पर्याप्त पानी पिएँ; यह दवा शुगर और पानी पेशाब में निकालती है।"}
+glp1_small_meals: {en: "Eat smaller meals and stop when full; oily food can cause nausea on this medicine.", ta: "சிறிய அளவில் சாப்பிட்டு நிறைந்ததும் நிறுத்தவும்; இந்த மருந்தில் எண்ணெய் உணவு குமட்டலை உண்டாக்கலாம்.", hi: "थोड़ा-थोड़ा खाएँ और पेट भरते ही रुकें; इस दवा पर तैलीय खाना मतली कर सकता है।"}
+pioglitazone_hf: {en: "Pioglitazone can worsen heart failure. Please check with your doctor.", ta: "பியோகிளிட்டசோன் இதய செயலிழப்பை மோசமாக்கலாம். மருத்துவரிடம் கேளுங்கள்.", hi: "पायोग्लिटाज़ोन हार्ट फेलियर बिगाड़ सकती है। कृपया डॉक्टर से पूछें।"}
+grapefruit_ccb: {en: "Pummelo/grapefruit can raise the level of this BP medicine in your blood.", ta: "பம்பளிமாஸ் இந்த இரத்த அழுத்த மருந்தின் அளவை இரத்தத்தில் உயர்த்தலாம்.", hi: "चकोतरा इस बीपी दवा का स्तर खून में बढ़ा सकता है।"}
+potassium_raas: {en: "Your BP medicine keeps potassium in the body; with your kidney or blood results, potassium is limited.", ta: "உங்கள் இரத்த அழுத்த மருந்து உடலில் பொட்டாசியத்தைத் தக்கவைக்கும்; உங்கள் சிறுநீரக/இரத்த முடிவுகளால் பொட்டாசியம் கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "आपकी बीपी दवा शरीर में पोटैशियम रोकती है; आपकी किडनी/ब्लड रिपोर्ट के कारण पोटैशियम सीमित किया गया।"}
+potassium_mra: {en: "This diuretic keeps potassium in the body, so potassium is limited.", ta: "இந்த சிறுநீர் மருந்து பொட்டாசியத்தைத் தக்கவைப்பதால் அது கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "यह पेशाब की दवा पोटैशियम रोकती है, इसलिए पोटैशियम सीमित किया गया।"}
+diuretic_morning: {en: "Take water tablets in the morning so sleep is not disturbed.", ta: "தூக்கம் கெடாமல் இருக்க சிறுநீர் மாத்திரையைக் காலையில் எடுக்கவும்.", hi: "नींद खराब न हो, इसलिए पेशाब की गोली सुबह लें।"}
+grapefruit_statin: {en: "Pummelo/grapefruit raises statin levels and the risk of muscle damage.", ta: "பம்பளிமாஸ் ஸ்டேட்டின் அளவை உயர்த்தி தசை பாதிப்பு அபாயத்தைக் கூட்டும்.", hi: "चकोतरा स्टैटिन का स्तर और मांसपेशी क्षति का खतरा बढ़ाता है।"}
+vitk_consistent: {en: "Vitamin K kept steady at 50–150 µg every day so your blood-thinner dose works predictably.", ta: "இரத்த மெலிவு மருந்து சீராக வேலை செய்ய வைட்டமின் K தினமும் 50–150 மை.கி அளவில் நிலையாக வைக்கப்பட்டுள்ளது.", hi: "खून पतला करने की दवा ठीक से काम करे, इसलिए विटामिन K रोज़ 50–150 माइक्रोग्राम पर स्थिर रखा गया।"}
+natto_warfarin: {en: "Fermented soybean (hawaijar, axone, kinema) has very high vitamin K and can stop warfarin working.", ta: "புளித்த சோயா (ஹவைஜார், அகோனே, கினேமா) வைட்டமின் K மிக அதிகம்; வார்ஃபரின் வேலை செய்யாமல் போகலாம்.", hi: "किण्वित सोयाबीन (हवाइजार, अखुनी, किनेमा) में विटामिन K बहुत ज़्यादा है; वारफेरिन का असर रुक सकता है।"}
+alcohol_warfarin: {en: "Alcohol changes how warfarin works and raises bleeding risk.", ta: "மது வார்ஃபரின் செயல்பாட்டை மாற்றி இரத்தப்போக்கு அபாயத்தைக் கூட்டும்.", hi: "शराब वारफेरिन का असर बदलती है और खून बहने का खतरा बढ़ाती है।"}
+warfarin_consistent: {en: "Keep green leafy vegetables steady from week to week instead of stopping them; tell your doctor before big diet changes.", ta: "கீரைகளை நிறுத்தாமல் வாரந்தோறும் ஒரே அளவில் சாப்பிடுங்கள்; பெரிய உணவு மாற்றத்திற்கு முன் மருத்துவரிடம் சொல்லுங்கள்.", hi: "हरी पत्तेदार सब्ज़ियाँ बंद न करें, हर हफ़्ते एक जैसी मात्रा में खाएँ; खाने में बड़ा बदलाव करने से पहले डॉक्टर को बताएँ।"}
+doac_food: {en: "Rivaroxaban 15 mg and 20 mg should be taken with a meal.", ta: "ரிவரோக்சபான் 15 மி.கி, 20 மி.கி உணவுடன் எடுக்க வேண்டும்.", hi: "रिवेरोक्साबान 15 मि.ग्रा. और 20 मि.ग्रा. खाने के साथ लें।"}
+alcohol_bleeding: {en: "Alcohol with this medicine raises stomach bleeding risk.", ta: "இந்த மருந்துடன் மது வயிற்று இரத்தப்போக்கு அபாயத்தைக் கூட்டும்.", hi: "इस दवा के साथ शराब से पेट में खून बहने का खतरा बढ़ता है।"}
+digoxin_fiber: {en: "Take digoxin at the same time each day, away from very high-fibre bran.", ta: "டிகாக்சினை தினமும் ஒரே நேரத்தில், அதிக நார்ச்சத்து தவிட்டிலிருந்து தள்ளி எடுக்கவும்.", hi: "डिगॉक्सिन रोज़ एक ही समय पर, बहुत ज़्यादा फाइबर वाले चोकर से दूर लें।"}
+alcohol_nitrate: {en: "Alcohol with nitrates can make your blood pressure fall suddenly.", ta: "நைட்ரேட் மருந்துடன் மது இரத்த அழுத்தத்தைத் திடீரெனக் குறைக்கலாம்.", hi: "नाइट्रेट दवा के साथ शराब से बीपी अचानक गिर सकता है।"}
+levothyroxine_empty: {en: "Take levothyroxine on an empty stomach 30–60 minutes before breakfast; keep tea, milk, soy, calcium and iron 4 hours away.", ta: "லெவோதைராக்சினை காலை உணவுக்கு 30–60 நிமிடம் முன் வெறும் வயிற்றில் எடுக்கவும்; டீ, பால், சோயா, கால்சியம், இரும்புச் சத்தை 4 மணி நேரம் தள்ளி வைக்கவும்.", hi: "लेवोथायरोक्सिन नाश्ते से 30–60 मिनट पहले खाली पेट लें; चाय, दूध, सोया, कैल्शियम और आयरन 4 घंटे दूर रखें।"}
+grapefruit_colchicine: {en: "Pummelo/grapefruit can raise colchicine to toxic levels.", ta: "பம்பளிமாஸ் கோல்சிசின் அளவை நச்சு நிலைக்கு உயர்த்தலாம்.", hi: "चकोतरा कोल्चिसिन को ज़हरीले स्तर तक बढ़ा सकता है।"}
+alcohol_methotrexate: {en: "No alcohol with methotrexate: both harm the liver.", ta: "மெத்தோட்ரெக்சேட்டுடன் மது கூடாது: இரண்டும் கல்லீரலைப் பாதிக்கும்.", hi: "मेथोट्रेक्सेट के साथ शराब नहीं: दोनों लिवर को नुकसान पहुँचाते हैं।"}
+methotrexate_folate: {en: "Take the folic acid your doctor prescribed with methotrexate.", ta: "மெத்தோட்ரெக்சேட்டுடன் மருத்துவர் கொடுத்த ஃபோலிக் அமிலத்தை எடுக்கவும்.", hi: "मेथोट्रेक्सेट के साथ डॉक्टर की दी हुई फोलिक एसिड लें।"}
+sodium_steroid: {en: "Steroids hold salt and water, so salt is limited.", ta: "ஸ்டீராய்டு உப்பு, நீரைத் தக்கவைப்பதால் உப்பு கட்டுப்படுத்தப்பட்டுள்ளது.", hi: "स्टेरॉयड नमक और पानी रोकते हैं, इसलिए नमक सीमित।"}
+sugar_steroid: {en: "Steroids raise blood sugar, so added sugar is kept low.", ta: "ஸ்டீராய்டு இரத்த சர்க்கரையை உயர்த்துவதால் சர்க்கரை குறைவு.", hi: "स्टेरॉयड ब्लड शुगर बढ़ाते हैं, इसलिए चीनी कम।"}
+steroid_calcium: {en: "Long-term steroids weaken bones: include curd, milk or ragi daily.", ta: "நீண்டகால ஸ்டீராய்டு எலும்பை பலவீனமாக்கும்: தினமும் தயிர், பால் அல்லது கேழ்வரகு சேர்க்கவும்.", hi: "लंबे समय तक स्टेरॉयड हड्डियाँ कमज़ोर करते हैं: रोज़ दही, दूध या रागी लें।"}
+nsaid_ckd: {en: "Painkillers like diclofenac and ibuprofen can damage weak kidneys. Ask your doctor for a safer option.", ta: "டைக்ளோஃபெனாக், இபுப்ரோஃபென் போன்ற வலி நிவாரணிகள் பலவீனமான சிறுநீரகத்தைப் பாதிக்கும். பாதுகாப்பான மாற்றை மருத்துவரிடம் கேளுங்கள்.", hi: "डाइक्लोफेनाक, आइबुप्रोफेन जैसी दर्द की दवाएँ कमज़ोर गुर्दों को नुकसान पहुँचाती हैं। डॉक्टर से सुरक्षित विकल्प पूछें।"}
+nsaid_hf: {en: "These painkillers can worsen heart failure. Check with your doctor.", ta: "இந்த வலி நிவாரணிகள் இதய செயலிழப்பை மோசமாக்கலாம். மருத்துவரிடம் கேளுங்கள்.", hi: "ये दर्द की दवाएँ हार्ट फेलियर बिगाड़ सकती हैं। डॉक्टर से पूछें।"}
+nsaid_bp: {en: "These painkillers can raise blood pressure.", ta: "இந்த வலி நிவாரணிகள் இரத்த அழுத்தத்தை உயர்த்தலாம்.", hi: "ये दर्द की दवाएँ रक्तचाप बढ़ा सकती हैं।"}
+alcohol_nsaid: {en: "Alcohol with painkillers raises stomach bleeding risk.", ta: "வலி நிவாரணியுடன் மது வயிற்று இரத்தப்போக்கு அபாயத்தைக் கூட்டும்.", hi: "दर्द की दवा के साथ शराब से पेट में खून बहने का खतरा बढ़ता है।"}
+binder_meals: {en: "Take phosphate binders with the first bites of each meal.", ta: "பாஸ்பேட் பைண்டரை ஒவ்வொரு உணவின் முதல் கவளங்களுடன் எடுக்கவும்.", hi: "फॉस्फेट बाइंडर हर भोजन के पहले कौर के साथ लें।"}
+bicarbonate_sodium: {en: "Sodium bicarbonate tablets add sodium; your doctor accounts for this.", ta: "சோடியம் பைகார்பனேட் மாத்திரைகள் சோடியத்தைக் கூட்டும்; மருத்துவர் இதைக் கணக்கில் கொள்வார்.", hi: "सोडियम बाइकार्बोनेट की गोलियाँ सोडियम बढ़ाती हैं; डॉक्टर इसका ध्यान रखते हैं।"}
+iron_tea: {en: "Take iron tablets 1 hour before food, with lemon water; keep tea, coffee, milk and calcium 2 hours away.", ta: "இரும்பு மாத்திரையை உணவுக்கு 1 மணி நேரம் முன் எலுமிச்சை நீருடன் எடுக்கவும்; டீ, காபி, பால், கால்சியத்தை 2 மணி நேரம் தள்ளி வைக்கவும்.", hi: "आयरन की गोली खाने से 1 घंटा पहले नींबू पानी के साथ लें; चाय, कॉफ़ी, दूध और कैल्शियम 2 घंटे दूर रखें।"}
+calcium_separate: {en: "Take calcium with meals, at least 4 hours apart from thyroid or iron tablets.", ta: "கால்சியத்தை உணவுடன், தைராய்டு அல்லது இரும்பு மாத்திரையிலிருந்து 4 மணி நேரம் தள்ளி எடுக்கவும்.", hi: "कैल्शियम खाने के साथ लें, थायरॉइड या आयरन की गोली से कम से कम 4 घंटे अलग।"}
+
+# ---------- personal settings ----------
+allergy: {en: "Contains {allergen}, which you are allergic to.", ta: "உங்களுக்கு ஒவ்வாமை உள்ள {allergen} இதில் உள்ளது.", hi: "इसमें {allergen} है, जिससे आपको एलर्जी है।"}
+diet_veg: {en: "Not vegetarian.", ta: "சைவம் அல்ல.", hi: "शाकाहारी नहीं है।"}
+diet_egg: {en: "Contains meat or fish.", ta: "இறைச்சி அல்லது மீன் உள்ளது.", hi: "इसमें मांस या मछली है।"}
+no_beef: {en: "Contains beef.", ta: "மாட்டிறைச்சி உள்ளது.", hi: "इसमें बीफ़ है।"}
+no_pork: {en: "Contains pork.", ta: "பன்றிக்கறி உள்ளது.", hi: "इसमें पोर्क है।"}
+a_milk: {en: "milk", ta: "பால்", hi: "दूध"}
+a_peanut: {en: "peanut", ta: "வேர்க்கடலை", hi: "मूंगफली"}
+a_treenut: {en: "tree nuts", ta: "கொட்டைகள்", hi: "मेवे"}
+a_gluten: {en: "gluten (wheat, barley)", ta: "குளூட்டன் (கோதுமை, பார்லி)", hi: "ग्लूटेन (गेहूँ, जौ)"}
+a_egg: {en: "egg", ta: "முட்டை", hi: "अंडा"}
+a_fish: {en: "fish", ta: "மீன்", hi: "मछली"}
+a_shellfish: {en: "shellfish", ta: "ஓடுமீன்", hi: "झींगा/केकड़ा"}
+a_soy: {en: "soy", ta: "சோயா", hi: "सोया"}
+a_sesame: {en: "sesame", ta: "எள்", hi: "तिल"}
+
+# ---------- conflict ledger ----------
+conflict: {en: "{loser} asks for {nutrient} {loser_dir} {loser_value}, but {winner} needs it {winner_dir} {winner_value}. The {winner} limit was kept because it guards against a more serious risk.", ta: "{loser} {nutrient} {loser_value} க்கு {loser_dir} வேண்டும், ஆனால் {winner} க்கு அது {winner_value} க்கு {winner_dir} தேவை. மேலும் கடுமையான அபாயத்தைத் தடுப்பதால் {winner} வரம்பு வைக்கப்பட்டது.", hi: "{loser} के लिए {nutrient} {loser_value} से {loser_dir} चाहिए, पर {winner} के लिए यह {winner_value} से {winner_dir} होना ज़रूरी है। {winner} वाली सीमा रखी गई क्योंकि यह ज़्यादा गंभीर खतरे से बचाती है।"}
+dir_min: {en: "at least", ta: "அதிகம்", hi: "ज़्यादा"}
+dir_max: {en: "at most", ta: "குறைவு", hi: "कम"}
+tightened: {en: "{nutrient}: the strictest limit ({value}) from {source} was used.", ta: "{nutrient}: {source} இலிருந்து மிகக் கடுமையான வரம்பு ({value}) பயன்படுத்தப்பட்டது.", hi: "{nutrient}: {source} की सबसे सख़्त सीमा ({value}) लागू की गई।"}
+weight_loss: {en: "Energy set about 500 kcal below your needs for slow, steady weight loss (BMI {bmi}).", ta: "மெதுவான, சீரான எடை குறைப்புக்கு உங்கள் தேவையை விட சுமார் 500 கிலோகலோரி குறைவாக (BMI {bmi}).", hi: "धीरे-धीरे वज़न घटाने के लिए ऊर्जा आपकी ज़रूरत से लगभग 500 किलो कैलोरी कम रखी गई (BMI {bmi})।"}
+relaxed: {en: "{nutrient} could not be kept {dir} {value} with the foods available, so it was relaxed to {new_value}. Please discuss with your dietitian.", ta: "கிடைக்கும் உணவுகளுடன் {nutrient} ஐ {value} க்கு {dir} வைக்க முடியவில்லை; {new_value} ஆக தளர்த்தப்பட்டது. உங்கள் உணவியல் நிபுணரிடம் பேசுங்கள்.", hi: "उपलब्ध खाने से {nutrient} को {value} से {dir} नहीं रखा जा सका, इसलिए इसे {new_value} किया गया। कृपया अपने डायटीशियन से बात करें।"}
+
+# ---------- region ----------
+region_home: {en: "From your home region ({zone}).", ta: "உங்கள் சொந்த பகுதியிலிருந்து ({zone}).", hi: "आपके अपने क्षेत्र ({zone}) से।"}
+region_second: {en: "From your second region ({zone}).", ta: "உங்கள் இரண்டாவது பகுதியிலிருந்து ({zone}).", hi: "आपके दूसरे क्षेत्र ({zone}) से।"}
+region_neighbour: {en: "From a neighbouring region ({zone}), used because your home-region dishes could not meet all your limits.", ta: "அண்டை பகுதியிலிருந்து ({zone}); உங்கள் பகுதி உணவுகள் எல்லா வரம்புகளையும் பூர்த்தி செய்யாததால்.", hi: "पड़ोसी क्षेत्र ({zone}) से, क्योंकि आपके क्षेत्र के व्यंजन सभी सीमाएँ पूरी नहीं कर सके।"}
+region_common: {en: "A common all-India dish, used because regional dishes could not meet all your limits.", ta: "பொதுவான அனைத்திந்திய உணவு; பகுதி உணவுகள் எல்லா வரம்புகளையும் பூர்த்தி செய்யாததால்.", hi: "आम अखिल भारतीय व्यंजन, क्योंकि क्षेत्रीय व्यंजन सभी सीमाएँ पूरी नहीं कर सके।"}
+region_universal: {en: "An everyday basic eaten across India.", ta: "இந்தியா முழுவதும் உண்ணப்படும் அன்றாட உணவு.", hi: "पूरे भारत में खाई जाने वाली रोज़ की चीज़।"}
+tier_1: {en: "All meals come from your home region.", ta: "எல்லா உணவுகளும் உங்கள் சொந்த பகுதியிலிருந்து.", hi: "सारे भोजन आपके अपने क्षेत्र से हैं।"}
+tier_2: {en: "Your home-region dishes could not meet every limit, so some dishes from neighbouring regions were added.", ta: "உங்கள் பகுதி உணவுகள் எல்லா வரம்புகளையும் பூர்த்தி செய்யவில்லை; அண்டை பகுதி உணவுகள் சேர்க்கப்பட்டன.", hi: "आपके क्षेत्र के व्यंजन हर सीमा पूरी नहीं कर सके, इसलिए पड़ोसी क्षेत्रों के कुछ व्यंजन जोड़े गए।"}
+tier_3: {en: "Regional dishes could not meet every limit, so common all-India dishes were added.", ta: "பகுதி உணவுகள் எல்லா வரம்புகளையும் பூர்த்தி செய்யவில்லை; பொதுவான அனைத்திந்திய உணவுகள் சேர்க்கப்பட்டன.", hi: "क्षेत्रीय व्यंजन हर सीमा पूरी नहीं कर सके, इसलिए आम अखिल भारतीय व्यंजन जोड़े गए।"}
+tier_relaxed: {en: "Even with all dishes, some limits could not be met. Soft limits were relaxed; safety limits were kept. Please talk to your dietitian.", ta: "எல்லா உணவுகளுடனும் சில வரம்புகளைப் பூர்த்தி செய்ய முடியவில்லை. மென்மையான வரம்புகள் தளர்த்தப்பட்டன; பாதுகாப்பு வரம்புகள் வைக்கப்பட்டன. உணவியல் நிபுணரிடம் பேசுங்கள்.", hi: "सभी व्यंजनों के साथ भी कुछ सीमाएँ पूरी नहीं हो सकीं। नरम सीमाएँ ढीली की गईं; सुरक्षा सीमाएँ रखी गईं। कृपया अपने डायटीशियन से बात करें।"}
+no_plan: {en: "No safe plan could be made with your current settings. Please check your allergies and diet choices, or talk to your dietitian.", ta: "உங்கள் தற்போதைய அமைப்புகளுடன் பாதுகாப்பான திட்டம் உருவாக்க முடியவில்லை. ஒவ்வாமை, உணவு தேர்வுகளைச் சரிபாருங்கள் அல்லது உணவியல் நிபுணரிடம் பேசுங்கள்.", hi: "आपकी मौजूदा सेटिंग्स से कोई सुरक्षित योजना नहीं बन सकी। अपनी एलर्जी और खाने की पसंद जाँचें या डायटीशियन से बात करें।"}
+
+# ---------- dish changes ----------
+variant_less_salt: {en: "Made with half the usual salt.", ta: "வழக்கமான உப்பில் பாதியுடன்.", hi: "आधे नमक के साथ बना।"}
+variant_very_low_salt: {en: "Made with a quarter of the usual salt; add lemon, pepper or herbs for taste.", ta: "வழக்கமான உப்பில் கால் பங்குடன்; சுவைக்கு எலுமிச்சை, மிளகு, மூலிகை சேர்க்கவும்.", hi: "सामान्य नमक के चौथाई हिस्से के साथ; स्वाद के लिए नींबू, काली मिर्च या हर्ब डालें।"}
+variant_leached: {en: "Soak cut vegetables in warm water, boil them and throw away the water: this removes much of the potassium.", ta: "நறுக்கிய காய்கறிகளை வெதுவெதுப்பான நீரில் ஊறவைத்து, வேகவைத்து, அந்த நீரைக் கொட்டிவிடுங்கள்: இது பொட்டாசியத்தை பெருமளவு நீக்கும்.", hi: "कटी सब्ज़ियाँ गुनगुने पानी में भिगोएँ, उबालें और पानी फेंक दें: इससे काफ़ी पोटैशियम निकल जाता है।"}
+portion: {en: "Portion: {portion}× the usual serving.", ta: "அளவு: வழக்கமான அளவின் {portion}×.", hi: "मात्रा: सामान्य हिस्से का {portion}×।"}
+
+# ---------- why this meal ----------
+why_low_sodium: {en: "Low in salt", ta: "உப்பு குறைவு", hi: "कम नमक"}
+why_high_fiber: {en: "High in fibre", ta: "நார்ச்சத்து அதிகம்", hi: "फाइबर ज़्यादा"}
+why_low_gi: {en: "Gentle on blood sugar", ta: "இரத்த சர்க்கரைக்கு மென்மையானது", hi: "ब्लड शुगर पर हल्का"}
+why_protein: {en: "Good protein source", ta: "நல்ல புரத ஆதாரம்", hi: "अच्छा प्रोटीन स्रोत"}
+why_low_potassium: {en: "Low in potassium", ta: "பொட்டாசியம் குறைவு", hi: "कम पोटैशियम"}
+why_omega3: {en: "Omega-3 rich fish", ta: "ஒமேகா-3 நிறைந்த மீன்", hi: "ओमेगा-3 वाली मछली"}
+why_whole_grain: {en: "Whole grain / millet", ta: "முழு தானியம் / சிறுதானியம்", hi: "साबुत अनाज / मोटा अनाज"}
+why_low_satfat: {en: "Low in saturated fat", ta: "நிறைவுற்ற கொழுப்பு குறைவு", hi: "कम संतृप्त वसा"}
+why_liked: {en: "You liked this before", ta: "நீங்கள் முன்பு விரும்பியது", hi: "आपको पहले पसंद आया था"}
+
+# ---------- food check ----------
+verdict_avoid: {en: "Avoid", ta: "தவிர்க்கவும்", hi: "न खाएँ"}
+verdict_limit: {en: "Eat less / occasionally", ta: "குறைவாக / எப்போதாவது", hi: "कम / कभी-कभार"}
+verdict_ok: {en: "Fits your plan", ta: "உங்கள் திட்டத்திற்கு ஏற்றது", hi: "आपकी योजना में ठीक"}
+serving_share: {en: "One serving has {value} of {nutrient}: {pct}% of your daily limit.", ta: "ஒரு பரிமாறலில் {nutrient} {value}: உங்கள் தினசரி வரம்பில் {pct}%.", hi: "एक हिस्से में {nutrient} {value} है: आपकी रोज़ की सीमा का {pct}%।"}
+vitk_high_serving: {en: "One serving has {value} µg vitamin K, above your steady daily range. Keep portions small and regular.", ta: "ஒரு பரிமாறலில் {value} மை.கி வைட்டமின் K; உங்கள் நிலையான தினசரி வரம்பை விட அதிகம். சிறிய, சீரான அளவில் சாப்பிடுங்கள்.", hi: "एक हिस्से में {value} माइक्रोग्राम विटामिन K है, जो आपकी स्थिर रोज़ की सीमा से ज़्यादा है। छोटा और नियमित हिस्सा लें।"}
+high_gl: {en: "High glycemic load ({gl}): expect a large rise in blood sugar.", ta: "அதிக கிளைசெமிக் சுமை ({gl}): இரத்த சர்க்கரை அதிகம் உயரலாம்.", hi: "ज़्यादा ग्लाइसेमिक लोड ({gl}): ब्लड शुगर काफ़ी बढ़ सकती है।"}
+medium_gl: {en: "Medium glycemic load ({gl}): pair with dal, vegetables or curd.", ta: "நடுத்தர கிளைசெமிக் சுமை ({gl}): பருப்பு, காய்கறி அல்லது தயிருடன் சாப்பிடுங்கள்.", hi: "मध्यम ग्लाइसेमिक लोड ({gl}): दाल, सब्ज़ी या दही के साथ खाएँ।"}
+fried_note: {en: "Deep-fried: high in fat and calories.", ta: "எண்ணெயில் பொரித்தது: கொழுப்பும் கலோரியும் அதிகம்.", hi: "तला हुआ: वसा और कैलोरी ज़्यादा।"}
+sweet_note: {en: "Sweet: high in added sugar.", ta: "இனிப்பு: சேர்க்கப்பட்ட சர்க்கரை அதிகம்.", hi: "मीठा: अतिरिक्त चीनी ज़्यादा।"}
+
+# ---------- health insights ----------
+insight_egfr: {en: "Kidney function (eGFR) is {egfr} mL/min, which is stage {stage}.", ta: "சிறுநீரக செயல்பாடு (eGFR) {egfr} மி.லி/நிமிடம்; இது நிலை {stage}.", hi: "गुर्दे की कार्यक्षमता (eGFR) {egfr} mL/min है, यानी स्टेज {stage}।"}
+insight_bmi: {en: "BMI {bmi} ({category} for Indian adults).", ta: "BMI {bmi} (இந்திய பெரியவர்களுக்கு {category}).", hi: "BMI {bmi} (भारतीय वयस्कों के लिए {category})।"}
+bmi_normal: {en: "healthy", ta: "ஆரோக்கியமானது", hi: "स्वस्थ"}
+bmi_under: {en: "underweight", ta: "எடை குறைவு", hi: "कम वज़न"}
+bmi_over: {en: "overweight", ta: "அதிக எடை", hi: "अधिक वज़न"}
+bmi_obese: {en: "obese", ta: "உடல் பருமன்", hi: "मोटापा"}
+insight_mets: {en: "Your results meet the criteria for metabolic syndrome ({count} of 5 signs). Discuss with your doctor.", ta: "உங்கள் முடிவுகள் வளர்சிதை மாற்ற நோய்க்குறிக்கான அளவுகோல்களைப் பூர்த்தி செய்கின்றன (5 இல் {count}). மருத்துவரிடம் பேசுங்கள்.", hi: "आपकी रिपोर्ट मेटाबोलिक सिंड्रोम के मानदंड पूरे करती है (5 में से {count} संकेत)। डॉक्टर से बात करें।"}
+insight_fib4: {en: "Liver scarring score (FIB-4) is {fib4}: {level}.", ta: "கல்லீரல் வடு மதிப்பெண் (FIB-4) {fib4}: {level}.", hi: "लिवर स्कारिंग स्कोर (FIB-4) {fib4}: {level}।"}
+fib4_low: {en: "low risk", ta: "குறைந்த அபாயம்", hi: "कम जोखिम"}
+fib4_mid: {en: "unclear, ask your doctor about a FibroScan", ta: "தெளிவில்லை; ஃபைப்ரோஸ்கேன் பற்றி மருத்துவரிடம் கேளுங்கள்", hi: "अस्पष्ट, डॉक्टर से फाइब्रोस्कैन के बारे में पूछें"}
+fib4_high: {en: "high risk, please see a liver specialist", ta: "அதிக அபாயம்; கல்லீரல் நிபுணரைப் பாருங்கள்", hi: "ज़्यादा जोखिम, कृपया लिवर विशेषज्ञ से मिलें"}
+insight_idrs: {en: "Indian Diabetes Risk Score is {score}: {level}.", ta: "இந்திய நீரிழிவு அபாய மதிப்பெண் {score}: {level}.", hi: "इंडियन डायबिटीज़ रिस्क स्कोर {score}: {level}।"}
+idrs_low: {en: "low risk", ta: "குறைந்த அபாயம்", hi: "कम जोखिम"}
+idrs_mid: {en: "moderate risk", ta: "மிதமான அபாயம்", hi: "मध्यम जोखिम"}
+idrs_high: {en: "high risk, please get a blood sugar test", ta: "அதிக அபாயம்; இரத்த சர்க்கரை பரிசோதனை செய்யுங்கள்", hi: "ज़्यादा जोखिम, कृपया शुगर की जाँच कराएँ"}
+insight_chd: {en: "Heart risk indicator (research model): {pct}% chance of coronary heart disease in people with similar numbers. {level}", ta: "இதய அபாய குறிகாட்டி (ஆய்வு மாதிரி): இதே எண்கள் உள்ளவர்களில் {pct}% இதய நோய் வாய்ப்பு. {level}", hi: "हृदय जोखिम संकेतक (रिसर्च मॉडल): ऐसे आँकड़ों वाले लोगों में {pct}% कोरोनरी हृदय रोग की संभावना। {level}"}
+chd_high: {en: "Your plan now uses stricter heart limits. Please see your doctor.", ta: "உங்கள் திட்டம் இப்போது கடுமையான இதய வரம்புகளைப் பயன்படுத்துகிறது. மருத்துவரைப் பாருங்கள்.", hi: "आपकी योजना अब दिल के लिए सख़्त सीमाएँ इस्तेमाल करती है। कृपया डॉक्टर से मिलें।"}
+chd_low: {en: "", ta: "", hi: ""}
+insight_potassium_high: {en: "Blood potassium {value} mmol/L is high. Potassium is now limited in your plan; please tell your doctor.", ta: "இரத்த பொட்டாசியம் {value} mmol/L அதிகம். உங்கள் திட்டத்தில் இப்போது பொட்டாசியம் கட்டுப்படுத்தப்பட்டுள்ளது; மருத்துவரிடம் சொல்லுங்கள்.", hi: "खून में पोटैशियम {value} mmol/L ज़्यादा है। आपकी योजना में अब पोटैशियम सीमित है; कृपया डॉक्टर को बताएँ।"}
+insight_hba1c: {en: "HbA1c {value}%: {level}.", ta: "HbA1c {value}%: {level}.", hi: "HbA1c {value}%: {level}।"}
+hba1c_ok: {en: "at target", ta: "இலக்கில் உள்ளது", hi: "लक्ष्य पर"}
+hba1c_high: {en: "above the usual target of 7%", ta: "வழக்கமான இலக்கு 7% ஐ விட அதிகம்", hi: "सामान्य लक्ष्य 7% से ऊपर"}
+insight_bp: {en: "Blood pressure {sbp}/{dbp} mmHg: {level}.", ta: "இரத்த அழுத்தம் {sbp}/{dbp} mmHg: {level}.", hi: "रक्तचाप {sbp}/{dbp} mmHg: {level}।"}
+bp_ok: {en: "at target", ta: "இலக்கில் உள்ளது", hi: "लक्ष्य पर"}
+bp_high: {en: "above the usual target of 130/80", ta: "வழக்கமான இலக்கு 130/80 ஐ விட அதிகம்", hi: "सामान्य लक्ष्य 130/80 से ऊपर"}
+bp_very_high: {en: "very high, please contact your doctor today", ta: "மிக அதிகம்; இன்றே மருத்துவரைத் தொடர்பு கொள்ளுங்கள்", hi: "बहुत ज़्यादा, कृपया आज ही डॉक्टर से संपर्क करें"}
+glucose_predict: {en: "Estimated rise after this meal: about {rise} mg/dL ({basis}).", ta: "இந்த உணவுக்குப் பின் மதிப்பிடப்பட்ட உயர்வு: சுமார் {rise} mg/dL ({basis}).", hi: "इस भोजन के बाद अनुमानित बढ़त: लगभग {rise} mg/dL ({basis})।"}
+basis_personal: {en: "based on your own readings", ta: "உங்கள் சொந்த அளவீடுகளின் அடிப்படையில்", hi: "आपकी अपनी रीडिंग के आधार पर"}
+basis_population: {en: "general estimate; log your after-meal readings to personalise it", ta: "பொது மதிப்பீடு; தனிப்பயனாக்க உணவுக்குப் பின் அளவீடுகளைப் பதிவு செய்யுங்கள்", hi: "सामान्य अनुमान; इसे निजी बनाने के लिए खाने के बाद की रीडिंग दर्ज करें"}
+
+# ---------- medicine timing ----------
+t_before_breakfast: {en: "Before breakfast (empty stomach)", ta: "காலை உணவுக்கு முன் (வெறும் வயிறு)", hi: "नाश्ते से पहले (खाली पेट)"}
+t_with_breakfast: {en: "With breakfast", ta: "காலை உணவுடன்", hi: "नाश्ते के साथ"}
+t_with_meals: {en: "With meals", ta: "உணவுடன்", hi: "खाने के साथ"}
+t_bedtime: {en: "Evening or bedtime", ta: "மாலை அல்லது தூங்கும் முன்", hi: "शाम या सोने से पहले"}
+t_any: {en: "As prescribed", ta: "மருத்துவர் சொன்னபடி", hi: "डॉक्टर के बताए अनुसार"}
+
+# ---------- zones and automatic findings ----------
+z_north: {en: "North", ta: "வடக்கு", hi: "उत्तर"}
+z_south: {en: "South", ta: "தெற்கு", hi: "दक्षिण"}
+z_east: {en: "East", ta: "கிழக்கு", hi: "पूर्व"}
+z_west: {en: "West", ta: "மேற்கு", hi: "पश्चिम"}
+z_northeast: {en: "North-East", ta: "வடகிழக்கு", hi: "पूर्वोत्तर"}
+insight_ckd_auto: {en: "Your creatinine result gives an eGFR of {egfr} (stage {stage}), which means reduced kidney function. Kidney-safe limits have been applied. Please confirm with your doctor.", ta: "உங்கள் கிரியாட்டினின் முடிவு eGFR {egfr} (நிலை {stage}) ஆகும்; இது சிறுநீரக செயல்பாடு குறைந்திருப்பதைக் காட்டுகிறது. சிறுநீரகப் பாதுகாப்பு வரம்புகள் பயன்படுத்தப்பட்டுள்ளன. மருத்துவரிடம் உறுதிப்படுத்துங்கள்.", hi: "आपके क्रिएटिनिन से eGFR {egfr} (स्टेज {stage}) आता है, यानी गुर्दे की कार्यक्षमता कम है। गुर्दे के लिए सुरक्षित सीमाएँ लागू की गई हैं। कृपया डॉक्टर से पुष्टि करें।"}

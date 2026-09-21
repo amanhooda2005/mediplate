@@ -1,0 +1,73 @@
+{
+ "model_id": "M1-heart",
+ "chosen": "logistic_regression",
+ "features": [
+  "age",
+  "sbp",
+  "ldl_mmol",
+  "family_history",
+  "bmi",
+  "smoker"
+ ],
+ "feature_units": {
+  "age": "years",
+  "sbp": "mmHg",
+  "ldl_mmol": "mmol/L (LDL mg/dL ÷ 38.67)",
+  "family_history": "0/1 heart disease in parents or siblings",
+  "bmi": "kg/m²",
+  "smoker": "0/1 current or past tobacco use"
+ },
+ "cv": "repeated stratified 5-fold (5 repeats)",
+ "scores": {
+  "logistic_regression": {
+   "auc_mean": 0.7685,
+   "auc_sd": 0.0391
+  },
+  "gradient_boosting": {
+   "auc_mean": 0.7265,
+   "auc_sd": 0.0473
+  }
+ },
+ "oof_auc": 0.7625,
+ "calibration_quintiles": [
+  {
+   "predicted": 0.065,
+   "observed": 0.086,
+   "n": 93
+  },
+  {
+   "predicted": 0.182,
+   "observed": 0.174,
+   "n": 92
+  },
+  {
+   "predicted": 0.322,
+   "observed": 0.402,
+   "n": 92
+  },
+  {
+   "predicted": 0.484,
+   "observed": 0.348,
+   "n": 92
+  },
+  {
+   "predicted": 0.674,
+   "observed": 0.72,
+   "n": 93
+  }
+ ],
+ "n_rows": 462,
+ "positive_rate": 0.346,
+ "dataset": "South African Heart Disease (Rousseauw et al. 1983), via PMLB",
+ "limitations": "Men aged 15-64 from a high-risk region of the Western Cape. Research indicator only, not a validated clinical risk score for Indian adults.",
+ "high_risk_threshold": 0.5,
+ "trained_at": "2026-09-21T14:30:09+00:00",
+ "coefficients_standardised": {
+  "age": 0.691,
+  "sbp": 0.1346,
+  "ldl_mmol": 0.3449,
+  "family_history": 0.4443,
+  "bmi": -0.1276,
+  "smoker": 0.3479
+ }
+}
