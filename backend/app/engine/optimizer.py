@@ -22,7 +22,7 @@ from .. import knowledge
 from ..config import get_settings
 from .glycemic import GlucoseModel
 from .plan_config import (DAY_SLOTS, MAIN_MEALS, PORTIONS, SALT_FACTORS, UNLIMITED_SLOTS, WEEKLY_CAP,
-                          variant_nutrients)
+                          can_leach, variant_nutrients)
 from .profile import PatientContext
 from .ranker import Preferences
 from .safety import SafetyResult
@@ -110,7 +110,7 @@ def build_options(ctx: PatientContext, targets: TargetSet, safety: SafetyResult,
                     dish_cost += p["weight"]
             salts = salt_levels if dish["salt_g"] > 0 else [1.0]
             # When potassium is restricted, vegetables are always soaked and boiled.
-            leaches = [True] if (targets.leaching and dish["potassium_leachable_mg"] >= 50) else [False]
+            leaches = [True] if (targets.leaching and can_leach(dish)) else [False]
             for portion in PORTIONS[slot_type]:
                 for salt in salts:
                     for leach in leaches:

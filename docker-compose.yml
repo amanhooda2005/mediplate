@@ -1,0 +1,20 @@
+# docker compose up --build   ->   http://localhost:8000
+services:
+  mediplate:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      MEDIPLATE_SECRET_KEY: ${MEDIPLATE_SECRET_KEY:-please-change-this-to-a-long-random-string}
+      MEDIPLATE_ADMIN_EMAIL: ${MEDIPLATE_ADMIN_EMAIL:-admin@mediplate.in}
+      MEDIPLATE_ADMIN_PASSWORD: ${MEDIPLATE_ADMIN_PASSWORD:-ChangeMe!2026}
+      # To use PostgreSQL instead of the built-in SQLite file, uncomment the db
+      # service below and this line:
+      # MEDIPLATE_DATABASE_URL: postgresql+psycopg://mediplate:mediplate@db:5432/mediplate
+    volumes: ["mediplate-data:/data"]
+  # db:
+  #   image: postgres:16
+  #   environment: {POSTGRES_USER: mediplate, POSTGRES_PASSWORD: mediplate, POSTGRES_DB: mediplate}
+  #   volumes: ["pg-data:/var/lib/postgresql/data"]
+volumes:
+  mediplate-data:
+  # pg-data:

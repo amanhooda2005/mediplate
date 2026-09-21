@@ -56,7 +56,7 @@
 - {id: oats_porridge, slot: breakfast, common: true, diet: veg, name: "Oats porridge with milk and apple", ta: "பால், ஆப்பிளுடன் ஓட்ஸ் கஞ்சி", hi: "दूध और सेब के साथ ओट्स दलिया", ing: {SUP005: 40, SUP004: 150, E001: 60}, salt: 0, tags: []}
 - {id: oats_upma, slot: breakfast, common: true, diet: veg, name: "Vegetable oats upma", ta: "காய்கறி ஓட்ஸ் உப்புமா", hi: "सब्ज़ी ओट्स उपमा", ing: {SUP005: 45, G017: 20, F002: 20, D050: 20, D061: 15, T012: 5}, salt: 1.0, tags: []}
 - {id: boiled_egg_roti, slot: breakfast, common: true, diet: egg, name: "Boiled eggs with roti and cucumber", ta: "வேகவைத்த முட்டை, ரொட்டி, வெள்ளரி", hi: "उबले अंडे, रोटी और खीरा", ing: {M004: 100, A019: 40, D043: 50}, salt: 0.6, tags: []}
-- {id: sprouts_bowl, slot: breakfast, common: true, diet: veg, name: "Sprouted moong salad bowl", ta: "முளைகட்டிய பாசிப்பயறு சாலட்", hi: "अंकुरित मूंग सलाद", ing: {B011: 50, G017: 20, D075: 30, D043: 30, E033: 5}, salt: 0.6, tags: []}
+- {id: sprouts_bowl, slot: breakfast, common: true, diet: veg, name: "Sprouted moong salad bowl", ta: "முளைகட்டிய பாசிப்பயறு சாலட்", hi: "अंकुरित मूंग सलाद", ing: {B011: 50, G017: 20, D075: 30, D043: 30, E033: 5}, salt: 0.6, tags: [raw]}
 
 # ============================ STAPLES ============================
 - {id: white_rice, slot: staple, zones: [south, east, northeast], diet: veg, name: "Steamed white rice", ta: "வெள்ளை சாதம்", hi: "सादा चावल", ing: {A015: 60}, salt: 0, tags: []}
@@ -185,10 +185,10 @@
 
 # ============================ SIDES (universal basics) ============================
 - {id: no_side, slot: side, universal: true, diet: veg, name: "No side dish", ta: "பக்க உணவு இல்லை", hi: "कोई साइड नहीं", ing: {}, salt: 0, tags: [none]}
-- {id: plain_curd, slot: side, universal: true, diet: veg, name: "Plain curd", ta: "தயிர்", hi: "सादा दही", ing: {SUP003: 100}, salt: 0, tags: []}
-- {id: buttermilk, slot: side, universal: true, diet: veg, name: "Spiced buttermilk", ta: "மோர்", hi: "छाछ", ing: {SUP003: 60, G025: 0.3}, salt: 0.5, tags: []}
-- {id: cucumber_raita, slot: side, universal: true, diet: veg, name: "Cucumber raita", ta: "வெள்ளரி ரைத்தா", hi: "खीरे का रायता", ing: {SUP003: 80, D043: 40}, salt: 0.5, tags: []}
-- {id: green_salad, slot: side, universal: true, diet: veg, name: "Green salad", ta: "பச்சைக் காய்கறி சாலட்", hi: "हरा सलाद", ing: {D043: 50, D075: 40, F002: 30, G017: 20, E033: 5}, salt: 0.3, tags: []}
+- {id: plain_curd, slot: side, universal: true, diet: veg, name: "Plain curd", ta: "தயிர்", hi: "सादा दही", ing: {SUP003: 100}, salt: 0, tags: [raw]}
+- {id: buttermilk, slot: side, universal: true, diet: veg, name: "Spiced buttermilk", ta: "மோர்", hi: "छाछ", ing: {SUP003: 60, G025: 0.3}, salt: 0.5, tags: [raw]}
+- {id: cucumber_raita, slot: side, universal: true, diet: veg, name: "Cucumber raita", ta: "வெள்ளரி ரைத்தா", hi: "खीरे का रायता", ing: {SUP003: 80, D043: 40}, salt: 0.5, tags: [raw]}
+- {id: green_salad, slot: side, universal: true, diet: veg, name: "Green salad", ta: "பச்சைக் காய்கறி சாலட்", hi: "हरा सलाद", ing: {D043: 50, D075: 40, F002: 30, G017: 20, E033: 5}, salt: 0.3, tags: [raw]}
 
 # ============================ SNACKS ============================
 - {id: chana_sundal, slot: snack, zones: [south], diet: veg, name: "Chana sundal", ta: "கொண்டைக்கடலை சுண்டல்", hi: "चना सुंडल", ing: {B002: 35, H007: 8, T005: 3, G010: 1}, salt: 0.6, tags: []}
@@ -196,17 +196,17 @@
 - {id: filter_coffee, slot: snack, zones: [south], diet: veg, name: "Filter coffee (less sugar)", ta: "ஃபில்டர் காபி (குறைந்த சர்க்கரை)", hi: "फ़िल्टर कॉफ़ी (कम चीनी)", ing: {SUP004: 100, SUP008: 50, SUP002: 5}, salt: 0, tags: []}
 - {id: murukku, slot: snack, zones: [south], diet: veg, name: "Murukku", ta: "முறுக்கு", hi: "मुरुक्कू", ing: {A015: 25, B003: 5, T005: 10}, salt: 0.6, tags: [fried]}
 - {id: coconut_water, slot: snack, zones: [south], diet: veg, name: "Tender coconut water", ta: "இளநீர்", hi: "नारियल पानी", ing: {K002: 250}, salt: 0, tags: []}
-- {id: sprouts_chaat, slot: snack, zones: [west, north], diet: veg, name: "Sprouts chaat", ta: "முளைகட்டிய பயறு சாட்", hi: "अंकुरित चाट", ing: {B011: 40, G017: 15, D075: 20, E033: 5}, salt: 0.5, tags: []}
+- {id: sprouts_chaat, slot: snack, zones: [west, north], diet: veg, name: "Sprouts chaat", ta: "முளைகட்டிய பயறு சாட்", hi: "अंकुरित चाट", ing: {B011: 40, G017: 15, D075: 20, E033: 5}, salt: 0.5, tags: [raw]}
 - {id: peanut_chikki, slot: snack, zones: [west], diet: veg, name: "Peanut chikki", ta: "கடலை மிட்டாய்", hi: "मूंगफली चिक्की", ing: {H012: 20, I001: 15}, salt: 0, tags: [sweet]}
-- {id: jhal_muri, slot: snack, zones: [east], diet: veg, name: "Jhal muri", ta: "ஜல் முரி (பொரி)", hi: "झाल मुड़ी", ing: {A012: 30, H012: 10, G017: 15, D043: 20, T006: 3}, salt: 0.6, tags: []}
-- {id: kala_chana_chaat, slot: snack, zones: [east], diet: veg, name: "Kala chana chaat", ta: "கருப்பு கொண்டைக்கடலை சாட்", hi: "काला चना चाट", ing: {B002: 35, G017: 15, E033: 5}, salt: 0.5, tags: []}
+- {id: jhal_muri, slot: snack, zones: [east], diet: veg, name: "Jhal muri", ta: "ஜல் முரி (பொரி)", hi: "झाल मुड़ी", ing: {A012: 30, H012: 10, G017: 15, D043: 20, T006: 3}, salt: 0.6, tags: [raw]}
+- {id: kala_chana_chaat, slot: snack, zones: [east], diet: veg, name: "Kala chana chaat", ta: "கருப்பு கொண்டைக்கடலை சாட்", hi: "काला चना चाट", ing: {B002: 35, G017: 15, E033: 5}, salt: 0.5, tags: [raw]}
 - {id: samosa, slot: snack, zones: [north], diet: veg, name: "Samosa", ta: "சமோசா", hi: "समोसा", ing: {A018: 30, F006: 50, D061: 10, T012: 12}, salt: 0.8, tags: [fried]}
 - {id: pakora, slot: snack, zones: [north, east], diet: veg, name: "Onion pakora", ta: "வெங்காய பக்கோடா", hi: "प्याज़ पकौड़ा", ing: {B001: 30, G017: 40, T012: 12}, salt: 0.8, tags: [fried]}
 - {id: sweet_lassi, slot: snack, zones: [north], diet: veg, name: "Sweet lassi", ta: "இனிப்பு லஸ்ஸி", hi: "मीठी लस्सी", ing: {SUP003: 150, SUP002: 15}, salt: 0, tags: [sweet]}
 - {id: boiled_corn, slot: snack, zones: [north, northeast], diet: veg, name: "Boiled corn (bhutta)", ta: "வேகவைத்த சோளம்", hi: "उबला भुट्टा", ing: {A007: 100}, salt: 0.3, tags: []}
 - {id: roasted_chana, slot: snack, universal: true, diet: veg, name: "Roasted chana", ta: "வறுத்த கடலை", hi: "भुने चने", ing: {B002: 30}, salt: 0.2, tags: []}
 - {id: masala_chai, slot: snack, universal: true, diet: veg, name: "Masala chai (less sugar)", ta: "மசாலா டீ (குறைந்த சர்க்கரை)", hi: "मसाला चाय (कम चीनी)", ing: {SUP004: 100, SUP007: 100, SUP002: 5, G014: 1}, salt: 0, tags: []}
-- {id: nuts_mix, slot: snack, universal: true, diet: veg, name: "Almonds and walnuts (handful)", ta: "பாதாம், அக்ரூட் (ஒரு கைப்பிடி)", hi: "बादाम और अखरोट (मुट्ठी भर)", ing: {H001: 10, H021: 10}, salt: 0, tags: []}
+- {id: nuts_mix, slot: snack, universal: true, diet: veg, name: "Almonds and walnuts (handful)", ta: "பாதாம், அக்ரூட் (ஒரு கைப்பிடி)", hi: "बादाम और अखरोट (मुट्ठी भर)", ing: {H001: 10, H021: 10}, salt: 0, tags: [raw]}
 - {id: boiled_egg, slot: snack, universal: true, diet: egg, name: "Boiled egg", ta: "வேகவைத்த முட்டை", hi: "उबला अंडा", ing: {M004: 50}, salt: 0.2, tags: []}
 - {id: fruit_apple, slot: snack, universal: true, diet: veg, name: "Apple", ta: "ஆப்பிள்", hi: "सेब", ing: {E001: 150}, salt: 0, tags: [fruit]}
 - {id: fruit_banana, slot: snack, universal: true, diet: veg, name: "Banana", ta: "வாழைப்பழம்", hi: "केला", ing: {E012: 100}, salt: 0, tags: [fruit]}

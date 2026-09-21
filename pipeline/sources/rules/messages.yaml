@@ -151,6 +151,7 @@ no_plan: {en: "No safe plan could be made with your current settings. Please che
 variant_less_salt: {en: "Made with half the usual salt.", ta: "வழக்கமான உப்பில் பாதியுடன்.", hi: "आधे नमक के साथ बना।"}
 variant_very_low_salt: {en: "Made with a quarter of the usual salt; add lemon, pepper or herbs for taste.", ta: "வழக்கமான உப்பில் கால் பங்குடன்; சுவைக்கு எலுமிச்சை, மிளகு, மூலிகை சேர்க்கவும்.", hi: "सामान्य नमक के चौथाई हिस्से के साथ; स्वाद के लिए नींबू, काली मिर्च या हर्ब डालें।"}
 variant_leached: {en: "Soak cut vegetables in warm water, boil them and throw away the water: this removes much of the potassium.", ta: "நறுக்கிய காய்கறிகளை வெதுவெதுப்பான நீரில் ஊறவைத்து, வேகவைத்து, அந்த நீரைக் கொட்டிவிடுங்கள்: இது பொட்டாசியத்தை பெருமளவு நீக்கும்.", hi: "कटी सब्ज़ियाँ गुनगुने पानी में भिगोएँ, उबालें और पानी फेंक दें: इससे काफ़ी पोटैशियम निकल जाता है।"}
+variant_leached_short: {en: "Vegetables soaked and boiled to lower potassium.", ta: "பொட்டாசியத்தைக் குறைக்க காய்கறிகள் ஊறவைத்து வேகவைக்கப்பட்டன.", hi: "पोटैशियम घटाने के लिए सब्ज़ियाँ भिगोकर उबाली गईं।"}
 portion: {en: "Portion: {portion}× the usual serving.", ta: "அளவு: வழக்கமான அளவின் {portion}×.", hi: "मात्रा: सामान्य हिस्से का {portion}×।"}
 
 # ---------- why this meal ----------

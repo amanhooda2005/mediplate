@@ -276,6 +276,8 @@ def build_targets(ctx: PatientContext) -> TargetSet:
         ts.leaching = True
     if k_lim and k_lim.max_hard is not None and not ctx.has("ckd"):
         ts.leaching = True  # medicine-driven potassium limit: leaching helps too
+    if ts.leaching:
+        ts.advice.insert(0, msg("variant_leached"))
     return ts
 
 

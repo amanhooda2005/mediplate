@@ -17,7 +17,7 @@ from common import (BACKEND_DATA, DIETS, NUTRIENTS, REPORTS, SLOTS, SODIUM_PER_G
                     SOURCES, log, read_json, write_json)
 
 REQUIRED = {"id", "slot", "diet", "name", "ta", "hi", "ing", "salt", "tags"}
-DISH_TAGS = {"fried", "sweet", "soup", "fermented", "steamed", "fruit", "none", "alcohol"}
+DISH_TAGS = {"fried", "sweet", "soup", "fermented", "steamed", "fruit", "none", "alcohol", "raw"}
 INHERITED_TAGS = [
     "allergen_milk", "allergen_peanut", "allergen_treenut", "allergen_gluten", "allergen_egg",
     "allergen_fish", "allergen_shellfish", "allergen_soy", "allergen_sesame", "beef", "pork",

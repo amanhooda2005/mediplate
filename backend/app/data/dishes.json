@@ -3071,7 +3071,8 @@
   "common": true,
   "universal": false,
   "tags": [
-   "legume"
+   "legume",
+   "raw"
   ],
   "ingredients": [
    {
@@ -10928,7 +10929,8 @@
   "common": false,
   "universal": true,
   "tags": [
-   "allergen_milk"
+   "allergen_milk",
+   "raw"
   ],
   "ingredients": [
    {
@@ -10978,7 +10980,8 @@
   "common": false,
   "universal": true,
   "tags": [
-   "allergen_milk"
+   "allergen_milk",
+   "raw"
   ],
   "ingredients": [
    {
@@ -11033,7 +11036,8 @@
   "common": false,
   "universal": true,
   "tags": [
-   "allergen_milk"
+   "allergen_milk",
+   "raw"
   ],
   "ingredients": [
    {
@@ -11091,7 +11095,9 @@
   "zones": [],
   "common": false,
   "universal": true,
-  "tags": [],
+  "tags": [
+   "raw"
+  ],
   "ingredients": [
    {
     "code": "D043",
@@ -11495,7 +11501,8 @@
   "common": false,
   "universal": false,
   "tags": [
-   "legume"
+   "legume",
+   "raw"
   ],
   "ingredients": [
    {
@@ -11628,7 +11635,8 @@
   "common": false,
   "universal": false,
   "tags": [
-   "allergen_peanut"
+   "allergen_peanut",
+   "raw"
   ],
   "ingredients": [
    {
@@ -11708,7 +11716,8 @@
   "common": false,
   "universal": false,
   "tags": [
-   "legume"
+   "legume",
+   "raw"
   ],
   "ingredients": [
    {
@@ -12140,7 +12149,8 @@
   "common": false,
   "universal": true,
   "tags": [
-   "allergen_treenut"
+   "allergen_treenut",
+   "raw"
   ],
   "ingredients": [
    {

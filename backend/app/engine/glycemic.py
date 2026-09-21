@@ -1,7 +1,8 @@
 """M2 - Glucose response.
 
 Without continuous-glucose training data the population estimate is the
-glycemic load (GL) of the meal: ≤10 low, 11-19 medium, ≥20 high (per serving).
+glycemic load (GL): ≤10 low, 11-19 medium, ≥20 high per serving (≤20 / <35 /
+≥35 for a whole meal).
 Once a patient logs at least three before/after-meal readings, a personal
 slope (mg/dL rise per GL unit) is fitted by least squares through the origin,
 and predictions switch to their own numbers. If a CGMacros-trained model is
@@ -44,10 +45,16 @@ def fit(readings: list[tuple[float, float]]) -> GlucoseModel:
     return GlucoseModel(slope=round(slope, 3) if slope is not None else None, n=len(pts))
 
 
-def describe(gl: float, model: GlucoseModel) -> dict:
-    """What to show the patient about a meal's effect on blood sugar."""
+# Glycemic-load bands: the classic cut-offs (10 / 20) are for ONE serving of a
+# food; a whole mixed meal naturally carries more, so meals use 20 / 35.
+BANDS = {"serving": (10.0, 20.0), "meal": (20.0, 35.0)}
+
+
+def describe(gl: float, model: GlucoseModel, per: str = "serving") -> dict:
+    """What to show the patient about a food's or meal's effect on blood sugar."""
     gl = round(gl, 1)
-    level = "low" if gl <= 10 else "medium" if gl < 20 else "high"
+    low, high = BANDS[per]
+    level = "low" if gl <= low else "medium" if gl < high else "high"
     out = {"gl": gl, "level": level, "estimate_mgdl": None, "message": None}
     if model.personal:
         rise = round(model.slope * gl)

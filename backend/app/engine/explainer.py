@@ -79,7 +79,7 @@ def item_json(o: Option, ctx: PatientContext, targets: TargetSet, prefs: Prefere
     elif o.salt == 0.25:
         notes.append(msg("variant_very_low_salt"))
     if o.leach:
-        notes.append(msg("variant_leached"))
+        notes.append(msg("variant_leached_short"))
     if o.portion != 1.0:
         notes.append(msg("portion", portion=o.portion))
     return {
@@ -140,7 +140,7 @@ def day_json(dr: DayResult, ctx: PatientContext, targets: TargetSet, prefs: Pref
     if targets.glycemic_focus:
         for meal in MEALS:
             gl = sum(o.gl for o in dr.chosen.values() if o.meal == meal)
-            glyc[meal] = describe(gl, glucose)
+            glyc[meal] = describe(gl, glucose, per="meal")
     return {
         "index": dr.day_index, "date": dr.date, "feasible": True, "tier": dr.tier, "relaxed": dr.relaxed,
         "message": msg("tier_relaxed") if dr.relaxed else None,

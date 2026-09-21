@@ -39,8 +39,13 @@ def variant_nutrients(dish: dict, portion: float, salt: float, leach: bool) -> d
     return {k: v * portion for k, v in n.items()}
 
 
+def can_leach(dish: dict) -> bool:
+    """Soak-and-boil only makes sense for cooked vegetable dishes, never raw ones."""
+    return dish["potassium_leachable_mg"] >= 50 and not ({"raw", "fruit"} & set(dish["tags"]))
+
+
 def min_variant(dish: dict, leaching_allowed: bool) -> dict[str, float]:
     """Smallest amounts of each nutrient any variant of this dish can have."""
     p = min(PORTIONS[dish["slot"]])
     salt = min(SALT_FACTORS) if dish["salt_g"] > 0 else 1.0
-    return variant_nutrients(dish, p, salt, leaching_allowed and dish["potassium_leachable_mg"] > 0)
+    return variant_nutrients(dish, p, salt, leaching_allowed and can_leach(dish))

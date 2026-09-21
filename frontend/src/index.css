@@ -1,0 +1,82 @@
+@import "@fontsource-variable/bricolage-grotesque";
+@import "@fontsource/noto-sans/400.css";
+@import "@fontsource/noto-sans/500.css";
+@import "@fontsource/noto-sans/600.css";
+@import "@fontsource/noto-sans/700.css";
+@import "@fontsource/noto-sans-tamil/400.css";
+@import "@fontsource/noto-sans-tamil/600.css";
+@import "@fontsource/noto-sans-devanagari/400.css";
+@import "@fontsource/noto-sans-devanagari/600.css";
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque Variable", "Noto Sans Tamil", "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-sans: "Noto Sans", "Noto Sans Tamil", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  --color-ground: #f3f6f4;
+  --color-surface: #ffffff;
+  --color-ink: #15211d;
+  --color-muted: #56655f;
+  --color-line: #d6e0db;
+  --color-line-strong: #b9c8c1;
+
+  --color-leaf: #1e6b52;
+  --color-leaf-dark: #155240;
+  --color-leaf-soft: #e1efe9;
+
+  --color-ok: #23724a;
+  --color-ok-soft: #e3f2e8;
+  --color-limit: #9a6212;
+  --color-limit-soft: #fbf0dc;
+  --color-avoid: #b23c17;
+  --color-avoid-soft: #fbe5dc;
+  --color-info: #2c5a8f;
+  --color-info-soft: #e5eef8;
+
+  --radius-card: 14px;
+}
+
+html {
+  font-size: 17px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-wrap: balance;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+:lang(ta) h1, :lang(ta) h2, :lang(ta) h3,
+:lang(hi) h1, :lang(hi) h2, :lang(hi) h3 {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+:focus-visible {
+  outline: 3px solid #2c7a5f;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+.pb-safe { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 5.5rem); }
+@media (min-width: 768px) { .pb-safe { padding-bottom: 3rem; } }
+
+@keyframes plate-spin { to { transform: rotate(360deg); } }
+.spin { animation: plate-spin 1.1s linear infinite; }
