@@ -6,7 +6,8 @@
 #   ./scripts/rebuild_all.sh --fast       # skip the report (data, models, tests only)
 #   ./scripts/rebuild_all.sh --no-pdf     # build the .docx files but skip the PDF step
 #
-# Takes about 8 minutes: the evaluation in report/experiments.py is most of it.
+# Uses the project's .venv, creating it on first run. Takes about 8 minutes;
+# the evaluation in report/experiments.py is most of it.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -21,11 +22,31 @@ done
 
 say() { printf '\n\033[1;32m==> %s\033[0m\n' "$1"; }
 
+# ---------------------------------------------------------------- environment
+# Everything runs in .venv, the same one scripts/start.sh uses, so the tests and
+# the server always see identical package versions.
+if [ ! -d .venv ]; then
+  say "0/6  Creating .venv (first run only)"
+  python3 -m venv .venv
+fi
+# shellcheck disable=SC1091
+. .venv/bin/activate
+
+if ! python -c "import fastapi, sklearn, ortools" 2>/dev/null; then
+  say "0/6  Installing project requirements"
+  pip install -q -r backend/requirements.txt
+fi
+if ! python -c "import pytest, httpx" 2>/dev/null \
+   || { [ "$FAST" = "0" ] && ! python -c "import matplotlib" 2>/dev/null; }; then
+  say "0/6  Installing test and report requirements"
+  pip install -q -r requirements-dev.txt
+fi
+
 say "1/6  Data pipeline (foods, rules, recipes, models)"
-python3 pipeline/run_all.py
+python pipeline/run_all.py
 
 say "2/6  Backend tests"
-(cd backend && python3 -m pytest tests -q)
+(cd backend && python -m pytest tests -q)
 
 say "3/6  Website build (type-check + missing translations)"
 (cd frontend && npm run build)
@@ -36,8 +57,8 @@ if [ "$FAST" = "1" ]; then
 fi
 
 say "4/6  Evaluation: every number and figure in the report"
-python3 report/experiments.py
-python3 report/metrics_m1.py
+python report/experiments.py
+python report/metrics_m1.py
 
 say "5/6  Documents"
 if [ ! -d report/node_modules ]; then
@@ -52,7 +73,7 @@ if [ "$NOPDF" = "1" ]; then
 fi
 
 say "6/6  PDFs"
-if python3 report/to_pdf.py; then
+if python report/to_pdf.py; then
   :
 else
   echo "PDF step failed. The .docx files in report/ are fine — export them from Word."
