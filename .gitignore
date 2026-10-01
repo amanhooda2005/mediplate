@@ -13,3 +13,9 @@ e2e/screenshots/
 
 # report builder dependencies
 report/node_modules/
+
+.DS_Store
+**/.DS_Store
+.Rhistory
+.pytest_cache/
+report/node_modules/
