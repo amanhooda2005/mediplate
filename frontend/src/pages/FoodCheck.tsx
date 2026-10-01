@@ -4,7 +4,7 @@ import { api } from '../api/client'
 import type { CheckOut, SearchResult } from '../api/types'
 import { AlertIcon, CheckIcon, InfoIcon, SearchIcon, XIcon } from '../components/icons'
 import { GlChip } from '../components/PlanParts'
-import { Button, Card, Chip, ErrorBanner, Field, Input, PageHeader, Select, Spinner, Verdict, cx } from '../components/ui'
+import { Button, Card, Chip, ErrorBanner, Field, Input, PageHeader, Select, Skeleton, Spinner, Verdict, cx, stagger } from '../components/ui'
 import { useI18n } from '../i18n/I18n'
 
 function useDebounced<T>(value: T, ms: number): T {
@@ -45,15 +45,17 @@ export function FoodCheck() {
               onChange={(e) => setQ(e.target.value)} className="pl-11 text-[1.05rem]" />
           </div>
           {dq.length < 2 && <p className="text-sm text-muted">{t('try_search')}</p>}
-          {search.isFetching && <Spinner />}
+          {search.isFetching && !search.data && <div className="py-2"><Skeleton className="h-11" lines={4} /></div>}
           <ErrorBanner error={search.error} />
-          {search.data && search.data.length === 0 && <p className="text-muted">{t('no_results')}</p>}
+          {search.data && search.data.length === 0 && <p className="a-fade text-muted">{t('no_results')}</p>}
           {search.data && search.data.length > 0 && (
-            <ul className="grid max-h-[32rem] gap-1 overflow-y-auto">
-              {search.data.map((r) => (
-                <li key={`${r.type}-${r.id}`}>
+            <ul className={cx('grid max-h-[32rem] gap-1 overflow-y-auto transition-opacity duration-[var(--dur-2)]',
+              search.isFetching && 'opacity-60')}>
+              {search.data.map((r, i) => (
+                <li key={`${r.type}-${r.id}`} className="a-fade" style={stagger(Math.min(i, 8))}>
                   <button type="button" onClick={() => { setPicked(r); setPortion(1); setGrams(100) }}
                     className={cx('flex min-h-12 w-full items-center justify-between gap-3 rounded-[10px] px-3 py-2 text-left',
+                      'transition-[background-color,transform] duration-[var(--dur-1)] ease-[var(--ease-out)] active:scale-[0.99]',
                       picked?.id === r.id && picked.type === r.type ? 'bg-leaf-soft' : 'hover:bg-ground')}>
                     <span className="grid">
                       <span className="font-semibold">{r.type === 'dish' ? dishName({ name: r.name, name_ta: r.name_ta, name_hi: r.name_hi }) : r.name}</span>
@@ -69,7 +71,7 @@ export function FoodCheck() {
 
         <div className="grid content-start gap-4">
           {picked && (
-            <Card className="grid gap-3 p-4">
+            <Card className="a-rise grid gap-3 p-4">
               {picked.type === 'dish' ? (
                 <Field id="portion" label={t('portion')}>
                   <Select id="portion" value={portion} onChange={(e) => setPortion(Number(e.target.value))} className="max-w-48">
@@ -86,7 +88,9 @@ export function FoodCheck() {
           )}
           {check.isPending && <Spinner />}
           <ErrorBanner error={check.error} />
-          {check.data && !check.isPending && <CheckResult r={check.data} />}
+          {check.data && !check.isPending && (
+            <div key={`${check.data.item_type}-${check.data.name}-${check.data.portion}`}><CheckResult r={check.data} /></div>
+          )}
         </div>
       </div>
     </>
@@ -99,7 +103,7 @@ function CheckResult({ r }: { r: CheckOut }) {
   const unit = (k: string) => k === 'energy_kcal' ? 'kcal' : k === 'vitk_ug' ? 'µg' : k.endsWith('_g') ? 'g' : 'mg'
   const { mk } = useI18n()
   return (
-    <Card className="grid gap-4 p-5" as="article">
+    <Card className="a-rise grid gap-4 p-5" as="article">
       <div className="grid gap-2">
         <h2 className="text-[1.6rem] font-bold">{dishName(r)}</h2>
         {lang !== 'en' && r.item_type === 'dish' && <p className="text-muted">{r.name}</p>}
@@ -111,7 +115,7 @@ function CheckResult({ r }: { r: CheckOut }) {
       </div>
 
       {r.alerts.length > 0 && (
-        <ul className="grid gap-2">
+        <ul className="a-stagger grid gap-2">
           {r.alerts.map((a) => {
             const Icon = a.severity === 'avoid' ? XIcon : a.severity === 'limit' ? AlertIcon : InfoIcon
             const tone = a.severity === 'avoid' ? 'border-avoid/30 bg-avoid-soft' : a.severity === 'limit' ? 'border-limit/30 bg-limit-soft' : 'border-line bg-ground'

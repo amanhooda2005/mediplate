@@ -61,7 +61,7 @@
  "dataset": "South African Heart Disease (Rousseauw et al. 1983), via PMLB",
  "limitations": "Men aged 15-64 from a high-risk region of the Western Cape. Research indicator only, not a validated clinical risk score for Indian adults.",
  "high_risk_threshold": 0.5,
- "trained_at": "2026-09-21T14:59:35+00:00",
+ "trained_at": "2026-10-01T18:07:48+00:00",
  "coefficients_standardised": {
   "age": 0.691,
   "sbp": 0.1346,

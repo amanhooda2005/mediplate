@@ -1,0 +1,1005 @@
+{
+ "foods_by_group": {
+  "Cereals and Millets": 26,
+  "Grain Legumes": 27,
+  "Green Leafy Vegetables": 34,
+  "Other Vegetables": 78,
+  "Fruits": 68,
+  "Roots and Tubers": 19,
+  "Condiments and Spices": 33,
+  "Nuts and Oil Seeds": 21,
+  "Sugars": 3,
+  "Mushrooms": 4,
+  "Miscellaneous Foods": 3,
+  "Milk and Milk Products": 6,
+  "Egg and Egg Products": 15,
+  "Poultry": 19,
+  "Animal Meat": 63,
+  "Marine Fish": 92,
+  "Marine Shellfish": 8,
+  "Marine Mollusks": 7,
+  "Fresh Water Fish and Shellfish": 10,
+  "Edible Oils and Fats": 14,
+  "Condiments": 1,
+  "Beverages": 2
+ },
+ "dish_coverage": {
+  "north": {
+   "breakfast": 7,
+   "staple": 6,
+   "protein": 12,
+   "veg": 9,
+   "side": 0,
+   "snack": 5
+  },
+  "south": {
+   "breakfast": 9,
+   "staple": 8,
+   "protein": 10,
+   "veg": 8,
+   "side": 0,
+   "snack": 5
+  },
+  "east": {
+   "breakfast": 5,
+   "staple": 4,
+   "protein": 9,
+   "veg": 7,
+   "side": 0,
+   "snack": 3
+  },
+  "west": {
+   "breakfast": 7,
+   "staple": 4,
+   "protein": 9,
+   "veg": 7,
+   "side": 0,
+   "snack": 2
+  },
+  "northeast": {
+   "breakfast": 5,
+   "staple": 2,
+   "protein": 8,
+   "veg": 6,
+   "side": 0,
+   "snack": 1
+  },
+  "common": {
+   "breakfast": 4,
+   "staple": 1,
+   "protein": 5,
+   "veg": 2,
+   "side": 0,
+   "snack": 0
+  },
+  "universal": {
+   "breakfast": 0,
+   "staple": 0,
+   "protein": 0,
+   "veg": 0,
+   "side": 5,
+   "snack": 15
+  }
+ },
+ "dish_nutrient_medians": {
+  "breakfast": {
+   "sodium_mg": 482.3
+  },
+  "staple": {
+   "sodium_mg": 2.9
+  },
+  "protein": {
+   "sodium_mg": 481.4
+  },
+  "veg": {
+   "sodium_mg": 328.6
+  },
+  "side": {
+   "sodium_mg": 141.0
+  },
+  "snack": {
+   "sodium_mg": 49.1
+  }
+ },
+ "m1": {
+  "n": 462,
+  "positives": 160,
+  "auc_mean": {
+   "Logistic regression": 0.769,
+   "Gradient boosting": 0.727
+  },
+  "auc_sd": {
+   "Logistic regression": 0.039,
+   "Gradient boosting": 0.047
+  },
+  "oof_auc": {
+   "Logistic regression": 0.767,
+   "Gradient boosting": 0.722
+  },
+  "brier": 0.182,
+  "confusion_at_0_5": {
+   "tn": 249,
+   "fp": 53,
+   "fn": 80,
+   "tp": 80
+  },
+  "sensitivity": 0.5,
+  "specificity": 0.825,
+  "ppv": 0.602,
+  "accuracy": 0.712,
+  "coefficients": {
+   "Age": 0.691,
+   "Systolic BP": 0.135,
+   "LDL cholesterol": 0.345,
+   "Family history": 0.444,
+   "BMI": -0.128,
+   "Smoker": 0.348
+  },
+  "calibration": [
+   {
+    "pred": 0.066,
+    "obs": 0.086
+   },
+   {
+    "pred": 0.181,
+    "obs": 0.163
+   },
+   {
+    "pred": 0.332,
+    "obs": 0.38
+   },
+   {
+    "pred": 0.488,
+    "obs": 0.402
+   },
+   {
+    "pred": 0.671,
+    "obs": 0.699
+   }
+  ]
+ },
+ "planner": {
+  "patients": 100,
+  "days": 300,
+  "feasible_days": 300,
+  "hard_checks": 1032,
+  "hard_violations": 0,
+  "tiers": {
+   "tier1": 291,
+   "tier2": 9
+  },
+  "home_share_mean": 0.992,
+  "home_share_min": 0.5714,
+  "solve_s_per_day": {
+   "median": 0.37,
+   "p90": 1.76,
+   "max": 2.56
+  },
+  "soft_goal_met_pct": {
+   "fiber_g": 99.3,
+   "protein_g": 80.6,
+   "satfat_g": 97.7,
+   "sugar_g": 100.0,
+   "carb_g": 89.2,
+   "potassium_mg": 68.6,
+   "sodium_mg": 100.0,
+   "phosphorus_mg": 100.0
+  },
+  "removed_dishes_median": 20.0,
+  "patients_with_conflicts": 12
+ },
+ "region_ablation_pct_home": {
+  "with_region_first": {
+   "north": 100.0,
+   "south": 100.0,
+   "east": 100.0,
+   "west": 100.0,
+   "northeast": 100.0
+  },
+  "without": {
+   "north": 47.1,
+   "south": 10.6,
+   "east": 17.1,
+   "west": 29.5,
+   "northeast": 9.3
+  }
+ },
+ "safety_scenarios": [
+  {
+   "scenario": "No conditions",
+   "removed": 0,
+   "limited": 0
+  },
+  {
+   "scenario": "Vegetarian",
+   "removed": 25,
+   "limited": 0
+  },
+  {
+   "scenario": "Peanut + milk allergy",
+   "removed": 54,
+   "limited": 0
+  },
+  {
+   "scenario": "Gout",
+   "removed": 1,
+   "limited": 0
+  },
+  {
+   "scenario": "Kidney disease stage 4",
+   "removed": 1,
+   "limited": 0
+  },
+  {
+   "scenario": "Warfarin",
+   "removed": 8,
+   "limited": 0
+  },
+  {
+   "scenario": "Simvastatin",
+   "removed": 1,
+   "limited": 0
+  },
+  {
+   "scenario": "Diabetes + BP + CKD 4 + warfarin",
+   "removed": 9,
+   "limited": 5
+  }
+ ],
+ "ranker": {
+  "disliked_dish": "sambar",
+  "main_ingredient": "Red gram, dal",
+  "appearances_of_dish": [
+   3,
+   1,
+   1,
+   1,
+   0,
+   0
+  ],
+  "appearances_same_main_ingredient": [
+   4,
+   3,
+   3,
+   3,
+   3,
+   3
+  ]
+ },
+ "m2_simulation": {
+  "true_slope": 4.0,
+  "noise_sd": 12.0,
+  "sims": 300,
+  "by_n": {
+   "3": {
+    "mean": 3.99,
+    "p5": 3.58,
+    "p95": 4.43
+   },
+   "4": {
+    "mean": 3.99,
+    "p5": 3.64,
+    "p95": 4.35
+   },
+   "5": {
+    "mean": 3.98,
+    "p5": 3.66,
+    "p95": 4.33
+   },
+   "6": {
+    "mean": 3.98,
+    "p5": 3.7,
+    "p95": 4.29
+   },
+   "7": {
+    "mean": 3.99,
+    "p5": 3.72,
+    "p95": 4.26
+   },
+   "8": {
+    "mean": 3.98,
+    "p5": 3.73,
+    "p95": 4.24
+   },
+   "9": {
+    "mean": 3.98,
+    "p5": 3.75,
+    "p95": 4.21
+   },
+   "10": {
+    "mean": 3.99,
+    "p5": 3.75,
+    "p95": 4.2
+   },
+   "11": {
+    "mean": 3.99,
+    "p5": 3.76,
+    "p95": 4.21
+   },
+   "12": {
+    "mean": 3.99,
+    "p5": 3.78,
+    "p95": 4.2
+   },
+   "13": {
+    "mean": 3.99,
+    "p5": 3.78,
+    "p95": 4.18
+   },
+   "14": {
+    "mean": 3.99,
+    "p5": 3.78,
+    "p95": 4.18
+   },
+   "15": {
+    "mean": 3.99,
+    "p5": 3.81,
+    "p95": 4.18
+   }
+  }
+ },
+ "cases": {
+  "A": {
+   "title": "Tamil Nadu \u00b7 58 M \u00b7 diabetes + high BP + kidney disease stage 4",
+   "meals": {
+    "breakfast": [
+     "Varagu (kodo millet) vegetable upma (\u00bd salt)"
+    ],
+    "lunch": [
+     "Lemon rice (\u00bd salt)",
+     "Sambar with drumstick and okra",
+     "Pavakkai (bitter gourd) poriyal"
+    ],
+    "snack": [
+     "Almonds and walnuts (handful)"
+    ],
+    "dinner": [
+     "Samai / varagu millet rice \u00d71.5",
+     "Chettinad chicken curry (\u00bd salt)",
+     "Vazhakkai (raw banana) fry"
+    ]
+   },
+   "checks": [
+    {
+     "nutrient": "energy_kcal",
+     "value": 1663,
+     "min": 1427,
+     "max": 1931,
+     "status": "ok",
+     "unit": "kcal",
+     "hard": true
+    },
+    {
+     "nutrient": "carb_g",
+     "value": 194.3,
+     "min": null,
+     "max": 209.875,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "fiber_g",
+     "value": 33.9,
+     "min": 23.506,
+     "max": null,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "phosphorus_mg",
+     "value": 799.1,
+     "min": null,
+     "max": 800.0,
+     "status": "ok",
+     "unit": "mg",
+     "hard": true
+    },
+    {
+     "nutrient": "potassium_mg",
+     "value": 1993.5,
+     "min": null,
+     "max": 2000.0,
+     "status": "ok",
+     "unit": "mg",
+     "hard": true
+    },
+    {
+     "nutrient": "protein_g",
+     "value": 54.4,
+     "min": 42.35999999999999,
+     "max": 56.48,
+     "status": "ok",
+     "unit": "g",
+     "hard": true
+    },
+    {
+     "nutrient": "satfat_g",
+     "value": 12.6,
+     "min": null,
+     "max": 13.05888888888889,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "sodium_mg",
+     "value": 1940.0,
+     "min": null,
+     "max": 2000.0,
+     "status": "ok",
+     "unit": "mg",
+     "hard": true
+    },
+    {
+     "nutrient": "sugar_g",
+     "value": 0.0,
+     "min": null,
+     "max": 20.9875,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    }
+   ],
+   "ledger": [
+    "High blood pressure asks for Potassium at least 3,500 mg, but Kidney disease needs it at most 2,000 mg. The Kidney disease limit was kept because it guards against a more serious risk.",
+    "Sodium (salt): the strictest limit (2,000 mg) from Kidney disease was used."
+   ],
+   "removed": 2,
+   "energy": 1679,
+   "insights": [
+    "BMI 29.1 (obese for Indian adults).",
+    "Kidney function (eGFR) is 27.7 mL/min, which is stage G4.",
+    "Blood potassium 5.2 mmol/L is high. Potassium is now limited in your plan; please tell your doctor.",
+    "HbA1c 8.1%: above the usual target of 7%.",
+    "Blood pressure 146/88 mmHg: above the usual target of 130/80.",
+    "Your results meet the criteria for metabolic syndrome (3 of 5 signs). Discuss with your doctor.",
+    "Heart risk indicator (research model): 19% chance of coronary heart disease in people with similar numbers."
+   ],
+   "schedule": [
+    [
+     "Metformin",
+     "With meals"
+    ],
+    [
+     "Glimepiride",
+     "With breakfast"
+    ],
+    [
+     "Telmisartan",
+     "As prescribed"
+    ],
+    [
+     "Atorvastatin",
+     "Evening or bedtime"
+    ]
+   ]
+  },
+  "B": {
+   "title": "Punjab \u00b7 52 F \u00b7 diabetes + high BP + osteoarthritis, on warfarin",
+   "meals": {
+    "breakfast": [
+     "Besan chilla with mint chutney"
+    ],
+    "lunch": [
+     "Bajra roti (2)",
+     "Soya chunk curry",
+     "Baingan bharta (\u00bd salt)",
+     "Plain curd"
+    ],
+    "snack": [
+     "Guava"
+    ],
+    "dinner": [
+     "Bajra roti (2)",
+     "Rajma curry",
+     "Lauki sabzi"
+    ]
+   },
+   "checks": [
+    {
+     "nutrient": "energy_kcal",
+     "value": 1244,
+     "min": 1057,
+     "max": 1429,
+     "status": "ok",
+     "unit": "kcal",
+     "hard": true
+    },
+    {
+     "nutrient": "carb_g",
+     "value": 150.2,
+     "min": null,
+     "max": 155.375,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "fiber_g",
+     "value": 58.4,
+     "min": 17.402,
+     "max": null,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "potassium_mg",
+     "value": 3521.9,
+     "min": 3500.0,
+     "max": null,
+     "status": "ok",
+     "unit": "mg",
+     "hard": false
+    },
+    {
+     "nutrient": "protein_g",
+     "value": 54.6,
+     "min": 48.080000000000005,
+     "max": null,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "satfat_g",
+     "value": 9.1,
+     "min": null,
+     "max": 9.66777777777778,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "sodium_mg",
+     "value": 1965.7,
+     "min": null,
+     "max": 2000.0,
+     "status": "ok",
+     "unit": "mg",
+     "hard": true
+    },
+    {
+     "nutrient": "sugar_g",
+     "value": 0.0,
+     "min": null,
+     "max": 15.5375,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "vitk_ug",
+     "value": 102,
+     "min": 50.0,
+     "max": 150.0,
+     "status": "ok",
+     "unit": "\u00b5g",
+     "hard": true
+    }
+   ],
+   "ledger": [
+    "Sodium (salt): the strictest limit (2,000 mg) from High blood pressure was used."
+   ],
+   "removed": 14,
+   "energy": 1243,
+   "insights": [
+    "BMI 30.0 (obese for Indian adults).",
+    "Kidney function (eGFR) is 76.9 mL/min, which is stage G1\u2013G2.",
+    "HbA1c 7.9%: above the usual target of 7%.",
+    "Blood pressure 150/92 mmHg: above the usual target of 130/80.",
+    "Your results meet the criteria for metabolic syndrome (3 of 5 signs). Discuss with your doctor.",
+    "Heart risk indicator (research model): 16% chance of coronary heart disease in people with similar numbers."
+   ],
+   "schedule": [
+    [
+     "Metformin",
+     "With meals"
+    ],
+    [
+     "Amlodipine",
+     "As prescribed"
+    ],
+    [
+     "Warfarin",
+     "Evening or bedtime"
+    ]
+   ]
+  },
+  "C": {
+   "title": "Assam \u00b7 45 M \u00b7 gout + fatty liver",
+   "meals": {
+    "breakfast": [
+     "Chicken thukpa \u00d71.25 (\u00bd salt)"
+    ],
+    "lunch": [
+     "Brown rice \u00d71.5",
+     "Masor tenga (sour fish curry) \u00d71.25",
+     "Lai xaak (mustard greens)",
+     "Plain curd"
+    ],
+    "snack": [
+     "Almonds and walnuts (handful)"
+    ],
+    "dinner": [
+     "Brown rice \u00d71.5",
+     "Chicken with bamboo shoot \u00d71.25 (\u00bd salt)",
+     "Aloo pitika (mashed potato) \u00d71.5"
+    ]
+   },
+   "checks": [
+    {
+     "nutrient": "energy_kcal",
+     "value": 1897,
+     "min": 1671,
+     "max": 2261,
+     "status": "ok",
+     "unit": "kcal",
+     "hard": true
+    },
+    {
+     "nutrient": "fiber_g",
+     "value": 27.5,
+     "min": 27.524,
+     "max": null,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "protein_g",
+     "value": 96.2,
+     "min": 54.48,
+     "max": null,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "satfat_g",
+     "value": 10.2,
+     "min": null,
+     "max": 15.291111111111112,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    },
+    {
+     "nutrient": "sodium_mg",
+     "value": 2291.8,
+     "min": null,
+     "max": 2300.0,
+     "status": "ok",
+     "unit": "mg",
+     "hard": false
+    },
+    {
+     "nutrient": "sugar_g",
+     "value": 0.0,
+     "min": null,
+     "max": 24.575,
+     "status": "ok",
+     "unit": "g",
+     "hard": false
+    }
+   ],
+   "ledger": [],
+   "removed": 1,
+   "energy": 1966,
+   "insights": [
+    "BMI 28.7 (obese for Indian adults).",
+    "Liver scarring score (FIB-4) is 1.28: low risk.",
+    "Indian Diabetes Risk Score is 50: moderate risk."
+   ],
+   "schedule": [
+    [
+     "Allopurinol",
+     "With meals"
+    ]
+   ]
+  }
+ },
+ "manifest": {
+  "built_at": "2026-09-21 17:18:39",
+  "foods": 553,
+  "dishes": 186,
+  "medicines": 65,
+  "food_tags": 23,
+  "messages": 195,
+  "models": {
+   "M1": "trained",
+   "M2": "skipped"
+  },
+  "m1_auc": 0.7685
+ },
+ "runtime_s": 390.5,
+ "m1_metrics": {
+  "dataset": "South African Heart Disease (Rousseauw et al. 1983), via PMLB",
+  "n_rows": 462,
+  "n_features": 6,
+  "positives": 160,
+  "negatives": 302,
+  "positive_rate": 0.346,
+  "threshold": 0.5,
+  "split": {
+   "train_rows": 323,
+   "train_positives": 112,
+   "test_rows": 139,
+   "test_positives": 48
+  },
+  "train": {
+   "Logistic regression": {
+    "accuracy": 0.723,
+    "precision": 0.621,
+    "recall": 0.512,
+    "f1": 0.562,
+    "specificity": 0.834,
+    "tn": 252,
+    "fp": 50,
+    "fn": 78,
+    "tp": 82,
+    "auc": 0.779
+   },
+   "Gradient boosting": {
+    "accuracy": 0.799,
+    "precision": 0.786,
+    "recall": 0.575,
+    "f1": 0.664,
+    "specificity": 0.917,
+    "tn": 277,
+    "fp": 25,
+    "fn": 68,
+    "tp": 92,
+    "auc": 0.887
+   }
+  },
+  "cv": {
+   "Logistic regression": {
+    "accuracy": {
+     "mean": 0.713,
+     "sd": 0.04
+    },
+    "precision": {
+     "mean": 0.608,
+     "sd": 0.079
+    },
+    "recall": {
+     "mean": 0.499,
+     "sd": 0.074
+    },
+    "f1": {
+     "mean": 0.545,
+     "sd": 0.066
+    },
+    "roc_auc": {
+     "mean": 0.769,
+     "sd": 0.039
+    },
+    "folds": 25
+   },
+   "Gradient boosting": {
+    "accuracy": {
+     "mean": 0.684,
+     "sd": 0.042
+    },
+    "precision": {
+     "mean": 0.557,
+     "sd": 0.08
+    },
+    "recall": {
+     "mean": 0.432,
+     "sd": 0.086
+    },
+    "f1": {
+     "mean": 0.484,
+     "sd": 0.079
+    },
+    "roc_auc": {
+     "mean": 0.727,
+     "sd": 0.047
+    },
+    "folds": 25
+   }
+  },
+  "holdout": {
+   "Logistic regression": {
+    "train_part": {
+     "accuracy": 0.731,
+     "precision": 0.64,
+     "recall": 0.509,
+     "f1": 0.567,
+     "specificity": 0.848,
+     "tn": 179,
+     "fp": 32,
+     "fn": 55,
+     "tp": 57,
+     "auc": 0.777
+    },
+    "test_part": {
+     "accuracy": 0.647,
+     "precision": 0.489,
+     "recall": 0.458,
+     "f1": 0.473,
+     "specificity": 0.747,
+     "tn": 68,
+     "fp": 23,
+     "fn": 26,
+     "tp": 22,
+     "auc": 0.756
+    }
+   },
+   "Gradient boosting": {
+    "train_part": {
+     "accuracy": 0.836,
+     "precision": 0.855,
+     "recall": 0.634,
+     "f1": 0.728,
+     "specificity": 0.943,
+     "tn": 199,
+     "fp": 12,
+     "fn": 41,
+     "tp": 71,
+     "auc": 0.912
+    },
+    "test_part": {
+     "accuracy": 0.662,
+     "precision": 0.513,
+     "recall": 0.417,
+     "f1": 0.46,
+     "specificity": 0.791,
+     "tn": 72,
+     "fp": 19,
+     "fn": 28,
+     "tp": 20,
+     "auc": 0.719
+    }
+   }
+  },
+  "per_class": {
+   "No heart disease": {
+    "precision": 0.757,
+    "recall": 0.825,
+    "f1-score": 0.789,
+    "support": 302.0
+   },
+   "Heart disease": {
+    "precision": 0.602,
+    "recall": 0.5,
+    "f1-score": 0.546,
+    "support": 160.0
+   },
+   "accuracy": 0.712,
+   "macro avg": {
+    "precision": 0.679,
+    "recall": 0.662,
+    "f1-score": 0.668,
+    "support": 462.0
+   },
+   "weighted avg": {
+    "precision": 0.703,
+    "recall": 0.712,
+    "f1-score": 0.705,
+    "support": 462.0
+   }
+  },
+  "thresholds": [
+   {
+    "accuracy": 0.669,
+    "precision": 0.514,
+    "recall": 0.794,
+    "f1": 0.624,
+    "specificity": 0.603,
+    "tn": 182,
+    "fp": 120,
+    "fn": 33,
+    "tp": 127,
+    "threshold": 0.3
+   },
+   {
+    "accuracy": 0.68,
+    "precision": 0.527,
+    "recall": 0.731,
+    "f1": 0.613,
+    "specificity": 0.652,
+    "tn": 197,
+    "fp": 105,
+    "fn": 43,
+    "tp": 117,
+    "threshold": 0.35
+   },
+   {
+    "accuracy": 0.688,
+    "precision": 0.541,
+    "recall": 0.656,
+    "f1": 0.593,
+    "specificity": 0.705,
+    "tn": 213,
+    "fp": 89,
+    "fn": 55,
+    "tp": 105,
+    "threshold": 0.4
+   },
+   {
+    "accuracy": 0.693,
+    "precision": 0.556,
+    "recall": 0.556,
+    "f1": 0.556,
+    "specificity": 0.765,
+    "tn": 231,
+    "fp": 71,
+    "fn": 71,
+    "tp": 89,
+    "threshold": 0.45
+   },
+   {
+    "accuracy": 0.712,
+    "precision": 0.602,
+    "recall": 0.5,
+    "f1": 0.546,
+    "specificity": 0.825,
+    "tn": 249,
+    "fp": 53,
+    "fn": 80,
+    "tp": 80,
+    "threshold": 0.5
+   },
+   {
+    "accuracy": 0.727,
+    "precision": 0.67,
+    "recall": 0.419,
+    "f1": 0.515,
+    "specificity": 0.891,
+    "tn": 269,
+    "fp": 33,
+    "fn": 93,
+    "tp": 67,
+    "threshold": 0.55
+   },
+   {
+    "accuracy": 0.729,
+    "precision": 0.733,
+    "recall": 0.344,
+    "f1": 0.468,
+    "specificity": 0.934,
+    "tn": 282,
+    "fp": 20,
+    "fn": 105,
+    "tp": 55,
+    "threshold": 0.6
+   }
+  ],
+  "oof": {
+   "Logistic regression": {
+    "accuracy": 0.712,
+    "precision": 0.602,
+    "recall": 0.5,
+    "f1": 0.546,
+    "specificity": 0.825,
+    "tn": 249,
+    "fp": 53,
+    "fn": 80,
+    "tp": 80,
+    "auc": 0.767,
+    "average_precision": 0.642
+   },
+   "Gradient boosting": {
+    "accuracy": 0.701,
+    "precision": 0.593,
+    "recall": 0.438,
+    "f1": 0.504,
+    "specificity": 0.841,
+    "tn": 254,
+    "fp": 48,
+    "fn": 90,
+    "tp": 70,
+    "auc": 0.722,
+    "average_precision": 0.57
+   }
+  },
+  "chosen": "Logistic regression",
+  "best_f1_threshold": 0.289,
+  "best_f1": 0.636
+ }
+}

@@ -1,10 +1,104 @@
-import type { ButtonHTMLAttributes, InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import type { ButtonHTMLAttributes, CSSProperties, InputHTMLAttributes, ReactNode, SelectHTMLAttributes } from 'react'
 import { ApiError } from '../api/client'
 import { useI18n } from '../i18n/I18n'
 import { AlertIcon, CheckIcon, InfoIcon, PlateLogo, XIcon } from './icons'
 
 export function cx(...parts: (string | false | null | undefined)[]): string {
   return parts.filter(Boolean).join(' ')
+}
+
+/** True when the viewer has asked for reduced motion. Keeps JS animation honest. */
+export function useReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(() =>
+    typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches)
+  useEffect(() => {
+    if (typeof matchMedia !== 'function') return
+    const mq = matchMedia('(prefers-reduced-motion: reduce)')
+    const on = () => setReduced(mq.matches)
+    mq.addEventListener('change', on)
+    return () => mq.removeEventListener('change', on)
+  }, [])
+  return reduced
+}
+
+/** Position in a staggered group: `style={stagger(i)}`. */
+export const stagger = (i: number): CSSProperties => ({ ['--i' as string]: i })
+
+/**
+ * Plays an entrance animation the first time the block scrolls into view.
+ * Nothing is ever hidden: if IntersectionObserver is missing the content is
+ * simply there, and the animation only ever plays into the resting state.
+ */
+export function Reveal({ children, className, delay = 0, as: Tag = 'div' }:
+  { children: ReactNode; className?: string; delay?: number; as?: 'div' | 'section' | 'li' }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [shown, setShown] = useState(false)
+  useEffect(() => {
+    const el = ref.current
+    if (!el || typeof IntersectionObserver !== 'function') return
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setShown(true); io.disconnect() }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+  return (
+    <Tag ref={ref as never} className={cx(shown && 'a-reveal', className)}
+      style={shown ? { animationDelay: `${delay}ms` } : undefined}>
+      {children}
+    </Tag>
+  )
+}
+
+/**
+ * Counts up to `value` on mount and on change. Falls straight to the final
+ * number when reduced motion is requested, and always renders a real number.
+ */
+export function CountUp({ value, digits = 0, duration = 700 }: { value: number; digits?: number; duration?: number }) {
+  const { num } = useI18n()
+  const reduced = useReducedMotion()
+  const [shown, setShown] = useState(value)
+  const from = useRef(value)
+  useEffect(() => {
+    if (reduced) { setShown(value); return }
+    const start = performance.now()
+    const a = from.current
+    let raf = 0
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / duration)
+      const eased = 1 - Math.pow(1 - p, 3)
+      setShown(a + (value - a) * eased)
+      if (p < 1) raf = requestAnimationFrame(step)
+      else from.current = value
+    }
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [value, duration, reduced])
+  return <>{num(shown, digits)}</>
+}
+
+export function Skeleton({ className, lines = 1 }: { className?: string; lines?: number }) {
+  return (
+    <div className="grid gap-2" aria-hidden>
+      {Array.from({ length: lines }, (_, i) => (
+        <div key={i} className={cx('skeleton h-4', className)} style={{ width: i === lines - 1 && lines > 1 ? '62%' : '100%' }} />
+      ))}
+    </div>
+  )
+}
+
+export function CardSkeleton({ rows = 3 }: { rows?: number }) {
+  return (
+    <div className="grid gap-3" role="status" aria-live="polite">
+      {Array.from({ length: rows }, (_, i) => (
+        <div key={i} className="rounded-[var(--radius-card)] border border-line bg-surface p-4" style={stagger(i)}>
+          <div className="skeleton mb-3 h-5 w-40" />
+          <Skeleton lines={3} />
+        </div>
+      ))}
+    </div>
+  )
 }
 
 type BtnVariant = 'primary' | 'secondary' | 'ghost' | 'danger'
@@ -20,8 +114,11 @@ export function Button({ variant = 'primary', busy, className, children, ...rest
     <button
       {...rest}
       disabled={rest.disabled || busy}
-      className={cx('inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] px-5 text-[0.97rem] font-semibold',
-        'transition-colors disabled:cursor-not-allowed disabled:opacity-55', styles[variant], className)}
+      className={cx('press inline-flex min-h-12 items-center justify-center gap-2 rounded-[10px] px-5 text-[0.97rem] font-semibold',
+        'transition-[color,background-color,border-color,transform,box-shadow] duration-[var(--dur-2)] ease-[var(--ease-out)]',
+        'disabled:cursor-not-allowed disabled:opacity-55',
+        variant === 'primary' && 'sheen hover:shadow-[0_8px_20px_-12px_rgb(21_33_29/0.55)]',
+        styles[variant], className)}
     >
       {busy && <PlateLogo className="spin" width={20} height={20} />}
       {children}
@@ -29,8 +126,14 @@ export function Button({ variant = 'primary', busy, className, children, ...rest
   )
 }
 
-export function Card({ children, className, as: Tag = 'section' }: { children: ReactNode; className?: string; as?: 'section' | 'div' | 'article' }) {
-  return <Tag className={cx('rounded-[var(--radius-card)] border border-line bg-surface', className)}>{children}</Tag>
+export function Card({ children, className, as: Tag = 'section', hover, style }:
+  { children: ReactNode; className?: string; as?: 'section' | 'div' | 'article'; hover?: boolean; style?: CSSProperties }) {
+  return (
+    <Tag style={style}
+      className={cx('rounded-[var(--radius-card)] border border-line bg-surface', hover && 'lift hover:border-leaf/40', className)}>
+      {children}
+    </Tag>
+  )
 }
 
 export function Field({ label, hint, id, children, error }: { label: ReactNode; hint?: ReactNode; id: string; children: ReactNode; error?: string | null }) {
@@ -45,6 +148,10 @@ export function Field({ label, hint, id, children, error }: { label: ReactNode; 
 }
 
 const inputCls = 'min-h-12 w-full rounded-[10px] border border-line-strong bg-surface px-3.5 text-[1rem] text-ink placeholder:text-muted/70 focus:border-leaf'
+  + ' transition-[border-color,box-shadow] duration-[var(--dur-2)] ease-[var(--ease-out)] focus:shadow-[0_0_0_4px_var(--color-leaf-soft)]'
+
+const choiceCls = 'flex min-h-12 cursor-pointer items-start gap-3 rounded-[10px] border px-3.5 py-3'
+  + ' transition-[border-color,background-color,transform,box-shadow] duration-[var(--dur-2)] ease-[var(--ease-out)] active:scale-[0.99]'
 
 export function Input(props: InputHTMLAttributes<HTMLInputElement>) {
   return <input {...props} className={cx(inputCls, props.className)} />
@@ -63,8 +170,8 @@ export function Choice<T extends string | number>({ name, value, options, onChan
         const id = `${name}-${o.value}`
         return (
           <label key={String(o.value)} htmlFor={id}
-            className={cx('flex min-h-12 cursor-pointer items-start gap-3 rounded-[10px] border px-3.5 py-3',
-              active ? 'border-leaf bg-leaf-soft' : 'border-line-strong bg-surface hover:border-leaf')}>
+            className={cx(choiceCls,
+              active ? 'border-leaf bg-leaf-soft shadow-[0_6px_18px_-14px_rgb(21_33_29/0.5)]' : 'border-line-strong bg-surface hover:border-leaf hover:bg-leaf-soft/35')}>
             <input id={id} type="radio" name={name} checked={active} onChange={() => onChange(o.value)}
               aria-labelledby={`${id}-label`} aria-describedby={o.hint ? `${id}-hint` : undefined}
               className="mt-1 size-5 accent-[var(--color-leaf)]" />
@@ -81,8 +188,8 @@ export function Choice<T extends string | number>({ name, value, options, onChan
 
 export function Toggle({ id, checked, onChange, label, hint }: { id: string; checked: boolean; onChange: (v: boolean) => void; label: ReactNode; hint?: ReactNode }) {
   return (
-    <label htmlFor={id} className={cx('flex min-h-12 cursor-pointer items-start gap-3 rounded-[10px] border px-3.5 py-3',
-      checked ? 'border-leaf bg-leaf-soft' : 'border-line-strong bg-surface hover:border-leaf')}>
+    <label htmlFor={id} className={cx(choiceCls,
+      checked ? 'border-leaf bg-leaf-soft shadow-[0_6px_18px_-14px_rgb(21_33_29/0.5)]' : 'border-line-strong bg-surface hover:border-leaf hover:bg-leaf-soft/35')}>
       <input id={id} type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)}
         aria-labelledby={`${id}-label`} aria-describedby={hint ? `${id}-hint` : undefined}
         className="mt-1 size-5 shrink-0 accent-[var(--color-leaf)]" />
@@ -116,7 +223,7 @@ export function ErrorBanner({ error, onRetry }: { error: unknown; onRetry?: () =
   const { t } = useI18n()
   if (!error) return null
   return (
-    <div role="alert" className="flex flex-wrap items-center gap-3 rounded-[10px] border border-avoid/30 bg-avoid-soft px-4 py-3 text-avoid">
+    <div role="alert" className="a-pop flex flex-wrap items-center gap-3 rounded-[10px] border border-avoid/30 bg-avoid-soft px-4 py-3 text-avoid">
       <AlertIcon className="shrink-0" />
       <span className="flex-1 font-medium">{errorText(error, t)}</span>
       {onRetry && <Button variant="secondary" onClick={onRetry}>{t('retry')}</Button>}
@@ -133,7 +240,7 @@ export function Notice({ tone = 'info', children }: { tone?: 'info' | 'ok' | 'li
   }
   const Icon = tone === 'ok' ? CheckIcon : tone === 'info' ? InfoIcon : AlertIcon
   return (
-    <div className={cx('flex items-start gap-3 rounded-[10px] border px-4 py-3', tones[tone])}>
+    <div className={cx('a-rise flex items-start gap-3 rounded-[10px] border px-4 py-3', tones[tone])}>
       <Icon className="mt-0.5 shrink-0" />
       <div className="min-w-0 flex-1 text-ink">{children}</div>
     </div>
@@ -150,7 +257,8 @@ export function Chip({ children, tone = 'neutral', title }: { children: ReactNod
     info: 'bg-info-soft text-info border-info/20',
   }
   return (
-    <span title={title} className={cx('inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[0.8rem] font-medium', tones[tone])}>
+    <span title={title} className={cx('a-pop inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-[0.8rem] font-medium',
+      'transition-colors duration-[var(--dur-2)]', tones[tone])}>
       {children}
     </span>
   )
@@ -163,8 +271,8 @@ export function Verdict({ verdict, label }: { verdict: 'ok' | 'limit' | 'avoid';
     avoid: { cls: 'bg-avoid text-white', Icon: XIcon },
   }[verdict]
   return (
-    <span className={cx('inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-lg font-bold', map.cls)}>
-      <map.Icon width={20} height={20} /> {label}
+    <span className={cx('a-pop relative inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-lg font-bold', map.cls)}>
+      <map.Icon width={20} height={20} className="a-pop" style={{ animationDelay: '90ms' }} /> {label}
     </span>
   )
 }
@@ -173,14 +281,14 @@ export function PageHeader({ title, sub, action }: { title: ReactNode; sub?: Rea
   return (
     <div className="flex flex-wrap items-end justify-between gap-3 pb-5 pt-6">
       <div className="grid gap-1">
-        <h1 className="text-[1.9rem] font-bold sm:text-[2.2rem]">{title}</h1>
-        {sub && <p className="max-w-[62ch] text-muted">{sub}</p>}
+        <h1 className="a-rise text-[1.9rem] font-bold sm:text-[2.2rem]">{title}</h1>
+        {sub && <p className="a-rise max-w-[62ch] text-muted" style={stagger(1)}>{sub}</p>}
       </div>
-      {action}
+      {action && <div className="a-rise" style={stagger(2)}>{action}</div>}
     </div>
   )
 }
 
 export function Empty({ children }: { children: ReactNode }) {
-  return <div className="rounded-[var(--radius-card)] border border-dashed border-line-strong px-5 py-8 text-center text-muted">{children}</div>
+  return <div className="a-pop rounded-[var(--radius-card)] border border-dashed border-line-strong px-5 py-8 text-center text-muted">{children}</div>
 }

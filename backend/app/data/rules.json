@@ -1087,6 +1087,11 @@
      "dish_tag": "sweet",
      "weight": 40,
      "reason": "sugar_liver"
+    },
+    {
+     "tag": "red_meat",
+     "weight": 30,
+     "reason": "satfat_liver"
     }
    ],
    "prefer": [
@@ -1203,7 +1208,7 @@
     },
     {
      "tag": "red_meat",
-     "weight": 25,
+     "weight": 70,
      "reason": "red_meat_gout",
      "when": [
       {

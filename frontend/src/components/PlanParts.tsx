@@ -4,8 +4,8 @@ import type { DayCheck, GlycemicInfo, MealLog, PlanItem, Targets } from '../api/
 import type { MealKey } from '../hooks'
 import { useI18n } from '../i18n/I18n'
 import type { UIKey } from '../i18n/strings'
-import { CheckIcon, DropIcon, InfoIcon, PillIcon, SwapIcon, ThumbDownIcon, ThumbUpIcon, XIcon } from './icons'
-import { Button, Card, Chip, ErrorBanner, Field, Input, Notice, cx } from './ui'
+import { CheckIcon, ChevronIcon, DropIcon, InfoIcon, PillIcon, SwapIcon, ThumbDownIcon, ThumbUpIcon, XIcon } from './icons'
+import { Button, Card, Chip, CountUp, ErrorBanner, Field, Input, Notice, cx, stagger } from './ui'
 
 const MEAL_LABEL: Record<MealKey, UIKey> = {
   breakfast: 'meal_breakfast', lunch: 'meal_lunch', snack: 'meal_snack', dinner: 'meal_dinner',
@@ -25,7 +25,8 @@ export function DishRow({ item, log, onLog, onSwap, swapping, compact }: {
   const status = log?.status
   const rating = log?.rating ?? 0
   return (
-    <li className={cx('grid gap-2 py-3.5', status === 'skipped' && 'opacity-70')}>
+    <li className={cx('grid gap-2 py-3.5 transition-[opacity,background-color] duration-[var(--dur-3)] ease-[var(--ease-out)]',
+      status === 'skipped' && 'opacity-60')}>
       <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-1">
         <div className="grid min-w-0 flex-1 gap-0.5">
           <span className="text-[1.08rem] font-semibold leading-snug">{dishName(item)}</span>
@@ -53,18 +54,26 @@ export function DishRow({ item, log, onLog, onSwap, swapping, compact }: {
         <span>{m({ key: 'n_sodium_mg', params: {}, text: 'Sodium' })} {num(n.sodium_mg)} mg</span>
         {!compact && (
           <button type="button" onClick={() => setOpen(!open)} aria-expanded={open}
-            className="font-semibold text-leaf underline-offset-2 hover:underline">{t('more_info')}</button>
+            className="inline-flex items-center gap-1 font-semibold text-leaf underline-offset-2 hover:underline">
+            {t('more_info')}
+            <ChevronIcon width={15} height={15}
+              className={cx('transition-transform duration-[var(--dur-2)] ease-[var(--ease-out)]', open ? 'rotate-90' : 'rotate-0')} />
+          </button>
         )}
       </div>
-      {open && (
-        <div className="grid gap-1 rounded-[10px] bg-ground px-3 py-2 text-sm">
-          <p className="text-muted">{m(item.region)}</p>
-          <p className="tabular text-muted">
-            {['carb_g', 'fiber_g', 'satfat_g', 'potassium_mg', 'phosphorus_mg'].map((k) => (
-              <span key={k} className="mr-3 inline-block">{m({ key: `n_${k}`, params: {}, text: k })}: {num(n[k] ?? 0, k.endsWith('_g') ? 1 : 0)} {k.endsWith('_g') ? 'g' : 'mg'}</span>
-            ))}
-            <span className="inline-block">{t('grams_short', { g: item.grams })}</span>
-          </p>
+      {!compact && (
+        <div className="collapse" data-open={open}>
+          <div>
+            <div className="grid gap-1 rounded-[10px] bg-ground px-3 py-2 text-sm">
+              <p className="text-muted">{m(item.region)}</p>
+              <p className="tabular text-muted">
+                {['carb_g', 'fiber_g', 'satfat_g', 'potassium_mg', 'phosphorus_mg'].map((k) => (
+                  <span key={k} className="mr-3 inline-block">{m({ key: `n_${k}`, params: {}, text: k })}: {num(n[k] ?? 0, k.endsWith('_g') ? 1 : 0)} {k.endsWith('_g') ? 'g' : 'mg'}</span>
+                ))}
+                <span className="inline-block">{t('grams_short', { g: item.grams })}</span>
+              </p>
+            </div>
+          </div>
         </div>
       )}
       {(onLog || onSwap) && (
@@ -100,7 +109,7 @@ export function DishRow({ item, log, onLog, onSwap, swapping, compact }: {
   )
 }
 
-export function MealCard({ meal, items, logs, onLog, onSwap, swappingSlot, glycemic, compact }: {
+export function MealCard({ meal, items, logs, onLog, onSwap, swappingSlot, glycemic, compact, index = 0 }: {
   meal: MealKey
   items: PlanItem[]
   logs?: Record<string, MealLog>
@@ -109,16 +118,17 @@ export function MealCard({ meal, items, logs, onLog, onSwap, swappingSlot, glyce
   swappingSlot?: string | null
   glycemic?: GlycemicInfo
   compact?: boolean
+  index?: number
 }) {
   const { t, m } = useI18n()
   const kcal = items.reduce((s, i) => s + i.nutrients.energy_kcal, 0)
   return (
-    <Card className="px-4 pt-3 sm:px-5" as="article">
+    <Card className="a-rise px-4 pt-3 sm:px-5" as="article" hover style={stagger(index)}>
       <header className="flex flex-wrap items-center justify-between gap-2 border-b border-line pb-2.5">
         <h3 className="text-[1.2rem] font-bold">{t(MEAL_LABEL[meal])}</h3>
         <div className="flex items-center gap-2">
           {glycemic && <GlChip g={glycemic} />}
-          <span className="text-sm font-semibold text-muted tabular">{Math.round(kcal)} kcal</span>
+          <span className="text-sm font-semibold text-muted tabular"><CountUp value={kcal} /> kcal</span>
         </div>
       </header>
       {glycemic?.message && glycemic.level !== 'low' && (
@@ -151,7 +161,7 @@ export function LimitMeters({ checks }: { checks: DayCheck[] }) {
   const sorted = [...checks].sort((a, b) => order.indexOf(a.nutrient) - order.indexOf(b.nutrient))
   return (
     <ul className="grid gap-3.5">
-      {sorted.map((c) => {
+      {sorted.map((c, i) => {
         const top = c.max ?? c.min ?? c.value
         const scale = Math.max(top * 1.15, c.value * 1.05, 1)
         const pct = Math.min(100, (c.value / scale) * 100)
@@ -159,22 +169,23 @@ export function LimitMeters({ checks }: { checks: DayCheck[] }) {
         const barColor = tone === 'ok' ? 'bg-ok' : tone === 'limit' ? 'bg-limit' : 'bg-avoid'
         const digits = c.unit === 'g' ? 1 : 0
         return (
-          <li key={c.nutrient} className="grid gap-1">
+          <li key={c.nutrient} className="a-fade grid gap-1" style={stagger(i)}>
             <div className="flex items-baseline justify-between gap-2 text-sm">
               <span className="font-semibold">{mk(`n_${c.nutrient}`)}</span>
               <span className="tabular text-muted">
-                <span className="font-semibold text-ink">{num(c.value, digits)}</span>
+                <span className="font-semibold text-ink"><CountUp value={c.value} digits={digits} /></span>
                 {c.max !== null && c.min !== null ? ` / ${t('limit_range', { min: num(c.min, digits), max: num(c.max, digits) })}`
                   : c.max !== null ? ` / ${t('limit_max')} ${num(c.max, digits)}` : c.min !== null ? ` / ${t('limit_min')} ${num(c.min, digits)}` : ''} {c.unit}
               </span>
             </div>
             <div className="relative h-2.5 rounded-full bg-ground" aria-hidden>
-              <div className={cx('absolute inset-y-0 left-0 rounded-full', barColor)} style={{ width: `${pct}%` }} />
+              <div className={cx('meter-fill absolute inset-y-0 left-0 rounded-full', barColor)}
+                style={{ width: `${pct}%`, ...stagger(i) }} />
               {c.max !== null && <div className="absolute -inset-y-1 w-0.5 bg-ink/60" style={{ left: `${(c.max / scale) * 100}%` }} />}
               {c.min !== null && <div className="absolute -inset-y-1 w-0.5 bg-ink/35" style={{ left: `${(c.min / scale) * 100}%` }} />}
             </div>
             {c.status !== 'ok' && (
-              <span className={cx('text-xs font-semibold', tone === 'avoid' ? 'text-avoid' : 'text-limit')}>{t(`st_${c.status}` as UIKey)}</span>
+              <span className={cx('a-fade text-xs font-semibold', tone === 'avoid' ? 'text-avoid' : 'text-limit')}>{t(`st_${c.status}` as UIKey)}</span>
             )}
           </li>
         )
@@ -189,7 +200,7 @@ export function MedicineTiming({ targets }: { targets: Targets }) {
   return (
     <Card className="grid gap-3 p-4">
       <h2 className="flex items-center gap-2 text-lg font-bold"><PillIcon className="text-leaf" />{t('medicines_today')}</h2>
-      <ul className="grid gap-3">
+      <ul className="a-stagger grid gap-3">
         {targets.medicine_schedule.map((s) => (
           <li key={s.medicine} className="grid gap-1">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -252,7 +263,11 @@ export function GlucoseLogger({ day, meal, onSaved }: { day: string; meal: 'brea
         </Field>
       </div>
       <ErrorBanner error={err} />
-      {done && <p className="text-sm font-medium text-ok" role="status">{t('reading_saved')}</p>}
+      {done && (
+        <p className="a-pop flex items-center gap-1.5 text-sm font-medium text-ok" role="status">
+          <CheckIcon width={16} height={16} />{t('reading_saved')}
+        </p>
+      )}
       <Button variant="secondary" onClick={save} busy={busy} disabled={!valid}>{t('save_reading')}</Button>
     </div>
   )

@@ -77,8 +77,13 @@ frontend/ (F1, React)  ◄── /api (JSON) ──►  backend/ (B1, FastAPI)
 | Disease rules, 65 medicines' food rules, food tags | ✅ hand-built from ICMR-NIN 2024, ADA 2025, KDIGO 2024, AHA/DASH, EASL 2024, ACR 2020, drug labels | Safety filter and limits; **needs clinical review** |
 | Glycemic index table | ✅ approximate values from the International GI Tables | Sugar load |
 | Messages in English, Tamil, Hindi (195) | ✅ `pipeline/sources/rules/messages.yaml` | All explanations; **needs native-speaker review** |
-| NHANES, USDA FoodData Central API, UCI CKD, Kaggle Indian Food 101 | ⛔ blocked from the build machine | Add later |
-| CGMacros (PhysioNet) | ⛔ needs a data-use agreement | Put CSVs in `pipeline/raw/cgmacros/` and re-run the pipeline: step 5 trains M2 automatically |
+| USDA FoodData Central (bulk CSV) | 🔧 importer ready, data not included | More ingredients: `python pipeline/tools/usda_import.py <folder> --dry-run`, then re-run the pipeline |
+| CGMacros (PhysioNet) | 🔧 importer ready, needs a data-use agreement | Trains M2: `python pipeline/tools/cgmacros_prep.py <folder>`, then re-run the pipeline — step 5 picks it up |
+| Kaggle Indian Food 101 | ⛔ no importer yet, needs a Kaggle account | More dishes, especially North-East (22 at present) |
+| UCI CKD, NHANES | ⛔ no importer yet | Considered and not recommended — see `docs/DATASETS.md` for why |
+
+Full instructions, including the traps each importer handles, are in
+[`docs/DATASETS.md`](docs/DATASETS.md).
 
 Data-quality fixes are logged to `pipeline/reports/data_quality.md` (one IFCT
 entry, chicken leg, listed 384 kcal but its macronutrients give 192).
@@ -88,7 +93,7 @@ used. Check your institution's licensing guidance before publishing.
 
 ## Tests
 
-* **91 backend tests** (`backend/tests`), including a property test that makes
+* **100 backend tests** (`backend/tests`), including a property test that makes
   plans for 36 random patients (all states, diets, condition combinations,
   kidney stages, labs and 14 medicine groups). It then recomputes each day from
   the raw dish data and checks every hard limit, the vitamin K band, per-meal

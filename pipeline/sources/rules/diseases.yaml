@@ -101,6 +101,7 @@ fatty_liver:
   penalize:
     - {dish_tag: fried, weight: 30, reason: fried_food}
     - {dish_tag: sweet, weight: 40, reason: sugar_liver}
+    - {tag: red_meat, weight: 30, reason: satfat_liver}
   prefer:
     - {tag: oily_fish, weight: 8, reason: omega3_liver}
   avoid:
@@ -130,7 +131,7 @@ arthritis:
     - {tag: whole_grain, weight: 4, reason: whole_grain}
   penalize:
     - {dish_tag: fried, weight: 15, reason: fried_food}
-    - {tag: red_meat, weight: 25, reason: red_meat_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
+    - {tag: red_meat, weight: 70, reason: red_meat_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
   avoid:
     - {tag: purine_high, severity: avoid, reason: purine_gout, when: [{field: arthritis_type, op: "==", value: gout}]}
     - {tag: alcohol, severity: avoid, reason: alcohol_gout, when: [{field: arthritis_type, op: "==", value: gout}]}

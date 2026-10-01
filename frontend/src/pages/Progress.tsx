@@ -4,7 +4,7 @@ import type { FormEvent } from 'react'
 import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { api, todayISO } from '../api/client'
 import type { Series } from '../api/types'
-import { Button, Card, Empty, ErrorBanner, Field, Input, Notice, PageHeader, Select, Spinner } from '../components/ui'
+import { Button, Card, CountUp, Empty, ErrorBanner, Field, Input, Notice, PageHeader, Reveal, Select, stagger } from '../components/ui'
 import { formatDate, useInsights, useMeta } from '../hooks'
 import { useI18n } from '../i18n/I18n'
 import type { UIKey } from '../i18n/strings'
@@ -70,7 +70,8 @@ function TrendChart({ spec, series }: { spec: ChartSpec; series: Series }) {
               contentStyle={{ borderRadius: 10, borderColor: '#D6E0DB', fontSize: 14 }} />
             {spec.lines.map((l, i) => (
               <Line key={l.kind} type="monotone" dataKey={l.kind} stroke={SERIES[i]} strokeWidth={2} connectNulls
-                dot={{ r: 4, strokeWidth: 2, stroke: '#fff', fill: SERIES[i] }} activeDot={{ r: 6 }} isAnimationActive={false}
+                dot={{ r: 4, strokeWidth: 2, stroke: '#fff', fill: SERIES[i] }} activeDot={{ r: 6 }}
+                isAnimationActive animationDuration={700} animationBegin={i * 120} animationEasing="ease-out"
                 label={multi ? ({ x, y, index }: { x?: number | string; y?: number | string; index?: number }) =>
                   index === rows.length - 1 && x !== undefined && y !== undefined ? (
                     <text x={Number(x) + 8} y={Number(y) + 4} fontSize={12} fill={INK_MUTED}>{t(l.label).split(' ')[0]}</text>
@@ -80,6 +81,27 @@ function TrendChart({ spec, series }: { spec: ChartSpec; series: Series }) {
         </ResponsiveContainer>
       </div>
     </Card>
+  )
+}
+
+/** Adherence as a ring that draws itself, with the number counting up beside it. */
+function AdherenceRing({ rate }: { rate: number }) {
+  const r = 34
+  const c = 2 * Math.PI * r
+  return (
+    <div className="flex items-center gap-4">
+      <svg width={92} height={92} viewBox="0 0 92 92" aria-hidden className="shrink-0">
+        <circle cx={46} cy={46} r={r} fill="none" stroke="var(--color-ground)" strokeWidth={9} />
+        <circle cx={46} cy={46} r={r} fill="none" stroke="var(--color-leaf)" strokeWidth={9} strokeLinecap="round"
+          strokeDasharray={c} strokeDashoffset={c * (1 - rate)} transform="rotate(-90 46 46)"
+          className="draw" style={{ ['--dash' as string]: c, transition: 'stroke-dashoffset var(--dur-4) var(--ease-out)' }} />
+      </svg>
+      <div className="grid">
+        <span className="font-display text-4xl font-bold tabular text-leaf-dark">
+          <CountUp value={Math.round(rate * 100)} duration={900} />%
+        </span>
+      </div>
+    </div>
   )
 }
 
@@ -136,11 +158,21 @@ export function Progress() {
               </ul>
             </Card>
           )}
-          {series.isLoading && <Spinner />}
+          {series.isLoading && (
+            <div className="grid gap-4 md:grid-cols-2">
+              {[0, 1].map((i) => (
+                <div key={i} className="rounded-[var(--radius-card)] border border-line bg-surface p-4">
+                  <div className="skeleton mb-3 h-5 w-28" /><div className="skeleton h-40 w-full" />
+                </div>
+              ))}
+            </div>
+          )}
           <ErrorBanner error={series.error} onRetry={() => series.refetch()} />
           {series.data && charts.length === 0 && <Empty>{t('no_data')}</Empty>}
           <div className="grid gap-4 md:grid-cols-2">
-            {charts.map((c) => <TrendChart key={c.title} spec={c} series={series.data!} />)}
+            {charts.map((c, i) => (
+              <Reveal key={c.title} delay={i * 70}><TrendChart spec={c} series={series.data!} /></Reveal>
+            ))}
           </div>
           {labs.data && labs.data.length > 0 && (
             <Card className="grid gap-2 p-4">
@@ -151,8 +183,9 @@ export function Progress() {
                     <tr><th className="py-2 font-semibold">{t('date')}</th><th className="font-semibold">{t('test')}</th><th className="text-right font-semibold">{t('value')}</th><th /></tr>
                   </thead>
                   <tbody className="tabular">
-                    {labs.data.map((r) => (
-                      <tr key={r.id} className="border-t border-line">
+                    {labs.data.map((r, i) => (
+                      <tr key={r.id} className="a-fade border-t border-line transition-colors duration-[var(--dur-1)] hover:bg-ground"
+                        style={stagger(Math.min(i, 8))}>
                         <td className="py-2">{formatDate(r.taken_on, lang, { day: 'numeric', month: 'short', year: 'numeric' })}</td>
                         <td>{t(`lab_${r.kind}` as UIKey)}</td>
                         <td className="text-right font-semibold">{num(r.value, 1)} <span className="font-normal text-muted">{r.unit}</span></td>
@@ -185,18 +218,13 @@ export function Progress() {
                 <Input id="lab-date" type="date" max={todayISO()} value={date} onChange={(e) => setDate(e.target.value)} />
               </Field>
               <ErrorBanner error={add.error} />
-              {saved && <p className="text-sm font-medium text-ok" role="status">{t('result_saved')}</p>}
+              {saved && <p className="a-pop text-sm font-medium text-ok" role="status">{t('result_saved')}</p>}
               <Button type="submit" busy={add.isPending} disabled={!valid}>{t('add')}</Button>
             </form>
           </Card>
           <Card className="grid gap-2 p-4">
             <h2 className="text-lg font-bold">{t('adherence')}</h2>
-            {rate === null || rate === undefined ? <p className="text-muted">{t('adherence_none')}</p> : (
-              <>
-                <p className="font-display text-4xl font-bold tabular text-leaf-dark">{Math.round(rate * 100)}%</p>
-                <div className="h-2.5 rounded-full bg-ground"><div className="h-2.5 rounded-full bg-leaf" style={{ width: `${rate * 100}%` }} /></div>
-              </>
-            )}
+            {rate === null || rate === undefined ? <p className="text-muted">{t('adherence_none')}</p> : <AdherenceRing rate={rate} />}
           </Card>
           {adherence.data && adherence.data.readings.length > 0 && (
             <Card className="grid gap-2 p-4">

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import type { Limit, Plan } from '../api/types'
 import { DrugAlerts, LimitMeters, MealCard, MedicineTiming } from '../components/PlanParts'
-import { Card, Chip, Empty, ErrorBanner, Notice, PageHeader, Spinner, cx } from '../components/ui'
+import { Card, Chip, Empty, ErrorBanner, Notice, PageHeader, cx, stagger } from '../components/ui'
 import { MEALS, formatDate, usePlan } from '../hooks'
 import { useI18n } from '../i18n/I18n'
-import { MakePlanButton, useSwap } from './Today'
+import { MakePlanButton, PlanSkeleton, useSwap } from './Today'
 
 export function Week() {
   const { t, lang, m } = useI18n()
@@ -12,7 +12,7 @@ export function Week() {
   const [sel, setSel] = useState(0)
   const { swap, swappingSlot, error: swapError } = useSwap()
 
-  if (plan.isLoading) return <Spinner />
+  if (plan.isLoading) return <PlanSkeleton />
   if (plan.error) return <div className="pt-6"><ErrorBanner error={plan.error} onRetry={() => plan.refetch()} /></div>
   const p = plan.data
   if (!p) {
@@ -35,28 +35,31 @@ export function Week() {
 
       <div role="tablist" aria-label={t('week_title')} className="-mx-4 mb-4 flex gap-2 overflow-x-auto px-4 pb-1">
         {p.days.map((d, i) => (
-          <button key={d.date} role="tab" type="button" aria-selected={i === sel} onClick={() => setSel(i)}
-            className={cx('grid min-w-[5.2rem] shrink-0 justify-items-center rounded-[12px] border px-3 py-2',
-              i === sel ? 'border-leaf bg-leaf text-white' : 'border-line bg-surface hover:border-leaf')}>
+          <button key={d.date} role="tab" type="button" aria-selected={i === sel} onClick={() => setSel(i)} style={stagger(i)}
+            className={cx('a-pop press grid min-w-[5.2rem] shrink-0 justify-items-center rounded-[12px] border px-3 py-2',
+              'transition-[color,background-color,border-color,box-shadow,transform] duration-[var(--dur-2)] ease-[var(--ease-out)]',
+              i === sel ? 'border-leaf bg-leaf text-white shadow-[0_8px_20px_-14px_rgb(21_33_29/0.9)]'
+                : 'border-line bg-surface hover:-translate-y-0.5 hover:border-leaf')}>
             <span className="text-xs font-semibold uppercase tracking-wide opacity-85">{formatDate(d.date, lang, { weekday: 'short' })}</span>
             <span className="font-display text-xl font-bold">{formatDate(d.date, lang, { day: 'numeric' })}</span>
           </button>
         ))}
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
+      {/* Re-keyed on the selected day so the whole day slides in when the tab changes. */}
+      <div key={day.date} className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="grid content-start gap-4">
           <ErrorBanner error={swapError} />
           {!day.feasible && day.message && <Notice tone="avoid">{m(day.message)}</Notice>}
           {day.relaxed && day.message && <Notice tone="limit">{m(day.message)}</Notice>}
-          {day.feasible && MEALS.map((meal) => (
-            <MealCard key={meal} meal={meal} items={day.meals[meal]} glycemic={day.glycemic[meal]}
+          {day.feasible && MEALS.map((meal, i) => (
+            <MealCard key={meal} meal={meal} items={day.meals[meal]} glycemic={day.glycemic[meal]} index={i}
               onSwap={(slot) => swap({ day_index: day.index, slot })} swappingSlot={swappingSlot} />
           ))}
         </div>
         <aside className="grid content-start gap-4">
           {day.feasible && (
-            <Card className="grid gap-3 p-4">
+            <Card className="a-rise grid gap-3 p-4" style={stagger(2)}>
               <h2 className="text-lg font-bold">{t('day_totals')}</h2>
               <LimitMeters checks={day.checks} />
             </Card>

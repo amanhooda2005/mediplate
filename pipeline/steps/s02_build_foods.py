@@ -118,6 +118,16 @@ def main() -> list[dict]:
     with open(SOURCES / "supplements.csv", encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
             foods.append(build_supplement(row))
+    n_sup = len(foods) - n_ifct
+
+    # Optional extra foods in the same schema, written by pipeline/tools/usda_import.py.
+    # Absent by default: the file only exists once someone has imported USDA data.
+    extra_path = SOURCES / "usda_extra.csv"
+    if extra_path.exists():
+        with open(extra_path, encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                foods.append(build_supplement(row))
+    n_extra = len(foods) - n_ifct - n_sup
 
     codes = [f["code"] for f in foods]
     dupes = {c for c in codes if codes.count(c) > 1}
@@ -154,7 +164,8 @@ def main() -> list[dict]:
 
     write_json(BACKEND_DATA / "foods.json", foods)
     REPORTS.mkdir(parents=True, exist_ok=True)
-    log("foods", f"{n_ifct} IFCT foods + {len(foods) - n_ifct} supplements -> foods.json")
+    extra_note = f" + {n_extra} imported" if n_extra else ""
+    log("foods", f"{n_ifct} IFCT foods + {n_sup} supplements{extra_note} -> foods.json")
     return foods
 
 

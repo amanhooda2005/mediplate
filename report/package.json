@@ -1,0 +1,14 @@
+{
+  "name": "mediplate-report",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Builds the MediPlate project report and dossier from report/results.json",
+  "scripts": {
+    "report": "node build_report.js",
+    "dossier": "node build_dossier.js",
+    "build": "node build_report.js && node build_dossier.js"
+  },
+  "dependencies": {
+    "docx": "^9.0.0"
+  }
+}
